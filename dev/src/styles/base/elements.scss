@@ -1,0 +1,46 @@
+::placeholder {
+  color: rgba($c-silver, .7);
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  color: rgba($c-silver, .7);
+}
+
+body {
+  background: $c-black;
+}
+
+button {
+  appearance: none;
+  background: none;
+  border: none;
+}
+
+button, a {
+  &:not([disabled]) {
+    cursor: pointer;
+    outline: none;
+  }
+}
+
+*:focus {
+  outline: none;
+}
+
+ul, ol, li, h1, h2, h3, figure, button, p, form {
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+
+figure {
+  img {
+    max-width: 100%;
+  }
+}
+
+#app {
+  color: $c-white;
+  min-height: 100vh;
+}

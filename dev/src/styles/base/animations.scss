@@ -1,0 +1,8 @@
+//- SPINNER
+@keyframes spinner {
+  0% {
+    transform: translateX(-50%) translateY(-50%) rotate(0deg); }
+  100% {
+    transform: translateX(-50%) translateY(-50%) rotate(360deg);
+  }
+} 
