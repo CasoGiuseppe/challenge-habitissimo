@@ -8,7 +8,8 @@
 }
 
 body {
-  background: $c-silver;
+  background: rgba($c-silver, .5);
+  color: $c-darkgray;
 }
 
 button {

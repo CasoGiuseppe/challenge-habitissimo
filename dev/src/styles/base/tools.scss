@@ -6,6 +6,55 @@ $browser-context: 16;
 }
 
 //- CUSTOM MIXINS:
+//- UI elements
+@mixin UI-isValid {
+  background: $c-valid;
+
+  &::before,
+  &::after {
+    background: $c-white;
+    content: '';
+    height: 40%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    width: 1px;
+    transform-origin: center bottom;
+  }
+
+  &::before {
+    transform: translateX(-50%) translateX(1px) translateY(-50%) rotate(-45deg);
+  }
+
+  &::after {
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  }
+}
+
+@mixin UI-isInvalid {
+  background: $c-warning;
+
+  &::before,
+  &::after {
+    background: $c-white;
+    content: '';
+    height: 50%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    width: 1px;
+    transform-origin: center center;
+  }
+
+  &::before {
+    transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+  }
+
+  &::after {
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  }
+}
+
 //- typography mixins
 
 
