@@ -1,0 +1,27 @@
+.base-button {
+  @include text--regular;
+  $basebutton: &;
+
+  background: $c-primary;
+  border: none;
+  border-radius: px2rem($base * 2);
+  cursor: pointer;
+  color: $c-white;
+  min-width: #{$base * 20 + 'px'};
+  padding: #{$base * 2 + 'px'};
+  transition: background .4s $a-ease-out;
+  text-transform: uppercase;
+
+  &:disabled {
+    background: $c-darkgray;
+  }
+
+  @include breakpoint('tablet-pt') {
+    &:not([disabled]) {
+      &:hover,
+      &:focus {
+        background: $c-secondary;
+      }
+    }
+  }
+}

@@ -6,7 +6,7 @@
       @param placeholder {string}
       @param isRequired {object}
       @param isValidate {object}
-      @emit handleInputState
+      @emit @input
     -->
     <BaseInput
       id="name"
@@ -20,7 +20,7 @@
       @param rows {number}
       @param isRequired {object}
       @param isValidate {object}
-      @emit handleInputState
+      @emit @input
     -->
     <BaseTextarea
       id="description"
@@ -33,7 +33,7 @@
       @param isRequired {object}
       @param isValidate {object}
       @param options {array}
-      @emit handleChangeState
+      @emit @change
     -->
     <BaseSelect
       id="select"
@@ -44,6 +44,18 @@
         {id: 2, label: 'option2', value: '2'},
         {id: 3, label: 'option3', value: '3'}
       ]"/>
+
+      <!--
+        @param id {string}
+        @param isDisabled {boolean}
+        @slot {all}
+        @emit @click
+      -->
+      <BaseButton>
+        <template>
+          link
+        </template>
+      </BaseButton>
   </div>
 </template>
 
@@ -55,6 +67,7 @@ export default {
     BaseInput: () => import(/* webpackChunkName: "BaseInput" */ '@/components/base-input/BaseInput'),
     BaseTextarea: () => import(/* webpackChunkName: "BaseTextarea" */ '@/components/base-textarea/BaseTextarea'),
     BaseSelect: () => import(/* webpackChunkName: "BaseSelect" */ '@/components/base-select/BaseSelect'),
+    BaseButton: () => import(/* webpackChunkName: "BaseButton" */ '@/components/base-button/BaseButton'),
   },
 };
 </script>

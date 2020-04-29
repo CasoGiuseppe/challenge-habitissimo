@@ -16,18 +16,6 @@ body {
   color: $c-darkgray;
 }
 
-button {
-  appearance: none;
-  background: none;
-  border: none;
-}
-
-button, a {
-  &:not([disabled]) {
-    cursor: pointer;
-    outline: none;
-  }
-}
 
 *:focus {
   outline: none;
