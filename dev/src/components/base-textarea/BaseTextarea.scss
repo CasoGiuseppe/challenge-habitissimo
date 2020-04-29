@@ -1,0 +1,59 @@
+.base-textarea {
+  $basetextarea: &;
+
+  @include text--regular;
+  @include moveValidationUI;
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &__field {
+    border: 1px solid rgba($c-gray, .5);
+    border-radius: px2rem($base);
+    color: $c-darkgray;
+    padding: #{$base * 2 + 'px'};
+    resize: none;
+    width: 100%;
+    transition: border .4s $a-ease-out;
+
+    #{$basetextarea}--isActive &{
+      border-color: $c-secondary;
+    }
+
+    #{$basetextarea}--isValid &{
+      border-color: $c-valid;
+    }
+
+    #{$basetextarea}--isInvalid &{
+      border-color: $c-warning;
+    }
+  }
+
+  &__required-label {
+    @include text--xxsmall;
+    align-self: flex-end;
+    color: $c-gray;
+  }
+
+  &__validation-icon {
+    background: $c-silver;
+    border-radius: 100%;
+    height: #{$base * 3 + 'px'};
+    position: absolute;
+    top: #{$base + 'px'};
+    left: 0;
+    width: #{$base * 3 + 'px'};
+    transform: translateX(-100%) translateX(#{$base * -1 + 'px'});
+    transition: background .4s linear;
+
+    #{$basetextarea}--isValid &{
+      @include UI-isValid;
+      transform: translateY(0) translateX(-100%) translateX(-5px);
+    }
+
+    #{$basetextarea}--isInvalid &{
+      @include UI-isInvalid
+    }
+  }
+}

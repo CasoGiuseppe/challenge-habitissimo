@@ -8,54 +8,43 @@ $browser-context: 16;
 //- CUSTOM MIXINS:
 //- UI elements
 @mixin UI-isValid {
-  background: $c-valid;
-
-  &::before,
-  &::after {
-    background: $c-white;
-    content: '';
-    height: 40%;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    width: 1px;
-    transform-origin: center bottom;
-  }
-
-  &::before {
-    transform: translateX(-50%) translateX(1px) translateY(-50%) rotate(-45deg);
-  }
-
-  &::after {
-    transform: translateX(-50%) translateY(-50%) rotate(45deg);
-  }
+  background: $c-valid url('~@/assets/images/svg/check.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50% auto;
 }
 
 @mixin UI-isInvalid {
-  background: $c-warning;
-
-  &::before,
-  &::after {
-    background: $c-white;
-    content: '';
-    height: 50%;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    width: 1px;
-    transform-origin: center center;
-  }
-
-  &::before {
-    transform: translateX(-50%) translateY(-50%) rotate(-45deg);
-  }
-
-  &::after {
-    transform: translateX(-50%) translateY(-50%) rotate(45deg);
-  }
+  background: $c-warning url('~@/assets/images/svg/error.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50% auto;
 }
 
 //- typography mixins
+@mixin text--light {
+  font-family: $Quicksand, sans-serif;
+  font-weight: $light;
+}
+
+@mixin text--regular {
+  font-family: $Quicksand, sans-serif;
+  font-weight: $regular;
+}
+
+@mixin text--bold {
+  font-family: $Quicksand, sans-serif;
+  font-weight: $bold;
+}
+
+@mixin text--xsmall {
+  font-size: px2rem(12);
+}
+
+@mixin text--xxsmall {
+  font-size: px2rem(10);
+}
+
 
 
 //- animations
@@ -86,7 +75,37 @@ $browser-context: 16;
     opacity: 0;
     transform: translateY(100%)
   }
-} 
+}
+
+@mixin moveValidationUI {
+  .change-validation-leave,
+  .change-validation-enter-to {
+    opacity: 1;
+    transform: translateX(-100%) translateX(#{$base * -1 + 'px'})
+  }
+
+  .change-validation-leave-active,
+  .change-validation-enter-active {
+    transition: transform .4s $a-elastic,
+                opacity .4s $a-ease-out,
+                background .4s $a-ease-out;
+  }
+
+  .change-validation-leave-active {
+    transition-duration: .4s;
+    transition-timing-function: $a-ease-out
+  }
+
+  .change-validation-leave-to {
+    opacity: 0;
+    transform: translateX(-100%) translateX(#{($base * 2) * -1 + 'px'});
+  }
+
+  .change-validation-enter {
+    opacity: 0;
+    transform: translateX(0)
+  }
+}
 
 //- create media queries for columns use
 @mixin build-mq($breakpoint, $min-or-max) {

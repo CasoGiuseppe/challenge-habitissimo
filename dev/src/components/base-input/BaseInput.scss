@@ -1,16 +1,19 @@
 .base-input {
   $baseinput: &;
 
+  @include text--regular;
+  @include moveValidationUI;
+
   display: flex;
   flex-direction: column;
   position: relative;
   
   &__label {
-    padding: #{($base * 3) + 3 + 'px'} #{$base * 2 + 'px'} #{$base + 'px'};
     background: $c-white;
-    border: 1px solid $c-gray;
-    border-radius: px2rem(5);
+    border: 1px solid rgba($c-gray, .5);
+    border-radius: px2rem($base);
     display: flex;
+    padding: #{($base * 3) + 3 + 'px'} #{$base * 2 + 'px'} #{$base + 'px'};
     position: relative;
     transition: border .4s $a-ease-out;
 
@@ -23,9 +26,10 @@
     }
 
     &::before {
+      @include text--light;
       @include text--xsmall;
       content: attr(data-placeholder);
-      color: $c-darkgray;
+      color: $c-gray;
       transition: transform .4s $a-ease-out;
     }
 
@@ -47,10 +51,12 @@
   }
 
   &__field {
+    @include text--xsmall;
     background: none;
     border: none;
     color: $c-darkgray;
-    padding: #{$base - 2 + 'px'}
+    padding: #{$base - 2 + 'px'};
+    width: 100%;
   }
 
   &__required-label {
@@ -66,8 +72,9 @@
     position: absolute;
     top: 50%;
     left: 0;
+    margin-top: #{(($base * 3) / 2) * -1 + 'px'};
     width: #{$base * 3 + 'px'};
-    transform: translateY(-50%) translateX(-100%) translateX(#{$base * -1 + 'px'});
+    transform: translateX(-100%) translateX(#{$base * -1 + 'px'});
     transition: background .4s linear;
 
     #{$baseinput}__label--isValid &{
@@ -77,33 +84,5 @@
     #{$baseinput}__label--isInvalid &{
       @include UI-isInvalid
     }
-  }
-
-  .change-validation-leave,
-  .change-validation-enter-to {
-    opacity: 1;
-    transform: translateY(-50%) translateX(-100%) translateX(#{$base * -1 + 'px'})
-  }
-
-  .change-validation-leave-active,
-  .change-validation-enter-active {
-    transition: transform .4s $a-elastic,
-                opacity .4s $a-ease-out,
-                background .4s $a-ease-out;
-  }
-
-  .change-validation-leave-active {
-    transition-duration: .4s;
-    transition-timing-function: $a-ease-out
-  }
-
-  .change-validation-leave-to {
-    opacity: 0;
-    transform: translateY(-50%) translateX(-100%) translateX(#{($base * 2) * -1 + 'px'});
-  }
-
-  .change-validation-enter {
-    opacity: 0;
-    transform: translateY(-50%) translateX(0)
   }
 }

@@ -1,10 +1,14 @@
 ::placeholder {
-  color: rgba($c-silver, .7);
+  @include text--light;
+  @include text--xsmall;
+  color: $c-gray;
   opacity: 1;
 }
 
 ::-ms-input-placeholder {
-  color: rgba($c-silver, .7);
+  @include text--light;
+  @include text--xsmall;
+  color: $c-gray;
 }
 
 body {

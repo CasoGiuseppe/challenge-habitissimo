@@ -47,7 +47,6 @@ export default {
   name: 'BaseInput',
   data() {
     return {
-      onFocus: false,
       onActive: false,
     };
   },

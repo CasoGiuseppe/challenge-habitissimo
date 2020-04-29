@@ -4,7 +4,7 @@ $c-black: #000;
 $c-primary: #ff7300;
 $c-secondary: #138BBF;
 $c-silver: #ebebeb;
-$c-gray: #cccccc;
+$c-gray: #888888;
 $c-darkgray: #2b2b2b;
 $c-warning: #ff0000;
 $c-valid: #649d66;
@@ -19,30 +19,6 @@ $maxWidth: 1440;
 
 //- font name
 $Quicksand: 'Quicksand';
-
-//- typography mixins
-@mixin text--light {
-  font-family: $Quicksand, sans-serif;
-  font-weight: $light;
-}
-
-@mixin text--regular {
-  font-family: $Quicksand, sans-serif;
-  font-weight: $regular;
-}
-
-@mixin text--bold {
-  font-family: $Quicksand, sans-serif;
-  font-weight: $bold;
-}
-
-@mixin text--xsmall {
-  font-size: px2rem(12);
-}
-
-@mixin text--xxsmall {
-  font-size: px2rem(10);
-}
 
 //- custom easing transition
 $a-ease-in: cubic-bezier(.75, -.03, .83, .6);
