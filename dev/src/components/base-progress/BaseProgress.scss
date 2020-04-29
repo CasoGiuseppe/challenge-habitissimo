@@ -1,0 +1,52 @@
+:host {
+  --width: 0;
+  --height: 0;
+  --font-size: 0;
+  --strokeDasharray: 0;
+  --strokeDashoffset: 0
+}
+
+.base-progress {
+  @include text--light;
+  @include moveUp;
+  $baseinput: &;
+
+  overflow: hidden;
+  position: relative;
+  height: var(--height);
+  width: var(--width);
+
+  &__value {
+    align-items: flex-end;
+    color: rgba($c-gray, .5);
+    display: flex;
+    font-size: var(--font-size);
+    left: 50%;
+    letter-spacing: -3px;
+    position: absolute;
+    top: 50%;
+    justify-content: center;
+    transform: translateY(-50%) translateX(-50%);
+
+    &::after {
+      content: '%';
+      font-size: .5em;
+      transform: translateY(#{$base * -1 + 'px'});
+    }
+  }
+
+  &__ring {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    &-circle {
+      stroke-dashoffset: var(--strokeDashoffset);
+      stroke-dasharray: var(--strokeDasharray);
+      transition: 0.35s stroke-dashoffset;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+    }
+  }
+}

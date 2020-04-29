@@ -56,6 +56,11 @@
           link
         </template>
       </BaseButton>
+      <!--
+        @param circle {object}
+        @param value {number}
+      -->
+      <BaseProgress/>
   </div>
 </template>
 
@@ -68,6 +73,7 @@ export default {
     BaseTextarea: () => import(/* webpackChunkName: "BaseTextarea" */ '@/components/base-textarea/BaseTextarea'),
     BaseSelect: () => import(/* webpackChunkName: "BaseSelect" */ '@/components/base-select/BaseSelect'),
     BaseButton: () => import(/* webpackChunkName: "BaseButton" */ '@/components/base-button/BaseButton'),
+    BaseProgress: () => import(/* webpackChunkName: "BaseProgress" */ '@/components/base-progress/BaseProgress'),
   },
 };
 </script>

@@ -52,7 +52,7 @@ $browser-context: 16;
   .change-move-leave,
   .change-move-enter-to {
     opacity: 1;
-    transform: translateY(0)
+    transform: translateY(-50%) translateX(-50%)
   }
 
   .change-move-leave-active,
@@ -68,12 +68,12 @@ $browser-context: 16;
 
   .change-move-leave-to {
     opacity: 0;
-    transform: translateY(-25%);
+    transform: translateY(-25%) translateX(-50%);
   }
 
   .change-move-enter {
     opacity: 0;
-    transform: translateY(100%)
+    transform: translateY(100%) translateX(-50%)
   }
 }
 
