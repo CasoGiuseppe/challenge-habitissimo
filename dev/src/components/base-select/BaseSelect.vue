@@ -1,34 +1,37 @@
 <template>
   <div
     :class="[
-      'base-input',
-      onActive ? 'base-input--isActive' : null,
+      'base-select',
+      onActive ? 'base-select--isActive' : null,
       Object.prototype.hasOwnProperty.call(this.isValidate, 'state') && !isValidate.state
-        ? 'base-input--isInvalid'
+        ? 'base-select--isInvalid'
         : null,
       Object.prototype.hasOwnProperty.call(this.isValidate, 'state') && isValidate.state
-        ? 'base-input--isValid'
+        ? 'base-select--isValid'
         : null,
     ]">
-    <label
-      class="base-input__label"
-      :for="id"
-      :data-placeholder="placeholder">
-      <input
-        class="base-input__field"
-        :type="type"
+    <label class="base-select__label"
+      :for="id">
+      <select
+        class="base-select__field"
         :id="id"
-        :required="isRequired.state"
         @focus="handleActiveState"
-        @blur="handleActiveState"
-        @input="handleInputState"/>
+        @change="handleChangeState">
+        <option>{{placeholder}}</option>
+        <option
+          v-for="option of options"
+          :key="option.id"
+          :value="option.value">
+          {{option.label}}
+        </option>
+      </select>
 
       <!-- UI validation icon -->
       <transition
         mode="out-in"
         name="change-validation">
           <span
-            class="base-input__validation-icon"
+            class="base-select__validation-icon"
             v-if="Object.prototype.hasOwnProperty.call(this.isValidate, 'state')"
             :key="isValidate.state">
           </span>
@@ -37,7 +40,7 @@
 
     <!-- required label -->
     <span
-      class="base-input__required-label"
+      class="base-select__required-label"
       v-if="isRequired.state">
         {{isRequired.label}}
     </span>
@@ -46,7 +49,7 @@
 
 <script>
 export default {
-  name: 'BaseInput',
+  name: 'BaseSelect',
 
   data() {
     return {
@@ -55,11 +58,6 @@ export default {
   },
 
   props: {
-    type: {
-      type: String,
-      default: 'text',
-    },
-
     id: {
       type: String,
       default: 'test',
@@ -68,6 +66,11 @@ export default {
     placeholder: {
       type: String,
       default: 'placeholder',
+    },
+
+    options: {
+      type: Array,
+      required: true,
     },
 
     isRequired: {
@@ -89,22 +92,16 @@ export default {
   },
 
   methods: {
-    handleInputState(e) {
-      this.$emit('input', e.target.value);
+    handleChangeState(e) {
+      this.$emit('change', e.target.value);
     },
 
-    handleActiveState(e) {
-      const { type } = e;
-
-      if (type === 'blur') {
-        this.onActive = e.target.value !== '';
-      } else {
-        this.onActive = true;
-        delete this.isValidate.state;
-      }
+    handleActiveState() {
+      this.onActive = true;
+      delete this.isValidate.state;
     },
   },
 };
 </script>
 
-<style lang='scss' scoped src= './BaseInput.scss'></style>
+<style lang='scss' scoped src= './BaseSelect.scss'></style>

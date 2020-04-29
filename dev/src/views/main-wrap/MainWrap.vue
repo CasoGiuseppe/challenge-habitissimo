@@ -6,13 +6,13 @@
       @param placeholder {string}
       @param isRequired {object}
       @param isValidate {object}
-      @emit handleInput
+      @emit handleInputState
     -->
     <BaseInput
-      id="field"
+      id="name"
       placeholder="name"
       :isRequired="{ state: true, label: 'requerido' }"
-      :isValidate="{ state: false }"/>
+      :isValidate="{ state: true }"/>
 
     <!--
       @param id {string}
@@ -20,13 +20,30 @@
       @param rows {number}
       @param isRequired {object}
       @param isValidate {object}
-      @emit handleInput
+      @emit handleInputState
     -->
     <BaseTextarea
-      id="field"
+      id="description"
       placeholder="description"
       :isRequired="{ state: true, label: 'requerido' }"
       :isValidate="{ state: true }"/>
+
+    <!--
+      @param id {string}
+      @param isRequired {object}
+      @param isValidate {object}
+      @param options {array}
+      @emit handleChangeState
+    -->
+    <BaseSelect
+      id="select"
+      :isRequired="{ state: true, label: 'requerido' }"
+      :isValidate="{ state: true }"
+      :options="[
+        {id: 1, label: 'option1', value: '1'},
+        {id: 2, label: 'option2', value: '2'},
+        {id: 3, label: 'option3', value: '3'}
+      ]"/>
   </div>
 </template>
 
@@ -37,6 +54,7 @@ export default {
   components: {
     BaseInput: () => import(/* webpackChunkName: "BaseInput" */ '@/components/base-input/BaseInput'),
     BaseTextarea: () => import(/* webpackChunkName: "BaseTextarea" */ '@/components/base-textarea/BaseTextarea'),
+    BaseSelect: () => import(/* webpackChunkName: "BaseSelect" */ '@/components/base-select/BaseSelect'),
   },
 };
 </script>

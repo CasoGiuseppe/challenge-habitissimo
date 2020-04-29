@@ -1,5 +1,5 @@
 <template>
-  <div
+  <label
     :class="[
       'base-textarea',
       onActive ? 'base-textarea--isActive' : null,
@@ -9,7 +9,8 @@
       Object.prototype.hasOwnProperty.call(this.isValidate, 'state') && isValidate.state
         ? 'base-textarea--isValid'
         : null,
-    ]">
+    ]"
+    :for="id">
     <textarea
       class="base-textarea__field"
       :id="id"
@@ -18,7 +19,7 @@
       :required="isRequired.state"
       @focus="handleActiveState"
       @blur="handleActiveState"
-      @input="handleInput"/>
+      @input="handleInputState"/>
 
     <!-- UI validation icon -->
     <transition
@@ -37,7 +38,7 @@
       v-if="isRequired.state">
         {{isRequired.label}}
     </span>
-  </div>
+  </label>
 </template>
 
 <script>
@@ -85,7 +86,7 @@ export default {
   },
 
   methods: {
-    handleInput(e) {
+    handleInputState(e) {
       this.$emit('input', e.target.value);
     },
 

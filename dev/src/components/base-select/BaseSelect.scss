@@ -1,5 +1,5 @@
-.base-input {
-  $baseinput: &;
+.base-select {
+  $baseselect: &;
 
   @include text--regular;
   @include moveValidationUI;
@@ -7,46 +7,39 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  
+
   &__label {
     background: $c-white;
     border: 1px solid rgba($c-gray, .5);
     border-radius: px2rem($base);
     display: flex;
-    padding: #{($base * 3) + 3 + 'px'} #{$base * 2 + 'px'} #{$base + 'px'};
+    padding: #{$base * 2 + 'px'};
     position: relative;
     transition: border .4s $a-ease-out;
 
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    &::before {
-      @include text--light;
-      @include text--xsmall;
-      content: attr(data-placeholder);
-      color: $c-gray;
-      transition: transform .4s $a-ease-out;
-    }
-
-    #{$baseinput}--isActive &{
+    #{$baseselect}--isActive &{
       border-color: $c-secondary;
-
-      &::before {
-        transform: translateY(-50%) translateY(calc((100% - #{$base + 'px'}) * -1));
-      }
     }
 
-    #{$baseinput}--isValid &{
+    #{$baseselect}--isValid &{
       border-color: $c-valid;
     }
 
-    #{$baseinput}--isInvalid &{
+    #{$baseselect}--isInvalid &{
       border-color: $c-warning;
+    }
+
+    &::before {
+      border: solid $c-primary;
+      border-width: 0 2px 2px 0;
+      content: '';
+      display: inline-block;
+      position: absolute;
+      padding: 2px;
+      pointer-events: none;
+      right: #{$base * 2 + 'px'};
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
     }
   }
 
@@ -57,6 +50,13 @@
     color: $c-darkgray;
     padding: #{$base - 2 + 'px'};
     width: 100%;
+    
+    -moz-appearance: none;
+    -webkit-appearance: none;
+
+    &::-ms-expand {
+      display: none;
+    }
   }
 
   &__required-label {
@@ -77,11 +77,11 @@
     transform: translateX(-100%) translateX(#{$base * -1 + 'px'});
     transition: background .4s linear;
 
-    #{$baseinput}--isValid &{
+    #{$baseselect}--isValid &{
       @include UI-isValid
     }
 
-    #{$baseinput}--isInvalid &{
+    #{$baseselect}--isInvalid &{
       @include UI-isInvalid
     }
   }
