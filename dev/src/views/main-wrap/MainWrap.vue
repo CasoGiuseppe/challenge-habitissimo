@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="height: 2000px">
     <!--
       @param id {string}
       @param type {string}

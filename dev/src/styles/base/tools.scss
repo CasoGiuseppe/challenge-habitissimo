@@ -21,6 +21,57 @@ $browser-context: 16;
   background-size: 50% auto;
 }
 
+@mixin UI-hamburger ($color, $active-color, $height) {
+  background: $color;
+  display: inline-block;
+  width: 55%;
+  height: #{$height + 'px'};
+  margin: 0 auto;
+  position: relative;
+
+  transition: background .4s $a-ease-out .4s;
+
+  [class*='isMenuActive'] & {
+    background: rgba( $active-color, 0 );
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $color;
+
+    transform-origin: 50% 50%;
+    transition: background .4s $a-ease-out,
+                top .4s $a-ease-out .8s,
+                transform .4s $a-elastic .3s;
+
+    [class*='isMenuActive'] & {
+      background: $active-color;
+      top: 0;
+      transition-delay: 0s, 0s, .6s;
+    }
+  }
+
+  &::before {
+    top: #{(($height * 2) * -1) + 'px'};
+    [class*='isMenuActive'] & {
+      transform: rotate(45deg);
+    }
+  }
+
+  &::after {
+    top: #{($height * 2) + 'px'};
+    [class*='isMenuActive'] & {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
 //- typography mixins
 @mixin text--light {
   font-family: $Quicksand, sans-serif;
@@ -44,7 +95,6 @@ $browser-context: 16;
 @mixin text--xxsmall {
   font-size: px2rem(10);
 }
-
 
 
 //- animations
@@ -74,6 +124,33 @@ $browser-context: 16;
   .change-move-enter {
     opacity: 0;
     transform: translateY(100%) translateX(-50%)
+  }
+}
+
+@mixin fade {
+  .change-fade-leave,
+  .change-fade-enter-to {
+    opacity: 1;
+    transform: translateY(0)
+  }
+
+  .change-fade-leave-active,
+  .change-fade-enter-active {
+    transition: transform .4s $a-ease-out,
+                opacity .4s $a-ease-out;
+  }
+
+  .change-fade-leave-active {
+    transition-duration: .2s;
+    transition-timing-function: $a-ease-in
+  }
+
+  .change-fade-leave-to {
+    opacity: 0;
+  }
+
+  .change-fade-enter {
+    opacity: 0;
   }
 }
 

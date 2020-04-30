@@ -1,0 +1,77 @@
+.navigation {
+  $navigation: &;
+  width: 100%;
+
+  @include breakpoint('only-phone') {
+    background: $c-primary;
+    height: 100%;
+  }
+
+  &__routers {
+    align-items: center;
+    display: flex;
+
+    @include breakpoint('only-phone') {
+      background: $c-secondary;
+      flex-direction: column;
+      height: 100vh;
+      left: 0;
+      position: fixed;
+      justify-content: center;
+      width: 100vw;
+      top: 0;
+      transform: translateX(100%);
+      z-index: 9;
+      transition: transform .4s $a-ease-out;
+
+      #{$navigation}--isMenuActive & {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__router {
+    flex: 1;
+    position: relative;
+
+    @include breakpoint('only-phone') {
+      flex: 0;
+    }
+
+    + #{$navigation}__router {
+      &::before {
+        background: rgba($c-white, .5);
+        content: '';
+        height: 80%;
+        left: 0;
+        position: absolute;
+        width: 1px;
+        top: 50%;
+        transform: translateY(-50%);
+
+        @include breakpoint('only-phone') {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__mobile-trigger {
+    display: none;
+  
+    @include breakpoint('only-phone') {
+      display: flex;
+      height: 100%;
+      left: 50%;
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      z-index: 10;
+    }
+
+    > span {
+      @include UI-hamburger($c-white, $c-white, 2);
+    }
+  }
+}

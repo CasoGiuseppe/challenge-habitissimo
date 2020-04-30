@@ -5,7 +5,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
+    path: '',
     name: 'index',
     redirect: { name: 'budget' },
     components: {
@@ -14,20 +14,8 @@ const routes = [
     },
     children: [
       {
-        path: '/ask-for-dudget',
+        path: '/ask-for-dudget/:category?/:step?/',
         name: 'budget',
-        children: [
-          {
-            path: '/:category?/',
-            name: 'category',
-            children: [
-              {
-                path: '/:step?/',
-                name: 'step',
-              },
-            ],
-          },
-        ],
       },
     ],
   },
