@@ -7,9 +7,10 @@
 }
 
 .base-progress {
+  $baseprogress: &;
+
   @include text--light;
   @include moveUp;
-  $baseinput: &;
 
   overflow: hidden;
   position: relative;

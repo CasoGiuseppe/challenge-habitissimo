@@ -1,6 +1,10 @@
 <template>
   <button
-    class="base-button"
+    :class="[
+      'base-button',
+      isSecondary ? 'base-button--isSecondary' : null,
+      isFullsize ? 'base-button--isFullsize' : null,
+    ]"
     :disabled="isDisabled"
     @click="handleClickState">
     <slot />
@@ -13,6 +17,16 @@ export default {
 
   props: {
     isDisabled: {
+      type: Boolean,
+      default: false,
+    },
+
+    isSecondary: {
+      type: Boolean,
+      default: false,
+    },
+
+    isFullsize: {
       type: Boolean,
       default: false,
     },

@@ -1,0 +1,64 @@
+.header {
+  $header: &;
+
+  background: $c-white;
+  border-bottom: 1px solid $c-silver;
+  color: $c-black;
+  position: sticky;
+  padding: #{$base * 3 + 'px'} #{$base * 3 + 'px'} 0;
+  top: 0;
+
+  @include breakpoint('only-phone') {
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+    border: none;
+    padding: 0  0 0 #{$base * 3 + 'px'};
+  }
+
+  &__logo {
+    img {
+      max-width: px2rem(180);
+
+      @include breakpoint('only-phone') {
+        max-width: 40vw;
+      }
+    }
+  }
+
+  &__register-payoff {
+    justify-content: flex-end;
+    text-align: right;
+
+    @include breakpoint('only-phone') {
+      justify-content: center;
+    }
+  }
+
+  &__main-navigation {
+    justify-content: center;
+    margin-top: #{$base * 3 + 'px'};
+    position: relative;
+    padding: #{$base * 2 + 'px'} 0;
+
+    @include breakpoint('only-phone') {
+      background: $c-primary;
+      max-width: px2rem($base * 8);
+      margin: 0;
+    }
+
+    &::before {
+      background: $c-primary;
+      content: '';
+      height: 100%;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      width: 100vw;
+      transform: translateY(-50%) translateX(-50%);
+      z-index: -1;
+
+      @include breakpoint('only-phone') {
+        display: none;
+      }
+    }
+  }
+}

@@ -48,6 +48,8 @@
       <!--
         @param id {string}
         @param isDisabled {boolean}
+        @param isSecondary {boolean}
+        @param isFullsize {boolean}
         @slot {all}
         @emit @click
       -->

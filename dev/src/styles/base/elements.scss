@@ -11,12 +11,6 @@
   color: $c-gray;
 }
 
-body {
-  background: rgba($c-silver, .5);
-  color: $c-darkgray;
-}
-
-
 *:focus {
   outline: none;
 }
@@ -31,9 +25,4 @@ figure {
   img {
     max-width: 100%;
   }
-}
-
-#app {
-  color: $c-white;
-  min-height: 100vh;
 }

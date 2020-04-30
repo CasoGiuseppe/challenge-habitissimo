@@ -127,9 +127,9 @@ $browser-context: 16;
     @for $i from 1 through $grid-cols {
       &__col#{$modifier}-#{$i} {
         @if $i != 12 {
-          flex: 0 0 calc((100 / #{$grid-cols / $i} * 1%) - #{($grid__margin / 2) + 'px'});
+          flex: 0 0 calc((100 / #{$grid-cols / $i} * 1%) - #{(($base * 3) / 2) + 'px'});
           @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
-            flex-basis: calc((100% / #{$grid-cols / $i}) - #{($grid__margin / 2) + 'px'});
+            flex-basis: calc((100% / #{$grid-cols / $i}) - #{(($base * 3) / 2) + 'px'});
          }
         } @else {
           flex: 0 0 calc((100 / #{$grid-cols / $i} * 1%));
@@ -182,45 +182,5 @@ $browser-context: 16;
   @else {
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
         + "Available breakpoints are: #{map-keys($breakpoints)}.";
-  }
-}
-
-//- generate margin/padding with base: $base
-//- @param $styleKey {string}
-//- @param $direction {string}
-//- @param $size {number}
-//- @param $unit {string}
-//- How use:
-//- @include space('p', 'b', 5) =>
-//--- p = 'padding';
-//--- b = 'bottom';
-//--- 5 = 'amount'; 
-@mixin space($styleKey, $direction, $size) {
-  $unit: 'px';
-  
-  $map-style-type: (
-    "p": 'padding',
-    "m": 'margin'
-  );
-
-  $map-style-direction: (
-    "l": '-left',
-    "r": '-right',
-    "b": '-bottom',
-    "t": '-top'
-  );
-
-  $className: map-get($map-style-type, $styleKey);
-  $styleType: map-get($map-style-direction, $direction);
-
-  @if $styleType != null {
-    @if $size == 'auto' {
-      #{$className + $styleType}: #{$size};
-    } @else {
-      #{$className + $styleType}: #{($size * $base) + $unit};
-    }
-
-  } @else {
-    #{$className}: #{($size * $base) + $unit};
   }
 }

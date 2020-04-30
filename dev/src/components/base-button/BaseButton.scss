@@ -1,14 +1,16 @@
 .base-button {
-  @include text--regular;
   $basebutton: &;
+  
+  @include text--regular;
 
   background: $c-primary;
   border: none;
-  border-radius: px2rem($base * 2);
+  border-radius: px2rem($base);
   cursor: pointer;
   color: $c-white;
   min-width: #{$base * 20 + 'px'};
-  padding: #{$base * 2 + 'px'};
+  min-height: #{$base * 6 + 'px'};
+  padding: 0 #{$base * 2 + 'px'};
   transition: background .4s $a-ease-out;
   text-transform: uppercase;
 
@@ -23,5 +25,22 @@
         background: $c-secondary;
       }
     }
+  }
+
+  &--isSecondary {
+    background: $c-secondary;
+
+    @include breakpoint('tablet-pt') {
+      &:not([disabled]) {
+        &:hover,
+        &:focus {
+          background: $c-primary;
+        }
+      }
+    }
+  }
+
+  &--isFullsize {
+    min-width: 100%;
   }
 }

@@ -16,6 +16,8 @@
 html,
 body {
   height: 100%;
+  background: rgba($c-silver, .5);
+  color: $c-darkgray;
 }
 
 html,
@@ -28,9 +30,11 @@ body,
 #app {
   @include text--light;
   color: $c-darkgray;
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
+}
+
+.isMobile-hidden {
+  @include breakpoint('only-phone') {
+    display: none !important;
+  }
 }

@@ -6,10 +6,30 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    name: 'Index',
+    name: 'index',
+    redirect: { name: 'budget' },
     components: {
+      header: () => import(/* webpackChunkName: "header" */ '@/views/header/Header.vue'),
       default: () => import(/* webpackChunkName: "mainWrap" */ '@/views/main-wrap/MainWrap.vue'),
     },
+    children: [
+      {
+        path: '/ask-for-dudget',
+        name: 'budget',
+        children: [
+          {
+            path: '/:category?/',
+            name: 'category',
+            children: [
+              {
+                path: '/:step?/',
+                name: 'step',
+              },
+            ],
+          },
+        ],
+      },
+    ],
   },
 ];
 
