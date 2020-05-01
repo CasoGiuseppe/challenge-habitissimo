@@ -13,7 +13,7 @@
     border: 1px solid rgba($c-gray, .5);
     border-radius: px2rem($base);
     display: flex;
-    padding: #{$base * 2 + 'px'};
+    padding: #{$base * 2 + px};
     position: relative;
     transition: border .4s $a-ease-out;
 
@@ -37,7 +37,7 @@
       position: absolute;
       padding: 2px;
       pointer-events: none;
-      right: #{$base * 2 + 'px'};
+      right: #{$base * 2 + px};
       top: 50%;
       transform: translateY(-50%) rotate(45deg);
     }
@@ -48,7 +48,7 @@
     background: none;
     border: none;
     color: $c-darkgray;
-    padding: #{$base - 2 + 'px'};
+    padding: #{$base - 2 + px};
     width: 100%;
     
     -moz-appearance: none;
@@ -68,13 +68,13 @@
   &__validation-icon {
     background: $c-silver;
     border-radius: 100%;
-    height: #{$base * 3 + 'px'};
+    height: #{$base * 3 + px};
     position: absolute;
     top: 50%;
     left: 0;
-    margin-top: #{(($base * 3) / 2) * -1 + 'px'};
-    width: #{$base * 3 + 'px'};
-    transform: translateX(-100%) translateX(#{$base * -1 + 'px'});
+    margin-top: #{(($base * 3) / 2) * -1 + px};
+    width: #{$base * 3 + px};
+    transform: translateX(-100%) translateX(#{$base * -1 + px});
     transition: background .4s linear;
 
     #{$baseselect}--isValid &{

@@ -5,13 +5,14 @@
 
   background: $c-primary;
   border: none;
-  border-radius: px2rem($base);
+  border-radius: px2rem($base * 4);
   cursor: pointer;
   color: $c-white;
-  min-width: #{$base * 20 + 'px'};
-  min-height: #{$base * 6 + 'px'};
-  padding: 0 #{$base * 2 + 'px'};
-  transition: background .4s $a-ease-out;
+  min-width: #{$base * 20 + px};
+  min-height: #{$base * 6 + px};
+  padding: 0 #{$base * 2 + px};
+  transition: background .6s $a-ease-out,
+              color .6s $a-ease-out;
   text-transform: uppercase;
 
   &:disabled {
@@ -35,6 +36,22 @@
         &:hover,
         &:focus {
           background: $c-primary;
+        }
+      }
+    }
+  }
+
+  &--isSimple {
+    background: $c-white;
+    border: 1px solid $c-darkgray;
+    color: $c-darkgray;
+
+    @include breakpoint('tablet-pt') {
+      &:not([disabled]) {
+        &:hover,
+        &:focus {
+          background: $c-black;
+          color: $c-white;
         }
       }
     }

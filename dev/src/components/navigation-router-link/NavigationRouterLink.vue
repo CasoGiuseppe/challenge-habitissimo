@@ -1,0 +1,42 @@
+<template>
+  <router-link
+    class="navigation-router-link"
+    :to="{ name: 'budget', params: { category: link }}"
+    @mouseover.native="isHover = !isHover"
+    @blur="isHover = !isHover">
+    <transition
+      mode="out-in"
+      name="change-move">
+        <span
+          :key="link"
+          class="navigation-router-link__label">{{link}}</span>
+    </transition>
+  </router-link>
+</template>
+
+<script>
+export default {
+  name: 'NavigationRouterLink',
+
+  data() {
+    return {
+      isHover: false,
+    };
+  },
+
+  props: {
+    link: {
+      type: String,
+      require: true,
+    },
+  },
+
+  methods: {
+    hover() {
+      console.log('hover');
+    },
+  },
+};
+</script>
+
+<style lang='scss' scoped src= './NavigationRouterLink.scss'></style>

@@ -3,6 +3,7 @@
     :class="[
       'base-button',
       isSecondary ? 'base-button--isSecondary' : null,
+      isSimple ? 'base-button--isSimple' : null,
       isFullsize ? 'base-button--isFullsize' : null,
     ]"
     :disabled="isDisabled"
@@ -27,6 +28,11 @@ export default {
     },
 
     isFullsize: {
+      type: Boolean,
+      default: false,
+    },
+
+    isSimple: {
       type: Boolean,
       default: false,
     },

@@ -50,10 +50,11 @@
         @param isDisabled {boolean}
         @param isSecondary {boolean}
         @param isFullsize {boolean}
+        @param isSimple {boolean}
         @slot {all}
         @emit @click
       -->
-      <BaseButton>
+      <BaseButton isSimple>
         <template>
           link
         </template>

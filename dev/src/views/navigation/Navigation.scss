@@ -3,8 +3,24 @@
   width: 100%;
 
   @include breakpoint('only-phone') {
-    background: $c-primary;
+    background: $c-secondary;
     height: 100%;
+  }
+
+  &::before {
+    background: $c-secondary;
+    content: '';
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    transform: translateX(-50%);
+    z-index: -1;
+
+    @include breakpoint('only-phone') {
+      display: none;
+    }
   }
 
   &__routers {
@@ -22,10 +38,11 @@
       top: 0;
       transform: translateX(100%);
       z-index: 9;
-      transition: transform .4s $a-ease-out;
+      transition: transform .6s $a-ease-out .4s;
 
       #{$navigation}--isMenuActive & {
         transform: translateX(0);
+        transition-delay: 0s;
       }
     }
   }
@@ -33,16 +50,29 @@
   &__router {
     flex: 1;
     position: relative;
+    transition: transform .4s $a-elastic,
+                opacity .4s $a-ease-out;
 
     @include breakpoint('only-phone') {
       flex: 0;
+      opacity: 0;
+      transform: translateX(100%);
+
+      #{$navigation}--isMenuActive & {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     + #{$navigation}__router {
+      @include breakpoint('only-phone') {
+        margin-top: #{$base px};
+      }
+
       &::before {
-        background: rgba($c-white, .5);
+        background: rgba($c-white, .2);
         content: '';
-        height: 80%;
+        height: 30%;
         left: 0;
         position: absolute;
         width: 1px;

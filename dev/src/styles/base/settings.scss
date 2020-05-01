@@ -3,9 +3,15 @@ $c-white: #fff;
 $c-black: #000;
 $c-primary: #ff7300;
 $c-secondary: #138BBF;
+
+//- gray series
+$c-light-silver: #F0F0F0;
 $c-silver: #ebebeb;
+$c-light-gray: #F3F7FA;
 $c-gray: #404040;
 $c-darkgray: #2b2b2b;
+
+//- validation types 
 $c-warning: #ff0000;
 $c-valid: #649d66;
 
@@ -47,9 +53,9 @@ $base: 5;
 
 //- breackpoints
 $breakpoints: (
-  'only-phone' : (max-width: #{$grid__bp-sm + 'px'}),
-  'tablet-pt' : (min-width: #{$grid__bp-md + 'px'}),
-  'tablet-ld' : (min-width: #{$grid__bp-lg + 'px'}),
-  'desktop' : (min-width: #{$grid__bp-xl + 'px'}),
-  'large-desktop' : (min-width: #{$grid__bp-xxl + 'px'})
+  'only-phone' : (max-width: #{$grid__bp-sm + px}),
+  'tablet-pt' : (min-width: #{$grid__bp-md + px}),
+  'tablet-ld' : (min-width: #{$grid__bp-lg + px}),
+  'desktop' : (min-width: #{$grid__bp-xl + px}),
+  'large-desktop' : (min-width: #{$grid__bp-xxl + px})
 )

@@ -32,7 +32,7 @@
     &::after {
       content: '%';
       font-size: .5em;
-      transform: translateY(#{$base * -1 + 'px'});
+      transform: translateY(#{$base * -1 + px});
     }
   }
 
@@ -49,5 +49,19 @@
       transform: rotate(-90deg);
       transform-origin: 50% 50%;
     }
+  }
+
+  // overwrite animation clases
+  .change-move-leave,
+  .change-move-enter-to {
+    transform: translateY(-50%) translateX(-50%)
+  }
+
+  .change-move-leave-to {
+    transform: translateY(-25%) translateX(-50%);
+  }
+
+  .change-move-enter {
+    transform: translateY(100%) translateX(-50%)
   }
 }

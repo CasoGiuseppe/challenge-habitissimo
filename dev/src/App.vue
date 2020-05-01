@@ -1,5 +1,9 @@
 <template>
-  <main id="app">
+  <main
+    id="app"
+    :class="[
+      isBlocked ? 'isBlocked' : null,
+    ]">
     <router-view
       name = "header"
       :mode = "$route.name"
@@ -15,6 +19,7 @@ export default {
   data() {
     return {
       isPageOnTop: true,
+      isBlocked: false,
     };
   },
 
@@ -25,8 +30,18 @@ export default {
     },
   },
 
+  created() {
+    this.$eventHub.$on('blocked', (value) => {
+      this.isBlocked = value;
+    });
+  },
+
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
+  },
+
+  beforeDestroy() {
+    this.$eventHub.$off('blocked');
   },
 
   destroyed() {

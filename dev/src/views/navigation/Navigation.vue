@@ -11,19 +11,25 @@
       <span></span>
     </button>
 
+    <!-- router links navigation -->
     <ul class="navigation__routers">
-      <li class="navigation__router">1</li>
-      <li class="navigation__router">2</li>
-      <li class="navigation__router">3</li>
-      <li class="navigation__router">4</li>
-      <li class="navigation__router">5</li>
-      <li class="navigation__router">6</li>
-      <li class="navigation__router">7</li>
+      <li
+        v-for="(category, index) of getAllCategories"
+        :key="category.route"
+        class="navigation__router"
+        :style="{
+          'transitionDelay' : `${index * .1}s`
+        }">
+        <NavigationRouterLink
+          :link="category.route"/>
+      </li>
     </ul>
   </nav>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'Nav',
 
@@ -31,6 +37,27 @@ export default {
     return {
       isMenuActive: false,
     };
+  },
+
+  components: {
+    NavigationRouterLink: () => import(/* webpackChunkName: "NavigationRouterLink" */ '@/components/navigation-router-link/NavigationRouterLink'),
+  },
+
+  computed: {
+    ...mapGetters({
+      getAllCategories: 'categories/getAllCategories',
+      getSelectedCategories: 'categories/getSelectedCategories',
+    }),
+  },
+
+  watch: {
+    $route(to, from) {
+      this.isMenuActive = false;
+    },
+
+    isMenuActive() {
+      this.$eventHub.$emit('blocked', this.isMenuActive);
+    },
   },
 };
 </script>

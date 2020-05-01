@@ -45,9 +45,7 @@
             <li class="
               grid__col-xs-4
               grid__col-md-4">
-              <BaseButton
-                isSecondary
-                isFullsize>
+              <BaseButton isFullsize>
                   <template>
                     Registrate
                   </template>

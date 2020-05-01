@@ -16,7 +16,7 @@
 html,
 body {
   height: 100%;
-  background: rgba($c-silver, .5);
+  background: $c-light-gray;
   color: $c-darkgray;
 }
 
@@ -33,8 +33,7 @@ body,
   min-height: 100vh;
 }
 
-.isMobile-hidden {
-  @include breakpoint('only-phone') {
-    display: none !important;
-  }
+.isBlocked {
+  max-height: 100vh;
+  overflow: hidden;
 }

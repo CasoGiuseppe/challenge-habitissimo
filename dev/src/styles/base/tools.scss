@@ -25,20 +25,21 @@ $browser-context: 16;
   background: $color;
   display: inline-block;
   width: 55%;
-  height: #{$height + 'px'};
+  height: #{$height + px};
   margin: 0 auto;
   position: relative;
 
-  transition: background .4s $a-ease-out .4s;
+  transition: background .4s $a-ease-out .8s;
 
   [class*='isMenuActive'] & {
     background: rgba( $active-color, 0 );
+    transition-delay: .1s;
   }
 
   &::before,
   &::after {
     content: '';
-    width: 100%;
+    width: 80%;
     height: 100%;
     position: absolute;
     top: 0;
@@ -58,14 +59,14 @@ $browser-context: 16;
   }
 
   &::before {
-    top: #{(($height * 2) * -1) + 'px'};
+    top: #{(($height * 2) * -1) + px};
     [class*='isMenuActive'] & {
       transform: rotate(45deg);
     }
   }
 
   &::after {
-    top: #{($height * 2) + 'px'};
+    top: #{($height * 2) + px};
     [class*='isMenuActive'] & {
       transform: rotate(-45deg);
     }
@@ -88,6 +89,10 @@ $browser-context: 16;
   font-weight: $bold;
 }
 
+@mixin text--medium {
+  font-size: px2rem(16);
+}
+
 @mixin text--xsmall {
   font-size: px2rem(12);
 }
@@ -102,7 +107,7 @@ $browser-context: 16;
   .change-move-leave,
   .change-move-enter-to {
     opacity: 1;
-    transform: translateY(-50%) translateX(-50%)
+    transform: translateY(-50%)
   }
 
   .change-move-leave-active,
@@ -118,12 +123,12 @@ $browser-context: 16;
 
   .change-move-leave-to {
     opacity: 0;
-    transform: translateY(-25%) translateX(-50%);
+    transform: translateY(-25%);
   }
 
   .change-move-enter {
     opacity: 0;
-    transform: translateY(100%) translateX(-50%)
+    transform: translateY(100%)
   }
 }
 
@@ -158,7 +163,7 @@ $browser-context: 16;
   .change-validation-leave,
   .change-validation-enter-to {
     opacity: 1;
-    transform: translateX(-100%) translateX(#{$base * -1 + 'px'})
+    transform: translateX(-100%) translateX(#{$base * -1 + px})
   }
 
   .change-validation-leave-active,
@@ -175,7 +180,7 @@ $browser-context: 16;
 
   .change-validation-leave-to {
     opacity: 0;
-    transform: translateX(-100%) translateX(#{($base * 2) * -1 + 'px'});
+    transform: translateX(-100%) translateX(#{($base * 2) * -1 + px});
   }
 
   .change-validation-enter {
@@ -204,9 +209,9 @@ $browser-context: 16;
     @for $i from 1 through $grid-cols {
       &__col#{$modifier}-#{$i} {
         @if $i != 12 {
-          flex: 0 0 calc((100 / #{$grid-cols / $i} * 1%) - #{(($base * 3) / 2) + 'px'});
+          flex: 0 0 calc((100 / #{$grid-cols / $i} * 1%) - #{(($base * 3) / 2) + px});
           @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
-            flex-basis: calc((100% / #{$grid-cols / $i}) - #{(($base * 3) / 2) + 'px'});
+            flex-basis: calc((100% / #{$grid-cols / $i}) - #{(($base * 3) / 2) + px});
          }
         } @else {
           flex: 0 0 calc((100 / #{$grid-cols / $i} * 1%));
