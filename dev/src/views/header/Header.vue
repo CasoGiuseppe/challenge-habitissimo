@@ -38,7 +38,7 @@
                     mode="out-in"
                     name="change-fade">
                       <span v-if="isPageOnTop">
-                        ¿Eres un autónomo o tienes una empresa y quieres conseguir más clientes?
+                        {{$t(`message.header.payoff`)}}
                       </span>
                   </transition>
               </li>
@@ -47,7 +47,7 @@
               grid__col-md-4">
               <BaseButton isFullsize>
                   <template>
-                    Registrate
+                    {{$t(`message.buttons.register`)}}
                   </template>
               </BaseButton>
             </li>

@@ -9,10 +9,9 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
-    "fitty": "^2.3.0",
     "path": "^0.12.7",
     "vue": "^2.6.11",
-    "vue-resize-text": "^0.1.1",
+    "vue-i18n": "^8.17.4",
     "vue-router": "^3.1.6",
     "vuex": "^3.1.3"
   },

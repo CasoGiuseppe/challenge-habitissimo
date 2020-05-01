@@ -21,7 +21,11 @@
           'transitionDelay' : `${index * .1}s`
         }">
         <NavigationRouterLink
-          :link="category.route"/>
+          :link="category.route">
+          <template>
+            {{$t(`message.categories.${category.route}.label`)}}
+          </template>
+        </NavigationRouterLink>
       </li>
     </ul>
   </nav>

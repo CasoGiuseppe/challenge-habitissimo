@@ -9,7 +9,9 @@
       name="change-move">
         <span
           :key="link"
-          class="navigation-router-link__label">{{link}}</span>
+          class="navigation-router-link__label">
+            <slot />
+          </span>
     </transition>
   </router-link>
 </template>
