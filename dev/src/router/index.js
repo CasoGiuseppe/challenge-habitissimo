@@ -16,6 +16,10 @@ const routes = [
       {
         path: '/ask-for-dudget/:category?/:step?/',
         name: 'budget',
+        components: {
+          article: () => import(/* webpackChunkName: "base-article" */ '@/components/base-article/BaseArticle.vue'),
+          // form: () => import(/* webpackChunkName: "form" */ '@/views/form-wrap/FormWrap.vue'),
+        },
       },
     ],
   },

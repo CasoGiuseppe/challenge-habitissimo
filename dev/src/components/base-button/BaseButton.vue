@@ -3,12 +3,16 @@
     :class="[
       'base-button',
       isSecondary ? 'base-button--isSecondary' : null,
-      isSimple ? 'base-button--isSimple' : null,
+      isLight ? 'base-button--isLight' : null,
       isFullsize ? 'base-button--isFullsize' : null,
+      isReplaced ? 'base-button--isReplaced' : null,
     ]"
+    :style="{
+      'min-width' : hasMinWidth ? `${hasMinWidth}` : null,
+    }"
     :disabled="isDisabled"
     @click="handleClickState">
-    <slot />
+    <span class="base-button__label"><slot /></span>
   </button>
 </template>
 
@@ -32,7 +36,16 @@ export default {
       default: false,
     },
 
-    isSimple: {
+    isLight: {
+      type: Boolean,
+      default: false,
+    },
+
+    hasMinWidth: {
+      type: String,
+    },
+
+    isReplaced: {
       type: Boolean,
       default: false,
     },

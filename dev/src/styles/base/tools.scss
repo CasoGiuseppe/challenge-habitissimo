@@ -59,14 +59,14 @@ $browser-context: 16;
   }
 
   &::before {
-    top: #{(($height * 2) * -1) + px};
+    top: #{(($height * 2) * -1px)};
     [class*='isMenuActive'] & {
       transform: rotate(45deg);
     }
   }
 
   &::after {
-    top: #{($height * 2) + px};
+    top: #{($height * 2px)};
     [class*='isMenuActive'] & {
       transform: rotate(-45deg);
     }
@@ -89,8 +89,28 @@ $browser-context: 16;
   font-weight: $bold;
 }
 
+@mixin text--big {
+  font-size: px2rem(22);
+}
+
+@mixin text--xbig {
+  font-size: px2rem(24);
+}
+
+@mixin text--xxbig {
+  font-size: px2rem(34);
+}
+
+@mixin text--xxxbig {
+  font-size: px2rem(38);
+}
+
 @mixin text--medium {
   font-size: px2rem(16);
+}
+
+@mixin text--small {
+  font-size: px2rem(14);
 }
 
 @mixin text--xsmall {
@@ -107,7 +127,7 @@ $browser-context: 16;
   .change-move-leave,
   .change-move-enter-to {
     opacity: 1;
-    transform: translateY(-50%)
+    transform: translateY(0)
   }
 
   .change-move-leave-active,
@@ -163,7 +183,7 @@ $browser-context: 16;
   .change-validation-leave,
   .change-validation-enter-to {
     opacity: 1;
-    transform: translateX(-100%) translateX(#{$base * -1 + px})
+    transform: translateX(-100%) translateX(#{$base * -1px})
   }
 
   .change-validation-leave-active,
@@ -180,7 +200,7 @@ $browser-context: 16;
 
   .change-validation-leave-to {
     opacity: 0;
-    transform: translateX(-100%) translateX(#{($base * 2) * -1 + px});
+    transform: translateX(-100%) translateX(#{($base * 2) * -1px});
   }
 
   .change-validation-enter {

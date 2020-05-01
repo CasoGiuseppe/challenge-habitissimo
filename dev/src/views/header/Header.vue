@@ -4,63 +4,66 @@
       'header',
       isPageOnTop === false ? 'header--isScrolled' : null,
     ]">
-    <div class="grid">
+    <div class="
+      grid
+      grid--isFluid">
       <div class="
+        header__wrap
         grid__row
         grid__row--isWrap">
 
         <!-- logo place -->
-        <h1 class="
+        <h2 class="
           header__logo
-          grid__col-xs-7
-          grid__col-md-4
-          grid__col-lg-6">
+          grid__col-xs-8
+          grid__col-md-6">
             <figure>
               <img
                 src="@/assets/images/elements/logo.webp"
                 alt="habitissimo - Reformas y Servicios para el Hogar">
             </figure>
-        </h1>
+        </h2>
 
-        <!-- registration cta -->
-        <aside class="
-          header__register-payoff
-          grid__col-xs-3
-          grid__col-md-8
-          grid__col-lg-6">
-          <ul class="grid__row">
-            <li class="
-                grid__col-xs-8
-                grid__col-md-8
-                grid__col--end
-                hidden-sm-down">
-                  <transition
-                    mode="out-in"
-                    name="change-fade">
-                      <span v-if="isPageOnTop">
-                        {{$t(`message.header.payoff`)}}
-                      </span>
-                  </transition>
-              </li>
-            <li class="
-              grid__col-xs-4
-              grid__col-md-4">
-              <BaseButton isFullsize>
-                  <template>
-                    {{$t(`message.buttons.register`)}}
-                  </template>
-              </BaseButton>
-            </li>
-          </ul>
-        </aside>
+        <!-- aside for login/registration -->
+        <LoginBox class="
+          grid__col-xs-2
+          grid__col-md-6
+          grid__col--end">
+          <template #payoff>
+            {{$t(`message.header.payoff`)}}
+          </template>
+          <template #registration>
+            <BaseButton
+              isFullsize
+              isReplaced>
+                <template>
+                  {{$t(`message.buttons.login`)}}
+                </template>
+            </BaseButton>
+          </template>
+          <template #login>
+            <BaseButton
+            isFullsize
+            isLight
+            isReplaced>
+              <template>
+                {{$t(`message.buttons.register`)}}
+              </template>
+          </BaseButton>
+          </template>
+        </LoginBox>
+
+        <Navigation
+          class="grid__col-xs-2
+          grid__col-md-12"/>
 
         <!-- main navigation with categories -->
-        <div class="
+        <!-- <div class="
           header__main-navigation
           grid__col-xs-2
           grid__col-md-12">
           <Navigation />
-        </div>
+        </div> -->
       </div>
     </div>
   </header>
@@ -79,6 +82,7 @@ export default {
   components: {
     BaseButton: () => import(/* webpackChunkName: "BaseButton" */ '@/components/base-button/BaseButton'),
     Navigation: () => import(/* webpackChunkName: "Navigation" */ '@/views/navigation/Navigation'),
+    LoginBox: () => import(/* webpackChunkName: "LoginBox" */ '@/components/login-box/LoginBox'),
   },
 };
 </script>

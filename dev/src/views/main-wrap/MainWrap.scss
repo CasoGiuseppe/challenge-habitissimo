@@ -1,0 +1,33 @@
+.main-wrap {
+  $mainwrap: &;
+
+  padding: #{$base * 10px} #{$base * 6px};
+  height: 2500px;
+
+  @include breakpoint('only-phone') {
+    padding: #{$base * 3px};
+  }
+
+  &__title {
+    @include text--xxbig;
+    @include text--regular;
+
+    color: $c-gray;
+
+    @include breakpoint('only-phone') {
+      @include text--big;
+    }
+
+    + #{$mainwrap}__UI-form {
+      margin-top: #{$base * 6px};
+
+      @include breakpoint('only-phone') {
+        margin-top: #{$base * 3px};
+      }
+    }
+  }
+
+  &__UI-form {
+  
+  }
+}

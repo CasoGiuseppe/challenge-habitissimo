@@ -13,7 +13,7 @@
     border: 1px solid rgba($c-gray, .5);
     border-radius: px2rem($base);
     display: flex;
-    padding: #{($base * 3) + 3 + px} #{$base * 2 + px} #{$base + px};
+    padding: #{($base * 3) + 3px} #{$base * 2px} #{$base + px};
     position: relative;
     transition: border .4s $a-ease-out;
 
@@ -54,8 +54,8 @@
     @include text--xsmall;
     background: none;
     border: none;
-    color: $c-darkgray;
-    padding: #{$base - 2 + px};
+    color: $c-dark-gray;
+    padding: #{$base - 2px};
     width: 100%;
   }
 
@@ -68,13 +68,13 @@
   &__validation-icon {
     background: $c-silver;
     border-radius: 100%;
-    height: #{$base * 3 + px};
+    height: #{$base * 3px};
     position: absolute;
     top: 50%;
     left: 0;
-    margin-top: #{(($base * 3) / 2) * -1 + px};
-    width: #{$base * 3 + px};
-    transform: translateX(-100%) translateX(#{$base * -1 + px});
+    margin-top: #{(($base * 3) / 2) * -1px};
+    width: #{$base * 3px};
+    transform: translateX(-100%) translateX(#{$base * -1px});
     transition: background .4s linear;
 
     #{$baseinput}--isValid &{

@@ -8,7 +8,6 @@
       name = "header"
       :mode = "$route.name"
       :isPageOnTop = "isPageOnTop"/>
-      <br><br>
     <router-view/>
   </main>
 </template>
@@ -24,9 +23,9 @@ export default {
   },
 
   methods: {
-    handleScroll() {
+    handleScroll(e) {
       const winYScroll = window.scrollY;
-      this.isPageOnTop = !window.matchMedia('(max-width: 600px)').matches ? (winYScroll >= 0 && winYScroll < 50) || winYScroll < 0 : null;
+      this.isPageOnTop = !window.matchMedia('(max-width: 600px)').matches ? !(winYScroll >= 50) : null;
     },
   },
 
@@ -37,7 +36,7 @@ export default {
   },
 
   mounted() {
-    window.addEventListener('scroll', this.handleScroll);
+    // window.addEventListener('scroll', this.handleScroll);
   },
 
   beforeDestroy() {

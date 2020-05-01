@@ -57,6 +57,10 @@
         justify-content: flex-end;
       }
 
+      &[class*="--between"]{
+        justify-content: space-between;
+      }
+
       &[class*="--column"]{
         flex-direction: column;
       }

@@ -3,56 +3,54 @@
   $header: &;
 
   background: $c-white;
-  color: $c-black;
+  box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.1);
+  border: none;
+  color: $c-dark-gray;
+  display: flex;
   position: sticky;
-  padding: #{$base * 3 + px} #{$base * 3 + px} 0;
+  padding: 0 0 0 #{$base * 3px};
   top: 0;
   z-index: 10;
-  transition: padding .4s $a-ease-out;
 
-  @include breakpoint('only-phone') {
-    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.1);
-    border: none;
-    padding: 0  0 0 #{$base * 3 + px};
+  @include breakpoint('tablet-pt') {
+    box-shadow: none;
+    display: block;
+    padding: 0 #{$base * 6px};
   }
 
-  &--isScrolled {
-   padding-top: #{$base + px}
+  @include breakpoint('large-desktop') {
+    padding: 0 #{$base * 10px};
   }
+  
 
   &__logo {
+    min-height: px2rem($base * 8);
+
+    @include breakpoint('tablet-pt') {
+      min-height: px2rem($base * 12);
+    }
+
     img {
-      max-width: px2rem(180);
+      max-width: px2rem(120);
+      transition: max-width .4s $a-ease-out;
 
       @include breakpoint('only-phone') {
-        max-width: 40vw;
+        max-width: px2rem(120);
+      }
+
+      @include breakpoint('tablet-pt') {
+        max-width: px2rem(150);
       }
     }
   }
 
-  &__register-payoff {
-    justify-content: flex-end;
-    text-align: right;
+  /deep/ {
+    .login-box {
+      transform: translateX((($base * -1) * 10px));
 
-    @include breakpoint('only-phone') {
-      justify-content: center;
-    }
-  }
-
-  &__main-navigation {
-    justify-content: center;
-    margin-top: #{$base * 3 + px};
-    position: relative;
-    transition: margin .4s $a-ease-out;
-
-    @include breakpoint('only-phone') {
-      max-width: px2rem($base * 8);
-      margin: 0;
-      padding: 0;
-    }
-
-    #{$header}--isScrolled & {
-      margin-top: #{$base + px};
+      @include breakpoint('tablet-pt') {
+        transform: none;
+      }
     }
   }
 }

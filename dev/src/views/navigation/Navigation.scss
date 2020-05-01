@@ -1,77 +1,101 @@
 .navigation {
   $navigation: &;
-  width: 100%;
 
-  @include breakpoint('only-phone') {
-    background: $c-secondary;
-    height: 100%;
+  background: $c-secondary;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: #{$base * 8px};
+
+  @include breakpoint('tablet-pt') {
+    background: none;
+    position: relative;
+    height: auto;
+    right: auto;
+    top: auto;
+    width: 100%;
   }
 
   &::before {
-    background: $c-secondary;
-    content: '';
-    height: 100%;
-    left: 50%;
-    position: absolute;
-    top: 0;
-    width: 100vw;
-    transform: translateX(-50%);
-    z-index: -1;
+    display: none;
 
-    @include breakpoint('only-phone') {
-      display: none;
+    @include breakpoint('tablet-pt') {
+      background: $c-secondary;
+      content: '';
+      display: block;
+      height: 100%;
+      left: 50%;
+      position: absolute;
+      top: 0;
+      width: 100vw;
+      transform: translateX(-50%);
+      z-index: -1;
     }
   }
 
   &__routers {
     align-items: center;
+    background: $c-secondary;
     display: flex;
+    flex-direction: column;
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    justify-content: center;
+    top: 0;
+    width: 100vw;
+    transform: translateX(100%);
+    transition: transform .6s $a-ease-out .4s;
+    z-index: 9;
 
-    @include breakpoint('only-phone') {
-      background: $c-secondary;
-      flex-direction: column;
-      height: 100vh;
-      left: 0;
-      position: fixed;
-      justify-content: center;
-      width: 100vw;
-      top: 0;
-      transform: translateX(100%);
-      z-index: 9;
-      transition: transform .6s $a-ease-out .4s;
+    #{$navigation}--isMenuActive & {
+      transform: translateX(0);
+      transition-delay: 0s;
+    }
 
-      #{$navigation}--isMenuActive & {
-        transform: translateX(0);
-        transition-delay: 0s;
-      }
+    @include breakpoint('tablet-pt') {
+      background: none;
+      flex-direction: row;
+      height: auto;
+      left: auto;
+      position: relative;
+      top: auto;
+      transform: none;
+      transition: none;
+      width: 100%;
+      z-index: auto;
     }
   }
 
   &__router {
-    flex: 1;
+    flex: 0;
+    opacity: 0;
     position: relative;
     transition: transform .4s $a-elastic,
                 opacity .4s $a-ease-out;
+    transform: translateX(100%);
 
-    @include breakpoint('only-phone') {
-      flex: 0;
-      opacity: 0;
-      transform: translateX(100%);
+    #{$navigation}--isMenuActive & {
+      opacity: 1;
+      transform: translateX(0);
+    }
 
-      #{$navigation}--isMenuActive & {
-        opacity: 1;
-        transform: translateX(0);
-      }
+    @include breakpoint('tablet-pt') {
+      flex: 1;
+      opacity: 1;
+      transform: none;
     }
 
     + #{$navigation}__router {
-      @include breakpoint('only-phone') {
-        margin-top: #{$base px};
+      margin-top: #{$base px};
+
+      @include breakpoint('tablet-pt') {
+        margin-top: 0;
       }
 
       &::before {
         background: rgba($c-white, .2);
-        content: '';
         height: 30%;
         left: 0;
         position: absolute;
@@ -79,25 +103,25 @@
         top: 50%;
         transform: translateY(-50%);
 
-        @include breakpoint('only-phone') {
-          display: none;
+        @include breakpoint('tablet-pt') {
+          content: ''
         }
       }
     }
   }
 
   &__mobile-trigger {
-    display: none;
+    display: flex;
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    width: 100%;
+    z-index: 10;
   
-    @include breakpoint('only-phone') {
-      display: flex;
-      height: 100%;
-      left: 50%;
-      position: absolute;
-      width: 100%;
-      top: 50%;
-      transform: translateY(-50%) translateX(-50%);
-      z-index: 10;
+    @include breakpoint('tablet-pt') {
+      display: none;
     }
 
     > span {

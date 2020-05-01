@@ -11,8 +11,8 @@
   &__field {
     border: 1px solid rgba($c-gray, .5);
     border-radius: px2rem($base);
-    color: $c-darkgray;
-    padding: #{$base * 2 + px};
+    color: $c-dark-gray;
+    padding: #{$base * 2px};
     resize: none;
     width: 100%;
     transition: border .4s $a-ease-out;
@@ -39,12 +39,12 @@
   &__validation-icon {
     background: $c-silver;
     border-radius: 100%;
-    height: #{$base * 3 + px};
+    height: #{$base * 3px};
     position: absolute;
     top: #{$base + px};
     left: 0;
-    width: #{$base * 3 + px};
-    transform: translateX(-100%) translateX(#{$base * -1 + px});
+    width: #{$base * 3px};
+    transform: translateX(-100%) translateX(#{$base * -1px});
     transition: background .4s linear;
 
     #{$basetextarea}--isValid &{

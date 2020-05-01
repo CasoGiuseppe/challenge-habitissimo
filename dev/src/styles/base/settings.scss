@@ -9,7 +9,7 @@ $c-light-silver: #F0F0F0;
 $c-silver: #ebebeb;
 $c-light-gray: #F3F7FA;
 $c-gray: #404040;
-$c-darkgray: #2b2b2b;
+$c-dark-gray: #2b2b2b;
 
 //- validation types 
 $c-warning: #ff0000;
@@ -36,8 +36,8 @@ $a-elastic-out: cubic-bezier(.5,-0.26,.78,.5);
 $grid__bp-sm: 600;
 $grid__bp-md: 768;
 $grid__bp-lg: 992;
-$grid__bp-xl: 1140;
-$grid__bp-xxl: 1680;
+$grid__bp-xl: 1280;
+$grid__bp-xxl: 1640;
 $grid__cols: 12;
 
 $map-grid-props: (
@@ -45,7 +45,8 @@ $map-grid-props: (
   '-sm': $grid__bp-sm,
   '-md': $grid__bp-md,
   '-lg': $grid__bp-lg,
-  '-xl': $grid__bp-xl
+  '-xl': $grid__bp-xl,
+  '-xxl': $grid__bp-xxl,
 );
 
 //- margin/padding

@@ -6,7 +6,7 @@
   background: rgba(darken( $c-secondary, 10% ), 0);
   color: $c-white;
   display: flex;
-  padding: #{$base * 2 + px} #{$base + px};
+  padding: #{$base * 2px} #{$base + px};
   position: relative;
   justify-content: center;
   text-decoration: none;
@@ -29,7 +29,7 @@
       #{$navigationrouterlink}__label {
         &::after {
           opacity: 1;
-          transform: translateY(-50%) translateX(-100%) translateX($base * -1 + px);
+          transform: translateY(-50%) translateX(-100%) translateX($base * -1px);
         }
       }
     }
@@ -42,19 +42,19 @@
       background: $c-white;
       top: 50%;
       border-radius: 100%;
-      height: #{$base + 2 + px};
+      height: #{$base + 2px};
       left: 0;
       content: '';
       opacity: 0;
       position: absolute;
-      width: #{$base + 2 + px};
-      transform: translateY(100%) translateX(-100%) translateX($base * -1 + px);
+      width: #{$base + 2px};
+      transform: translateY(100%) translateX(-100%) translateX($base * -1px);
       transition: transform .4s $a-elastic,
                   opacity .4s $a-ease-out,
                   background .4s $a-ease-out;
       
       @include breakpoint('only-phone') {
-        transform: translateY(100%) translateX(-100%) translateX((($base * 2) * -1) + px);
+        transform: translateY(100%) translateX(-100%) translateX((($base * 2) * -1px));
       }
     }
 

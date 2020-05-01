@@ -32,7 +32,7 @@
     &::after {
       content: '%';
       font-size: .5em;
-      transform: translateY(#{$base * -1 + px});
+      transform: translateY(#{$base * -1px});
     }
   }
 
