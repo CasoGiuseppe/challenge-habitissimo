@@ -20,6 +20,12 @@
 export default {
   name: 'BaseButton',
 
+  methods: {
+    handleClickState(e) {
+      this.$emit('click', e);
+    },
+  },
+
   props: {
     isDisabled: {
       type: Boolean,
@@ -48,12 +54,6 @@ export default {
     isReplaced: {
       type: Boolean,
       default: false,
-    },
-  },
-
-  methods: {
-    handleClickState(e) {
-      this.$emit('click', e);
     },
   },
 };

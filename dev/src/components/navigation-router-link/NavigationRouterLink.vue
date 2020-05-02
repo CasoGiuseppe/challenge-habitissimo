@@ -32,12 +32,6 @@ export default {
       require: true,
     },
   },
-
-  methods: {
-    hover() {
-      console.log('hover');
-    },
-  },
 };
 </script>
 

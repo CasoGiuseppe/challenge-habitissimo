@@ -37,12 +37,6 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'Nav',
 
-  data() {
-    return {
-      isMenuActive: false,
-    };
-  },
-
   components: {
     NavigationRouterLink: () => import(/* webpackChunkName: "NavigationRouterLink" */ '@/components/navigation-router-link/NavigationRouterLink'),
   },
@@ -50,8 +44,13 @@ export default {
   computed: {
     ...mapGetters({
       getAllCategories: 'categories/getAllCategories',
-      getSelectedCategories: 'categories/getSelectedCategories',
     }),
+  },
+
+  data() {
+    return {
+      isMenuActive: false,
+    };
   },
 
   watch: {

@@ -51,6 +51,23 @@ export default {
     };
   },
 
+  methods: {
+    handleInputState(e) {
+      this.$emit('input', e.target.value);
+    },
+
+    handleActiveState(e) {
+      const { type } = e;
+
+      if (type === 'blur') {
+        this.onActive = e.target.value !== '';
+      } else {
+        this.onActive = true;
+        delete this.isValidate.state;
+      }
+    },
+  },
+
   props: {
     id: {
       type: String,
@@ -82,23 +99,6 @@ export default {
       default() {
         return {};
       },
-    },
-  },
-
-  methods: {
-    handleInputState(e) {
-      this.$emit('input', e.target.value);
-    },
-
-    handleActiveState(e) {
-      const { type } = e;
-
-      if (type === 'blur') {
-        this.onActive = e.target.value !== '';
-      } else {
-        this.onActive = true;
-        delete this.isValidate.state;
-      }
     },
   },
 };

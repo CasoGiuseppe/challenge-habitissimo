@@ -6,7 +6,7 @@
 
   background: $c-primary;
   border: none;
-  border-radius: px2rem($base * 4);
+  border-radius: px2rem($base * 3) 0px px2rem($base * 3) px2rem($base * 3);;
   cursor: pointer;
   color: $c-white;
   min-width: #{$base * 20px};

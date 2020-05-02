@@ -9,16 +9,16 @@ const routes = [
     name: 'index',
     redirect: { name: 'budget' },
     components: {
-      header: () => import(/* webpackChunkName: "header" */ '@/views/header/Header.vue'),
-      default: () => import(/* webpackChunkName: "mainWrap" */ '@/views/main-wrap/MainWrap.vue'),
+      header: () => import(/* webpackChunkName: "Header" */ '@/views/header/Header.vue'),
+      default: () => import(/* webpackChunkName: "MainWrap" */ '@/views/main-wrap/MainWrap.vue'),
     },
     children: [
       {
-        path: '/ask-for-dudget/:category?/:step?/',
+        path: '/ask-for-budget/:category?/:step?/',
         name: 'budget',
         components: {
-          article: () => import(/* webpackChunkName: "base-article" */ '@/components/base-article/BaseArticle.vue'),
-          // form: () => import(/* webpackChunkName: "form" */ '@/views/form-wrap/FormWrap.vue'),
+          article: () => import(/* webpackChunkName: "BaseArticle" */ '@/components/base-article/BaseArticle.vue'),
+          form: () => import(/* webpackChunkName: "BudgetForm" */ '@/views/budget-form/BudgetForm.vue'),
         },
       },
     ],

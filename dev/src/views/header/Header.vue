@@ -24,7 +24,7 @@
             </figure>
         </h2>
 
-        <!-- aside for login/registration -->
+        <!-- login/registration place -->
         <LoginBox class="
           grid__col-xs-2
           grid__col-md-6
@@ -53,17 +53,10 @@
           </template>
         </LoginBox>
 
+        <!-- main navigation place -->
         <Navigation
           class="grid__col-xs-2
           grid__col-md-12"/>
-
-        <!-- main navigation with categories -->
-        <!-- <div class="
-          header__main-navigation
-          grid__col-xs-2
-          grid__col-md-12">
-          <Navigation />
-        </div> -->
       </div>
     </div>
   </header>
@@ -73,16 +66,16 @@
 export default {
   name: 'Header',
 
-  props: {
-    isPageOnTop: {
-      type: Boolean,
-    },
-  },
-
   components: {
     BaseButton: () => import(/* webpackChunkName: "BaseButton" */ '@/components/base-button/BaseButton'),
     Navigation: () => import(/* webpackChunkName: "Navigation" */ '@/views/navigation/Navigation'),
     LoginBox: () => import(/* webpackChunkName: "LoginBox" */ '@/components/login-box/LoginBox'),
+  },
+
+  props: {
+    isPageOnTop: {
+      type: Boolean,
+    },
   },
 };
 </script>

@@ -36,7 +36,7 @@ export default {
   },
 
   mounted() {
-    // window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll);
   },
 
   beforeDestroy() {

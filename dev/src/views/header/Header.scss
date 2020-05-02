@@ -21,6 +21,10 @@
   @include breakpoint('large-desktop') {
     padding: 0 #{$base * 10px};
   }
+
+  &--isScrolled {
+    background: rgba($c-white, .8);
+  }
   
 
   &__logo {

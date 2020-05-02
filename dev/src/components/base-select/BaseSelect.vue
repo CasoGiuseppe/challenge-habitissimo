@@ -57,6 +57,17 @@ export default {
     };
   },
 
+  methods: {
+    handleChangeState(e) {
+      this.$emit('change', e.target.value);
+    },
+
+    handleActiveState() {
+      this.onActive = true;
+      delete this.isValidate.state;
+    },
+  },
+
   props: {
     id: {
       type: String,
@@ -88,17 +99,6 @@ export default {
       default() {
         return {};
       },
-    },
-  },
-
-  methods: {
-    handleChangeState(e) {
-      this.$emit('change', e.target.value);
-    },
-
-    handleActiveState() {
-      this.onActive = true;
-      delete this.isValidate.state;
     },
   },
 };

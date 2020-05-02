@@ -28,6 +28,18 @@
   }
 
   &__UI-form {
-  
+    order: 2;
+
+    @include breakpoint('tablet-pt') {
+      order: 1;
+    }
+  }
+
+  &__UI-info {
+    order: 1;
+
+    @include breakpoint('tablet-pt') {
+      order: 2;
+    }
   }
 }

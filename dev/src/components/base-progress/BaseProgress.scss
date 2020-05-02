@@ -30,8 +30,10 @@
     transform: translateY(-50%) translateX(-50%);
 
     &::after {
+      @include text--bold;
+      
       content: '%';
-      font-size: .5em;
+      font-size: .4em;
       transform: translateY(#{$base * -1px});
     }
   }
@@ -48,6 +50,15 @@
       transition: 0.35s stroke-dashoffset;
       transform: rotate(-90deg);
       transform-origin: 50% 50%;
+      z-index: 1;
+
+      &--isHalo {
+        opacity: .2;
+        stroke-dashoffset: 0;
+        stroke-dasharray: 0;
+        stroke: $c-silver;
+        z-index: 0;
+      }
     }
   }
 

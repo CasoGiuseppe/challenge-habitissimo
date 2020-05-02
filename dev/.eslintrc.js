@@ -17,6 +17,7 @@ module.exports = {
     "import/no-default-export": "off",
     "no-unused-vars": "off",
     "max-len": "off",
-    "camelcase": "off"
+    "camelcase": "off",
+    "no-nested-ternary": "off"
   },
 };

@@ -1,6 +1,5 @@
 .base-article {
   @include moveUp;
-
   $basearticle: &;
 
   background: $c-white;

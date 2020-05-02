@@ -1,5 +1,7 @@
 export const GET_All_CATEGORIES = 'getAllCategories';
 export const GET_SELECTED_CATEGORIES = 'getSelectedCategories';
+export const GET_ALl_COMPLETED_BY_CATEGORY = 'getAllCompletedByCategory';
+export const GET_NEXT_STEP = 'getNextStep';
 
 export default {
   /**
@@ -14,4 +16,32 @@ export default {
    * @param state
    */
   [GET_All_CATEGORIES]: (state) => state.categories,
+
+  /**
+   * Get last completed step
+   * @param state
+   * @param category
+   */
+  [GET_ALl_COMPLETED_BY_CATEGORY]: (state, getters) => (current) => current[0].funnel.filter((node) => node.completed === true),
+
+  /**
+   * Get last completed step
+   * @param state
+   * @param category
+   */
+  [GET_NEXT_STEP]: (state, getters) => (category) => {
+    const current = getters[GET_SELECTED_CATEGORIES](category);
+    const { funnel } = current[0];
+    const { length, [length - 1]: lastItem } = getters[GET_ALl_COMPLETED_BY_CATEGORY](current);
+    console.log(length);
+    return lastItem
+      ? funnel.indexOf(lastItem) !== (funnel.length - 1)
+        ? funnel[funnel.indexOf(lastItem) + 1].component
+        : funnel[funnel.indexOf(lastItem)].component
+      : funnel[0].component;
+
+    // console.log(current[0].funnel.indexOf(lastItem));
+    // return lastItem;
+    // return current[0].funnel.filter(current[0].funnel.filter((node) => node.completed === true));
+  },
 };
