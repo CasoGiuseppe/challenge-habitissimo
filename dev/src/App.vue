@@ -25,7 +25,7 @@ export default {
   methods: {
     handleScroll(e) {
       const winYScroll = window.scrollY;
-      this.isPageOnTop = !window.matchMedia('(max-width: 600px)').matches ? !(winYScroll >= 50) : null;
+      this.isPageOnTop = !(winYScroll >= 50);
     },
   },
 

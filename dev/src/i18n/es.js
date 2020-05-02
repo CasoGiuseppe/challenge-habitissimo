@@ -39,4 +39,27 @@ export default {
         <li>Compara ofertas y elige (o no) la mejor</li>
       </ul>`,
   },
+
+  features: {
+    gratis: {
+      title: 'Es Gratis',
+      label: 'Recibe varios presupuestos de forma gratuita y sin compromiso.',
+      action: 'descubre más',
+    },
+    saveTime: {
+      title: 'Ahorra Tiempo',
+      label: 'No pierdas tiempo buscando empresas. Ellas te contactan a ti.',
+      action: 'descubre más',
+    },
+    saveMoney: {
+      title: 'Ahorra dinero',
+      label: 'Tienes más de un presupuesto para comparar.',
+      action: 'descubre más',
+    },
+    findBest: {
+      title: 'Encuentra a los mejores',
+      label: 'Elige a los profesionales mejor valorados por los usuarios.',
+      action: 'descubre más',
+    },
+  },
 };

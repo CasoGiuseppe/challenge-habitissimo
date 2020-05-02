@@ -1,0 +1,46 @@
+.base-icon {
+  $baseicon: &;
+
+  fill: currentColor;
+  height: 1.2em;
+  width: 1.2em;
+
+  &--is {
+    &-large {
+      height: 2em;
+      width: 2em;
+    }
+
+    &-medium {
+      height: 1.6em;
+      width: 1.6em;
+    }
+
+    &-normal {
+      height: 1.2em;
+      width: 1.2em;
+    }
+
+    &-small {
+      height: 1em;
+      width: 1em;
+    }
+
+    &-xsmall {
+      height: 0.8em;
+      width: 0.8em;
+    }
+
+    &-primary {
+      fill: $c-primary
+    }
+
+    &-secondary {
+      fill: $c-secondary
+    }
+
+    &-light {
+      fill: $c-white
+    }
+  }
+}
