@@ -1,9 +1,7 @@
 .feature {
+  @include UI-base-rounded;
   $feature: &;
 
-  background: $c-white;
-  border-radius: #{$base + 2px};
-  border: 1px solid $c-silver;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -36,13 +34,10 @@
     @include text--regular;
     color: $c-dark-gray;
     display: flex;
+    word-break: break-word;
 
     + #{$feature}__text {
       margin-top: #{$base * 1px};
-    }
-
-    + #{$feature}__action {
-      margin-top: #{$base * 3px};
     }
   }
 
@@ -54,10 +49,6 @@
       @include breakpoint('tablet-pt') {
         padding-left: #{$base * 7px};
       }
-    }
-
-    + #{$feature}__action {
-      margin-top: #{$base * 3px};
     }
   }
 

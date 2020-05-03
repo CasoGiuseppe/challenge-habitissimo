@@ -78,6 +78,13 @@
     }
   }
 
+  &__icon {
+    display: none;
+    @include breakpoint('only-phone') {
+      display: block;
+    }
+  }
+
   &[style*="min-width"] {
     @include breakpoint('only-phone') {
       min-width: 100% !important;

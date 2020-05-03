@@ -6,6 +6,16 @@
   width: 1.2em;
 
   &--is {
+    &-xxlarge {
+      height: 6em;
+      width: 6em;
+    }
+
+    &-xlarge {
+      height: 4em;
+      width: 4em;
+    }
+
     &-large {
       height: 2em;
       width: 2em;

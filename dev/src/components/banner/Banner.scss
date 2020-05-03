@@ -1,0 +1,66 @@
+.banner {
+  @include UI-base-rounded;
+  $banner: &;
+
+  background: $c-primary;
+  color: $c-dark-gray;
+  display: flex;
+  height: 100%;
+  padding: #{$base * 5px};
+  width: 100%;
+
+  /deep/ {
+    a[href] {
+      color: $c-dark-gray;
+    } 
+  }
+
+  &--isSecondary {
+    background: $c-secondary;
+    color: $c-white;
+
+    /deep/ {
+      a[href] {
+        color: $c-white;
+      }
+    }
+  }
+
+  &__wrap {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+
+    @include breakpoint('tablet-ld') {
+      flex-direction: row;
+    }
+
+    > li {
+      + li {
+        flex: 0;
+        margin: #{$base * 3px} 0 0 0;
+
+        @include breakpoint('tablet-ld') {
+          flex: 1;
+          margin: 0 0 0 #{$base * 3px};
+        }
+      }
+    }
+  }
+
+  &__title {
+    @include text--light;
+    @include text--xbig;
+
+    + #{$banner}__text {
+      margin-top: #{$base * 3px};
+    }
+  }
+
+  &__text {
+    @include text--light;
+    @include text--small;
+  }
+}

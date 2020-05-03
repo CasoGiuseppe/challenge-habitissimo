@@ -57,42 +57,82 @@
         <div class="
           main-wrap__UI-banner
           grid__col-xs-12
-          grid__col-md-4
-          grid__col-xxl-3">
-          banner
+          grid__col-sm-12
+          grid__col-md-6
+          grid__col-lg-5
+          grid__col-xxl-7">
+          <Banner
+            :hasIcon="svg.shield"
+            isSecondary>
+            <template #title>
+              {{$t(`message.banner.title`)}}
+            </template>
+            <template #description>
+              {{$t(`message.banner.description`)}}
+            </template>
+          </Banner>
         </div>
 
         <!-- UI features -->
         <div class="
           main-wrap__UI-features
           grid__col-xs-12
-          grid__col-md-8
-          grid__col-xxl-3">
+          grid__col-sm-12
+          grid__col-md-6
+          grid__col-lg-7
+          grid__col-xxl-5">
           <ul class=
             "main-wrap__UI-features__list
-            grid__row">
+            grid__row
+            grid__row--isWrap">
             <li
-              v-for="feature in features"
+              class="
+                main-wrap__UI-features__list-header
+                grid__col-xs-12">
+                <h3
+                  class="main-wrap__UI-features__list-header__title">
+                  {{ $t(`message.features.title`) }}
+                  <transition
+                    mode="out-in"
+                    name="change-move">
+                      <span
+                        class="main-wrap__UI-features__list-header__category"
+                        :key="category">
+                        {{ $t(`message.categories.${category}.label`) }}
+                      </span>
+                  </transition>
+                </h3>
+            </li>
+            <li
+              v-for="(feature, index) in features"
               :key="feature.name"
               :class="[
                 'grid__col-xs-6',
-                `grid__col-sm-${12 / features.length}`
+                `grid__col-xl-${12 / features.length}`,
               ]">
-              <Feature
-                :hasIcon="feature.icon ? ICONS[feature.icon] : null">
-                <template #title>
-                  {{$t(`message.features.${feature.name}.title`)}}
-                </template>
-                <template #description>
-                  {{$t(`message.features.${feature.name}.label`)}}
-                </template>
-                <template #action>
-                  <BaseButton
-                    isFullsize>
-                    {{$t(`message.features.${feature.name}.action`)}}
-                  </BaseButton>
-                </template>
-              </Feature>
+              <transition
+                mode="out-in"
+                name="change-move">
+                  <Feature
+                    :hasIcon="feature.icon ? svg[feature.icon] : null"
+                    :key="`${category}_${feature.name}`"
+                    :style="{
+                      'transitionDelay' : `${index * .1}s`
+                    }">
+                    <template #title>
+                      {{$t(`message.features.list.${feature.name}.title`)}}
+                    </template>
+                    <template #description>
+                      {{$t(`message.features.list.${feature.name}.label`)}}
+                    </template>
+                    <template #action>
+                      <BaseButton
+                        isFullsize>
+                        {{$t(`message.features.list.${feature.name}.action`)}}
+                      </BaseButton>
+                    </template>
+                  </Feature>
+              </transition>
             </li>
           </ul>
         </div>
@@ -110,6 +150,7 @@ export default {
   components: {
     BaseButton: () => import(/* webpackChunkName: "BaseButton" */ '@/components/base-button/BaseButton'),
     Feature: () => import(/* webpackChunkName: "Feature" */ '@/components/feature/Feature'),
+    Banner: () => import(/* webpackChunkName: "Banner" */ '@/components/banner/Banner'),
   },
 
   computed: {
@@ -138,7 +179,7 @@ export default {
   data() {
     return {
       category: null,
-      ICONS: icons,
+      svg: icons,
     };
   },
 

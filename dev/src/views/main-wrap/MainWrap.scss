@@ -1,4 +1,5 @@
 .main-wrap {
+  @include moveUp;
   $mainwrap: &;
 
   padding: #{$base * 10px} #{$base * 6px};
@@ -47,9 +48,11 @@
     }
 
     &-banner {
+      margin-top: #{$base * 3px};
       order: 4;
 
       @include breakpoint('tablet-pt') {
+        margin-top: 0;
         order: 3;
       }
     }
@@ -65,14 +68,40 @@
 
       &__list {
         display: flex;
+        height: 100%;
+
+        &-header {
+          justify-content: flex-start;
+
+          @include breakpoint('tablet-pt') {
+            justify-content: flex-end;
+          }
+
+          &__title {
+            @include text--medium;
+            @include text--regular; 
+            line-height: #{$base * 5px};
+
+            @include breakpoint('tablet-pt') {
+              @include text--big;
+              line-height: #{$base * 7px};
+            }
+          }
+
+          &__category {
+            color: $c-primary;
+            display: inline-block;
+            margin-left: #{$base * 1px};
+          }
+        }
 
         li {
           + li {
-            &:nth-child(n+3) {
-              margin-top: #{$base * 5px};
+            &:nth-child(n+2) {
+              margin-top: #{$base * 3px};
 
-              @include breakpoint('tablet-pt') {
-                margin-top: 0;
+              @include breakpoint('desktop') {
+                margin-top: #{$base * 2px};
               }
             }
           }

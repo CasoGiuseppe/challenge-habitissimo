@@ -35,7 +35,11 @@
           <template #registration>
             <BaseButton
               isFullsize
-              isReplaced>
+              :isReplaced="{
+                state: true,
+                icon: svg.user,
+                color: 'light'
+              }">
                 <template>
                   {{$t(`message.buttons.login`)}}
                 </template>
@@ -45,7 +49,11 @@
             <BaseButton
             isFullsize
             isLight
-            isReplaced>
+            :isReplaced="{
+              state: true,
+              icon: svg.registration,
+              color: 'primary'
+            }">
               <template>
                 {{$t(`message.buttons.register`)}}
               </template>
@@ -63,6 +71,8 @@
 </template>
 
 <script>
+import icons from '@/assets/utilities/icons';
+
 export default {
   name: 'Header',
 
@@ -70,6 +80,12 @@ export default {
     BaseButton: () => import(/* webpackChunkName: "BaseButton" */ '@/components/base-button/BaseButton'),
     Navigation: () => import(/* webpackChunkName: "Navigation" */ '@/views/navigation/Navigation'),
     LoginBox: () => import(/* webpackChunkName: "LoginBox" */ '@/components/login-box/LoginBox'),
+  },
+
+  data() {
+    return {
+      svg: icons,
+    };
   },
 
   props: {

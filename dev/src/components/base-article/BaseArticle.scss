@@ -1,16 +1,14 @@
 .base-article {
   @include moveUp;
+  @include UI-base-rounded;
   $basearticle: &;
 
   background: $c-white;
-  border-radius: #{$base + 2px};
-  border: 1px solid $c-silver;
-  box-shadow: 0px 0px 10px 0px rgba(19,139,191,.1);
   color: $c-gray;
   padding: #{$base * 5px};
   position: relative;
 
-  @include breakpoint('tablet-pt') {
+  @include breakpoint('desktop') {
     padding-left: #{$base * 9px};
   }
 
@@ -25,7 +23,7 @@
     position: relative;
     text-transform: uppercase;
 
-    @include breakpoint('tablet-pt') {
+    @include breakpoint('desktop') {
       padding-left: 0;
     }
 
@@ -41,7 +39,7 @@
       transform: translateY(-50%);
       width: #{$base * 2px};
 
-      @include breakpoint('tablet-pt') {
+      @include breakpoint('desktop') {
         left: #{($base * 4) * -1px};
       }
     }
@@ -52,43 +50,59 @@
   }
 
   &__title {
-    @include text--xxxbig;
+    @include text--xxbig;
     @include text--regular; 
     line-height: #{$base * 7px};
-    word-break: break-all;
-
-    @include breakpoint('tablet-pt') {
-      @include text--xxbig;
-      line-height: #{$base * 7px};
-    }
+    word-break: break-word;
     
     + #{$basearticle}__description {
-      margin-top: #{$base * 4px};
+      margin-top: #{$base * 2px};
+
+      @include breakpoint('tablet-pt') {
+        margin-top: #{$base * 4px};
+      }
     }
 
     + #{$basearticle}__extra {
-      margin-top: #{$base * 4px};
+      margin-top: #{$base * 2px};
+
+      @include breakpoint('tablet-pt') {
+        margin-top: #{$base * 4px};
+      }
     }
 
     + #{$basearticle}__action {
-      margin-top: #{$base * 8px};
+      margin-top: #{$base * 2px};
+
+      @include breakpoint('tablet-pt') {
+        margin-top: #{$base * 8px};
+      }
     }
   }
 
   &__description {
-    @include text--medium;
+    @include text--small;
     @include text--light;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical; 
 
+    @include breakpoint('tablet-pt') {
+      @include text--medium;
+      display: block;
+    }
+
     + #{$basearticle}__extra {
-      margin-top: #{$base * 4px};
+      margin-top: #{$base * 2px};
+
+      @include breakpoint('tablet-pt') {
+        margin-top: #{$base * 4px};
+      }
     }
 
     + #{$basearticle}__action {
-      margin-top: #{$base * 4px};
+      margin-top: #{$base * 2px};
 
       @include breakpoint('tablet-pt') {
         margin-top: #{$base * 8px};
@@ -105,7 +119,7 @@
     }
 
     + #{$basearticle}__action {
-      margin-top: #{$base * 4px};
+      margin-top: #{$base * 2px};
 
       @include breakpoint('tablet-pt') {
         margin-top: #{$base * 8px};

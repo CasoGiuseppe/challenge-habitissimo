@@ -53,7 +53,6 @@ export default {
   methods: {
     setInitParams() {
       this.progressCircle = this.$el.querySelector('.base-progress__ring-circle');
-      console.log(this.progressCircle);
       this.radius = this.progressCircle.r.baseVal.value;
       this.circumference = this.radius * 2 * Math.PI;
 
@@ -69,7 +68,6 @@ export default {
     setProgress() {
       const { style } = this.$el;
       const nextValue = this.value > 100 ? 100 : this.value;
-      console.log(this.circumference - (nextValue / 100) * this.circumference);
       style.setProperty('--strokeDashoffset', this.circumference - (nextValue / 100) * this.circumference);
     },
 
