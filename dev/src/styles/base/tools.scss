@@ -144,13 +144,13 @@ $browser-context: 16;
   }
 
   .change-move-leave-active {
-    transition-duration: .2s;
+    transition-duration: .4s;
     transition-timing-function: $a-ease-in
   }
 
   .change-move-leave-to {
     opacity: 0;
-    transform: translateY(-50%);
+    transform: translateY(25%);
   }
 
   .change-move-enter {

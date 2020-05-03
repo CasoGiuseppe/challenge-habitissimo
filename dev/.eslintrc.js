@@ -18,6 +18,8 @@ module.exports = {
     "no-unused-vars": "off",
     "max-len": "off",
     "camelcase": "off",
-    "no-nested-ternary": "off"
+    "no-nested-ternary": "off",
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "consistent-return": "off",
   },
 };

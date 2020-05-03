@@ -11,6 +11,6 @@ const messages = {
 Vue.use(VueI18n);
 
 export default new VueI18n({
-  locale: 'es',
+  locale: process.env.VUE_APP_I18N_LOCALE,
   messages,
 });

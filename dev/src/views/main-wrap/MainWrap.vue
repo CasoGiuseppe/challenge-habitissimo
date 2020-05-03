@@ -143,6 +143,7 @@
 
 <script>
 import icons from '@/assets/utilities/icons';
+import { Budgets } from '@/services/http/Budgets';
 
 export default {
   name: 'MainWrap',
@@ -180,6 +181,7 @@ export default {
     return {
       category: null,
       svg: icons,
+      BUDGETS: Budgets,
     };
   },
 
@@ -189,9 +191,16 @@ export default {
     },
   },
 
+  methods: {
+    async getAllBudgets() {
+      const res = await this.BUDGETS.getBudgets({ id: 3 });
+    },
+  },
+
   created() {
     const categoryParam = this.$route.params.category;
     this.category = categoryParam || null;
+    this.getAllBudgets();
   },
 };
 </script>
