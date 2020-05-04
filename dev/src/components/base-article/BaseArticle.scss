@@ -44,7 +44,7 @@
       }
     }
 
-    + #{$basearticle}__title {
+    ~ #{$basearticle}__title {
       margin-top: #{$base * 2px};
     }
   }
@@ -55,7 +55,7 @@
     line-height: #{$base * 7px};
     word-break: break-word;
     
-    + #{$basearticle}__description {
+    ~ #{$basearticle}__description {
       margin-top: #{$base * 2px};
 
       @include breakpoint('tablet-pt') {
@@ -63,7 +63,7 @@
       }
     }
 
-    + #{$basearticle}__extra {
+    ~ #{$basearticle}__extra {
       margin-top: #{$base * 2px};
 
       @include breakpoint('tablet-pt') {
@@ -71,7 +71,7 @@
       }
     }
 
-    + #{$basearticle}__action {
+    ~ #{$basearticle}__action {
       margin-top: #{$base * 2px};
 
       @include breakpoint('tablet-pt') {
@@ -92,22 +92,6 @@
       @include text--medium;
       display: block;
     }
-
-    + #{$basearticle}__extra {
-      margin-top: #{$base * 2px};
-
-      @include breakpoint('tablet-pt') {
-        margin-top: #{$base * 4px};
-      }
-    }
-
-    + #{$basearticle}__action {
-      margin-top: #{$base * 2px};
-
-      @include breakpoint('tablet-pt') {
-        margin-top: #{$base * 8px};
-      }
-    }
   }
 
   &__extra {
@@ -117,14 +101,6 @@
     @include breakpoint('tablet-pt') {
       display: flex;
     }
-
-    + #{$basearticle}__action {
-      margin-top: #{$base * 2px};
-
-      @include breakpoint('tablet-pt') {
-        margin-top: #{$base * 8px};
-      }
-    }
   }
 
   &__action {
@@ -132,37 +108,12 @@
     justify-content: center;
   }
 
-  &[class*='--hasArrow'] {
-    &::before {
-      content: '';
-      left: #{($base * 2) * -1px};
-      position: absolute;
-      width: 0; 
-      height: 0;
-
-      @include breakpoint('only-phone') {
-        bottom: #{($base * 2) * -1px};
-        left: 50%;
-        top: auto;
-        transform: translateX(-50%);
-      }
-    }
+  &--hasArrow-left {
+    @include UI-arrow('left', $c-white)
   }
 
-  &--hasArrow-left {
-    &::before {
-      border-top: #{$base * 2px} solid transparent;
-      border-bottom: #{$base * 2px} solid transparent; 
-      border-right:#{$base * 2px} solid $c-white;
-      top: #{$base * 5px};
-
-      @include breakpoint('only-phone') {
-        border-bottom: none;
-        border-left: #{$base * 2px} solid transparent;
-        border-right: #{$base * 2px} solid transparent;
-        border-top: #{$base * 2px} solid $c-white;
-      }
-    }
+  &--hasArrow-bottom {
+    @include UI-arrow('bottom', $c-white)
   }
 
   /deep/ {

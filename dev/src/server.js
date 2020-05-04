@@ -1,15 +1,22 @@
 import { Server } from 'miragejs';
-import BUDGESTS from '@/mocks-data/budgets.json';
+import QUOTES from '@/mocks-data/quotes.json';
+import COMMENTS from '@/mocks-data/comments.json';
 
 const mirage = new Server({
   seeds(server) {
     server.db.loadData({
-      budgets: BUDGESTS,
+      quotes: QUOTES,
+      comments: COMMENTS,
     });
   },
   routes() {
     this.timing = 4000;
     this.namespace = 'api';
-    this.get('/budgets/:id', (schema, request) => schema.db.budgets.findBy({ category: request.params.id }));
+
+    // get quotes by ID
+    this.get('/quotes/:id', (schema, request) => schema.db.quotes.findBy({ category: request.params.id }));
+
+    // get all comments
+    this.get('/comments', (schema, request) => schema.db.comments);
   },
 });

@@ -1,10 +1,18 @@
-.lasts-quote {
+.distributor-content {
   @include moveUp;
   @include fade;
-  $lastsquote: &;
+  $distributorcontent: &;
 
   &__intro {
     padding: #{$base * 5px} 0;
+
+    #{$distributorcontent}--isRTL & {
+      order: 1;
+
+      @include breakpoint('tablet-pt') {
+        order: 2;
+      }
+    }
   }
 
   &__category {
@@ -39,7 +47,7 @@
       }
     }
 
-    + #{$lastsquote}__title {
+    + #{$distributorcontent}__title {
       margin-top: #{$base * 2px};
     }
   }
@@ -47,10 +55,23 @@
   &__title {
     @include text--xxbig;
     @include text--regular; 
+    color: $c-dark-gray;
     line-height: #{$base * 7px};
     word-break: break-word;
 
-    + #{$lastsquote}__description {
+    #{$distributorcontent}--isLight & {
+      color: $c-white;
+    }
+
+    ~ #{$distributorcontent}__description {
+      margin-top: #{$base * 2px};
+
+      @include breakpoint('tablet-pt') {
+        margin-top: #{$base * 4px};
+      }
+    }
+
+    ~ #{$distributorcontent}__more {
       margin-top: #{$base * 2px};
 
       @include breakpoint('tablet-pt') {
@@ -59,10 +80,15 @@
     }
   }
 
-  &__description
-  &__more-description {
+  &__description,
+  &__added-description {
     @include text--small;
     @include text--light;
+    color: $c-gray;
+
+    #{$distributorcontent}--isLight & {
+      color: $c-white;
+    }
   }
 
   &__description {
@@ -75,29 +101,24 @@
       @include text--medium;
       display: block;
     }
-
-    + #{$lastsquote}__more {
-      margin-top: #{$base * 2px};
-
-      @include breakpoint('tablet-pt') {
-        margin-top: #{$base * 4px};
-      }
-    }
   }
 
-  &__list {
+  &__main {
     margin-top: #{$base * 2px};
-    transition: opacity .4s linear;
 
     @include breakpoint('tablet-pt') {
       margin-top: #{$base * 3px};
     }
 
-    &--isLoading {
-      opacity: .5;
+    #{$distributorcontent}--isRTL & {
+      order: 2;
+
+      @include breakpoint('tablet-pt') {
+        order: 1;
+      }
     }
 
-    > li {
+    li {
       align-items: initial !important;
       margin-top: #{$base * 1px};
 
@@ -107,12 +128,20 @@
     }
   }
 
-  &__more {
+  *[class*='__added'] {
+    margin-top: #{$base * 2px};
+    
+    @include breakpoint('tablet-pt') {
+      margin-top: #{$base * 4px};
+    }
+  }
+
+  &__added {
     &-title {
       @include text--big;
       @include text--regular; 
 
-      + #{$lastsquote}__more-description {
+      + #{$distributorcontent}__more-description {
         margin-top: #{$base * 2px};
       }
     }

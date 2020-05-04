@@ -19,6 +19,7 @@ const routes = [
         components: {
           modulesTop: () => import(/* webpackChunkName: "RouterModuleTop" */ '@/views/router-modules/RouterModuleTop'),
           modulesMiddle: () => import(/* webpackChunkName: "RouterModuleMiddle" */ '@/views/router-modules/RouterModuleMiddle'),
+          modulesBottom: () => import(/* webpackChunkName: "RouterModuleBottom" */ '@/views/router-modules/RouterModuleBottom'),
         },
       },
     ],

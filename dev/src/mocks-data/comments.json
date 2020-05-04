@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Rosario A. M.",
+    "place": "Orihuela (Alicante)",
+    "vote": 4,
+    "date": "22/02/2020",
+    "comment":  "Vuestra ayuda me ha resultado de mucha utilidad para moverme en este mundo de las reformas."
+  },
+  {
+    "name": "Richard V. V.",
+    "place": "Arteixo (A Coruña)",
+    "vote": 5,
+    "date": "23/04/2020",
+    "comment":  "Muchas gracias por todo. He recibido varios presupuestos y los estoy estudiando. La experiencia ha sido muy positiva, en caso de querer hacer otra reforma, me pondre en contacto con vosotros. Gracias"
+  },
+  {
+    "name": "Pascual M.",
+    "place": "Gilet (Valencia)",
+    "vote": 5,
+    "date": "07/02/2020",
+    "comment":  "Muy agradecido por vuestra atención, hasta el momento he recibido cuatro presupuestos y creo que más rapidez y efectividad es difícil, de momento no he decidido el adecuado. Muchas gracias por todo."
+  },
+  {
+    "name": "Lourdes",
+    "place": "Galicia (Galicia)",
+    "vote": 3,
+    "date": "07/02/2020",
+    "comment":  "que puedo encontrar todo en un mismo lugar sin estresarme por Internet. Tanto profesionales como marcas"
+  }
+]

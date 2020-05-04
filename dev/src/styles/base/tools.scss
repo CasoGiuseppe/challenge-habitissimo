@@ -93,6 +93,43 @@ $browser-context: 16;
   }
 }
 
+@mixin UI-arrow($direction, $color) {
+  &::before {
+    content: '';
+    position: absolute;
+    width: 0; 
+    height: 0;
+
+    @if $direction == 'left' {
+      border-top: #{$base * 2px} solid transparent;
+      border-bottom: #{$base * 2px} solid transparent; 
+      border-right:#{$base * 2px} solid $color;
+      left: #{($base * 2) * -1px};
+      top: #{$base * 5px};
+    }
+    
+    @else if $direction == 'bottom' {
+      border-left: #{$base * 2px} solid transparent;
+      border-right: #{$base * 2px} solid transparent;
+      border-top: #{$base * 2px} solid $color;
+      bottom: #{($base * 2) * -1px};
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @include breakpoint('only-phone') {
+      border: none;
+      border-left: #{$base * 2px} solid transparent;
+      border-right: #{$base * 2px} solid transparent;
+      border-top: #{$base * 2px} solid $color;
+      bottom: #{($base * 2) * -1px};
+      left: 50%;
+      top: auto;
+      transform: translateX(-50%);
+    };
+  }
+}
+
 //- typography mixins
 @mixin text--light {
   font-family: $Quicksand, sans-serif;
@@ -181,12 +218,12 @@ $browser-context: 16;
 
   .change-fade-leave-active,
   .change-fade-enter-active {
-    transition: transform .4s $a-ease-out,
-                opacity .4s $a-ease-out;
+    transition: transform 1s $a-ease-out,
+                opacity 1s $a-ease-out;
   }
 
   .change-fade-leave-active {
-    transition-duration: .2s;
+    transition-duration: .4s;
     transition-timing-function: $a-ease-in
   }
 

@@ -2,7 +2,7 @@
   <section class="main-wrap">
     <!--
       UI top section
-      Components:
+      Views/component:
       1) form
       2) article
       3) banner
@@ -16,7 +16,7 @@
 
     <!--
       UI middle section
-      Components:
+      Views/component:
       1) budget witness
       2) happy user witness
     -->
@@ -24,6 +24,15 @@
       <router-view
         name="modulesMiddle"
         :category="category"/>
+    </div>
+
+    <!--
+      UI bottom section
+      Views/component:
+      1) happy user comments
+    -->
+    <div class="main-wrap__s-bottom">
+      <router-view name="modulesBottom"/>
     </div>
   </section>
 </template>

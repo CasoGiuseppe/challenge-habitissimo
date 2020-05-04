@@ -14,7 +14,7 @@
     border: 1px solid rgba($c-gray, .5);
     border-radius: px2rem($base);
     display: flex;
-    padding: #{$base * 2px};
+    padding: #{$base * 2px} #{$base * 4px} #{$base * 2px} #{$base * 2px};
     position: relative;
     transition: border .4s $a-ease-out;
 
@@ -47,7 +47,7 @@
       display: none;
       position: relative;
       pointer-events: none;
-      right: 5%;
+      right: 0%;
 
       #{$baseselect}--isLoading &{
         display: block;

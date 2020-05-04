@@ -2,7 +2,8 @@
   $mainwrap: &;
   height: 2500px;
 
-  &__s-top {
+  &__s-top,
+  &__s-bottom {
     background: yellow;
 
     background: $c-secondary;
@@ -42,6 +43,20 @@
 
     @include breakpoint('only-phone') {
       padding: #{$base * 3px} #{$base * 3px} #{$base * 9px};
+    }
+  }
+
+  &__s-bottom {
+    &::before {
+      background-position: right;
+      top: -5px;
+      transform: scaleY(-1);
+
+      @include breakpoint('only-phone') {
+        bottom: -2px;
+        left: 50%;
+        transform: translateX(-50%) scaleY(-1);
+      }
     }
   }
 }

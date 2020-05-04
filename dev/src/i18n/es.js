@@ -76,4 +76,9 @@ export default {
     description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit integer, tempor netus id class habitasse scelerisque eu sollicitudin, viverra fermentum cum purus dictumst eros elementum. Metus posuere et sollicitudin molestie',
     moreTitle: 'Mira también los presupuestos de otras categorias',
   },
+
+  lastsComments: {
+    title: '¿Qué dicen de Habitissimo?',
+    description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit integer, tempor netus id class habitasse scelerisque eu sollicitudin, viverra fermentum cum purus dictumst eros elementum. Metus posuere et sollicitudin molestie',
+  },
 };

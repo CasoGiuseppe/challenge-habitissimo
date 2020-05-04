@@ -1,10 +1,10 @@
 import { http } from './index';
 
-class Budgets {
-  static getBudgets = async (payload) => {
+class Quotes {
+  static getQuotes = async (payload) => {
     const { category } = payload;
     try {
-      const res = await http.get(`budgets/${category}`);
+      const res = await http.get(`quotes/${category}`);
       return res.data;
     } catch (error) {
       console.log(error.message);
@@ -13,5 +13,5 @@ class Budgets {
 }
 
 export {
-  Budgets,
+  Quotes,
 };
