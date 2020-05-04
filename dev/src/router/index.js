@@ -11,6 +11,7 @@ const routes = [
     components: {
       header: () => import(/* webpackChunkName: "Header" */ '@/views/header/Header.vue'),
       default: () => import(/* webpackChunkName: "MainWrap" */ '@/views/main-wrap/MainWrap.vue'),
+      footer: () => import(/* webpackChunkName: "Footer" */ '@/views/footer/Footer.vue'),
     },
     children: [
       {

@@ -2,10 +2,12 @@
   <nav
     :class="[
       'navigation',
-      isMenuActive ? 'navigation--isMenuActive' : null
+      isMenuActive ? 'navigation--isMenuActive' : null,
+      isFooter ? 'navigation--isFooter' : 'navigation--isHeader',
     ]">
     <!-- hamburger menu trigger -->
     <button
+      v-if="!isFooter"
       class="navigation__mobile-trigger"
       @click="isMenuActive = !isMenuActive">
       <span></span>
@@ -51,6 +53,13 @@ export default {
     return {
       isMenuActive: false,
     };
+  },
+
+  props: {
+    isFooter: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   watch: {

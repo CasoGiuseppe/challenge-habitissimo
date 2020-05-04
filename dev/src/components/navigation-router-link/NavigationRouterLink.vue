@@ -11,7 +11,7 @@
           :key="link"
           class="navigation-router-link__label">
             <slot />
-          </span>
+        </span>
     </transition>
   </router-link>
 </template>

@@ -78,7 +78,7 @@ export default {
   methods: {
     async allComments() {
       this.comments = await Comments.getComments();
-      this.interval = setInterval(() => this.incrementIndex(), 15000);
+      this.interval = setInterval(() => this.incrementIndex(), 6000);
     },
 
     incrementIndex() {

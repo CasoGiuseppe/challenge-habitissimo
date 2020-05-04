@@ -1,12 +1,14 @@
 .navigation {
   $navigation: &;
 
-  background: $c-primary;
-  height: 100%;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: #{$base * 8px};
+  &--isHeader {
+    background: $c-primary;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: #{$base * 8px};
+  }
 
   @include breakpoint('tablet-pt') {
     background: none;
@@ -35,60 +37,87 @@
   }
 
   &__routers {
-    align-items: center;
-    background: $c-primary;
     display: flex;
-    flex-direction: column;
-    height: 100vh;
-    left: 0;
-    position: fixed;
-    justify-content: center;
-    top: 0;
-    width: 100vw;
-    transform: translateX(100%);
-    transition: transform .6s $a-ease-out .4s;
-    z-index: 9;
+    width: 100%;
+
+    #{$navigation}--isHeader & {
+      align-items: center;
+      background: $c-primary;
+      flex-direction: column;
+      height: 100vh;
+      left: 0;
+      position: fixed;
+      justify-content: center;
+      top: 0;
+      width: 100vw;
+      transform: translateX(100%);
+      transition: transform .6s $a-ease-out .4s;
+      z-index: 9;
+
+      @include breakpoint('tablet-pt') {
+        background: none;
+        flex-direction: row;
+        height: auto;
+        left: auto;
+        position: relative;
+        top: auto;
+        transform: none;
+        transition: none;
+        width: 100%;
+      }
+    }
+
+    #{$navigation}--isFooter & {
+      flex-wrap: wrap;
+      width: 100%;
+    }
 
     #{$navigation}--isMenuActive & {
       transform: translateX(0);
       transition-delay: 0s;
     }
-
-    @include breakpoint('tablet-pt') {
-      background: none;
-      flex-direction: row;
-      height: auto;
-      left: auto;
-      position: relative;
-      top: auto;
-      transform: none;
-      transition: none;
-      width: 100%;
-      z-index: auto;
-    }
   }
 
   &__router {
-    flex: 0;
-    opacity: 0;
     position: relative;
-    transition: transform .4s $a-elastic,
-                opacity .4s $a-ease-out;
-    transform: translateX(100%);
+
+    #{$navigation}--isHeader & {
+      flex: 0;
+      opacity: 0;
+      transition: transform .4s $a-elastic,
+                  opacity .4s $a-ease-out;
+      transform: translateX(100%);
+
+      @include breakpoint('tablet-pt') {
+        flex: 1;
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    #{$navigation}--isFooter & {
+      flex: 0 0 calc(100% / 4);
+
+      @include breakpoint('tablet-ld') {
+        flex: 1;
+      }
+
+      @include breakpoint('only-phone') {
+        flex: 0 0 50%;
+      }
+    }
 
     #{$navigation}--isMenuActive & {
       opacity: 1;
       transform: translateX(0);
     }
 
-    @include breakpoint('tablet-pt') {
-      flex: 1;
-      opacity: 1;
-      transform: none;
-    }
-
     + #{$navigation}__router {
-      margin-top: #{$base px};
+      margin-top: #{$base * 1px};
+
+      #{$navigation}--isFooter & {
+        margin-top: 0;
+      }
 
       @include breakpoint('tablet-pt') {
         margin-top: 0;
@@ -105,6 +134,14 @@
 
         @include breakpoint('tablet-pt') {
           content: ''
+        }
+
+        #{$navigation}--isFooter & {
+          display: none;
+
+          @include breakpoint('tablet-ld') {
+            display: inline-block;
+          }
         }
       }
     }

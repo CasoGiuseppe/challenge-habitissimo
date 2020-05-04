@@ -21,6 +21,12 @@
     &--is-active {
       opacity: 1;
     }
+
+    /deep/ {
+      .navigation--isFooter & {
+        @include text--xsmall;
+      }
+    }
   }
 
   @include breakpoint('desktop') {

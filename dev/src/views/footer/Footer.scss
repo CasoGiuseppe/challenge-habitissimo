@@ -1,0 +1,16 @@
+.footer {
+  $footer: &;
+
+  background: $c-dark-gray;
+  padding: #{$base * 8px} #{$base * 3px};
+  text-align: center;
+
+  &-router-link {
+    color: $c-white;
+    text-decoration: none;
+
+    + * {
+      margin-top: #{$base * 6px}
+    }
+  }
+}

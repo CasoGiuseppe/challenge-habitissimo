@@ -62,8 +62,8 @@
         </LoginBox>
 
         <!-- main navigation place -->
-        <Navigation
-          class="grid__col-xs-2
+        <Navigation class="
+          grid__col-xs-2
           grid__col-md-12"/>
       </div>
     </div>

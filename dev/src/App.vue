@@ -9,6 +9,8 @@
       :mode = "$route.name"
       :isPageOnTop = "isPageOnTop"/>
     <router-view/>
+    <router-view
+      name="footer" />
   </main>
 </template>
 <script>
