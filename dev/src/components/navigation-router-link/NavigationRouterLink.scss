@@ -24,13 +24,21 @@
   }
 
   @include breakpoint('desktop') {
-    &:hover,
-    &:focus {
+    &:hover {
       #{$navigationrouterlink}__label {
         &::after {
           opacity: 1;
           transform: translateY(-50%) translateX(-100%) translateX($base * -1px);
         }
+      }
+    }
+  }
+
+  &:focus {
+    #{$navigationrouterlink}__label {
+      &::after {
+        opacity: 1;
+        transform: translateY(-50%) translateX(-100%) translateX($base * -1px);
       }
     }
   }

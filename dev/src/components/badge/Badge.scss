@@ -1,0 +1,104 @@
+.badge {
+  @include UI-base-rounded;
+  @include UI-spinner(($base * 4), 3, $c-white);
+  $badge: &;
+
+  background: $c-secondary;
+  padding: #{$base * 3px};
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    display: none;
+    position: absolute;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  &::before {
+    background: rgba($c-black, .5);
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%) translateX(-50%);
+  }
+
+  &:after {
+    display: none;
+    top: 50%;
+    left: 50%;
+    margin-top: #{($base * 2) * -1px};
+    margin-left: #{($base * 2) * -1px};
+  }
+
+  &--isLoading {
+    &::before,
+    &::after {
+      display: block;
+    }
+  }
+
+  @include breakpoint('large-desktop') {
+    padding: #{$base * 4px} #{$base * 6px};
+  }
+
+  &__title,
+  &__subtitle,
+  &__message {
+    color: $c-white;
+    padding-left: #{($base * 4px)};
+  }
+
+  &__title {
+    @include text--bold;
+    @include text--medium;
+    position: relative;
+
+    &::before {
+      border-radius: 100%;
+      background: $c-white;
+      content: '';
+      left: 0;
+      height: #{$base * 2px};
+      margin-right: #{$base * 2px};
+      position: absolute;
+      top: 0;
+      transform: translateY(#{$base * 1px});
+      width: #{$base * 2px};
+    }
+
+    + #{$badge}__subtitle {
+      margin-top: #{$base * 1px};
+    }
+
+    + #{$badge}__message {
+      margin-top: #{$base * 4px};
+    }
+  }
+
+  &__subtitle {
+    @include text--regular;
+    @include text--small;
+
+    + #{$badge}__message {
+      margin-top: #{$base * 4px};
+
+      @include breakpoint('only-phone') {
+        margin-top: #{$base * 2px};
+      }
+    }
+  }
+
+  &__message {
+    @include text--light;
+    @include text--small;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; 
+  }
+}

@@ -7,8 +7,8 @@ import getters, {
 } from './getters';
 
 // default value
-const defaultState = () => ({
-  categories: [{
+const defaultState = () => ([
+  {
     route: 'reform',
     funnel: [
       {
@@ -25,6 +25,24 @@ const defaultState = () => ({
         component: 'step3',
         completed: false,
         active: false,
+      },
+    ],
+    features: [
+      {
+        name: 'gratis',
+        icon: 'gratis',
+      },
+      {
+        name: 'saveTime',
+        icon: 'time',
+      },
+      {
+        name: 'saveMoney',
+        icon: 'money',
+      },
+      {
+        name: 'findBest',
+        icon: 'award',
       },
     ],
   }, {
@@ -46,6 +64,24 @@ const defaultState = () => ({
         active: false,
       },
     ],
+    features: [
+      {
+        name: 'gratis',
+        icon: 'gratis',
+      },
+      {
+        name: 'saveTime',
+        icon: 'time',
+      },
+      {
+        name: 'saveMoney',
+        icon: 'money',
+      },
+      {
+        name: 'findBest',
+        icon: 'award',
+      },
+    ],
   }, {
     route: 'change',
     funnel: [
@@ -63,6 +99,24 @@ const defaultState = () => ({
         component: 'step3',
         completed: false,
         active: false,
+      },
+    ],
+    features: [
+      {
+        name: 'gratis',
+        icon: 'gratis',
+      },
+      {
+        name: 'saveTime',
+        icon: 'time',
+      },
+      {
+        name: 'saveMoney',
+        icon: 'money',
+      },
+      {
+        name: 'findBest',
+        icon: 'award',
       },
     ],
   }, {
@@ -84,6 +138,24 @@ const defaultState = () => ({
         active: false,
       },
     ],
+    features: [
+      {
+        name: 'gratis',
+        icon: 'gratis',
+      },
+      {
+        name: 'saveTime',
+        icon: 'time',
+      },
+      {
+        name: 'saveMoney',
+        icon: 'money',
+      },
+      {
+        name: 'findBest',
+        icon: 'award',
+      },
+    ],
   }, {
     route: 'bricklayers',
     funnel: [
@@ -101,6 +173,24 @@ const defaultState = () => ({
         component: 'step3',
         completed: false,
         active: false,
+      },
+    ],
+    features: [
+      {
+        name: 'gratis',
+        icon: 'gratis',
+      },
+      {
+        name: 'saveTime',
+        icon: 'time',
+      },
+      {
+        name: 'saveMoney',
+        icon: 'money',
+      },
+      {
+        name: 'findBest',
+        icon: 'award',
       },
     ],
   }, {
@@ -122,15 +212,35 @@ const defaultState = () => ({
         active: false,
       },
     ],
+    features: [
+      {
+        name: 'gratis',
+        icon: 'gratis',
+      },
+      {
+        name: 'saveTime',
+        icon: 'time',
+      },
+      {
+        name: 'saveMoney',
+        icon: 'money',
+      },
+      {
+        name: 'findBest',
+        icon: 'award',
+      },
+    ],
   }, {
     route: 'others',
-  }],
-});
+  }]
+);
 
 export const categories = {
   namespaced: true,
 
-  state: defaultState(),
+  state: {
+    categories: defaultState(),
+  },
 
   getters,
 };

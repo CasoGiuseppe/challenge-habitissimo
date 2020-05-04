@@ -17,8 +17,8 @@ const routes = [
         path: '/ask-for-budget/:category?/:step?/',
         name: 'budget',
         components: {
-          article: () => import(/* webpackChunkName: "BaseArticle" */ '@/components/base-article/BaseArticle.vue'),
-          form: () => import(/* webpackChunkName: "BudgetForm" */ '@/views/budget-form/BudgetForm.vue'),
+          modulesTop: () => import(/* webpackChunkName: "RouterModuleTop" */ '@/views/router-modules/RouterModuleTop'),
+          modulesMiddle: () => import(/* webpackChunkName: "RouterModuleMiddle" */ '@/views/router-modules/RouterModuleMiddle'),
         },
       },
     ],

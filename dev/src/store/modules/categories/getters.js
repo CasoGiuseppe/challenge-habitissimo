@@ -33,15 +33,10 @@ export default {
     const current = getters[GET_SELECTED_CATEGORIES](category);
     const { funnel } = current[0];
     const { length, [length - 1]: lastItem } = getters[GET_ALl_COMPLETED_BY_CATEGORY](current);
-    console.log(length);
     return lastItem
       ? funnel.indexOf(lastItem) !== (funnel.length - 1)
         ? funnel[funnel.indexOf(lastItem) + 1].component
         : funnel[funnel.indexOf(lastItem)].component
       : funnel[0].component;
-
-    // console.log(current[0].funnel.indexOf(lastItem));
-    // return lastItem;
-    // return current[0].funnel.filter(current[0].funnel.filter((node) => node.completed === true));
   },
 };

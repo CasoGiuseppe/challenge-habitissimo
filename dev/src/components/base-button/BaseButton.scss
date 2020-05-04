@@ -12,7 +12,7 @@
   min-width: #{$base * 20px};
   min-height: #{$base * 6px};
   padding: 0 #{$base * 2px};
-  transition: background .6s $a-ease-out,
+  transition: background 1s $a-ease-out,
               color .6s $a-ease-out;
   text-transform: uppercase;
 

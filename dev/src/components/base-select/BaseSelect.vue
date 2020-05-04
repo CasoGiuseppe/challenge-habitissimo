@@ -9,15 +9,22 @@
       Object.prototype.hasOwnProperty.call(this.isValidate, 'state') && isValidate.state
         ? 'base-select--isValid'
         : null,
+      isLoading ? 'base-select--isLoading' : null,
     ]">
-    <label class="base-select__label"
+    <label
+      class="base-select__label"
       :for="id">
       <select
+        v-model="current"
         class="base-select__field"
         :id="id"
+        :disabled="isDisabled"
         @focus="handleActiveState"
         @change="handleChangeState">
-        <option>{{placeholder}}</option>
+        <option
+          v-if="placeholder">
+          {{placeholder}}
+        </option>
         <option
           v-for="option of options"
           :key="option.id"
@@ -54,6 +61,7 @@ export default {
   data() {
     return {
       onActive: false,
+      current: this.isCurrent,
     };
   },
 
@@ -76,7 +84,6 @@ export default {
 
     placeholder: {
       type: String,
-      default: 'placeholder',
     },
 
     options: {
@@ -99,6 +106,26 @@ export default {
       default() {
         return {};
       },
+    },
+
+    isCurrent: {
+      type: String,
+    },
+
+    isDisabled: {
+      type: Boolean,
+      default: false,
+    },
+
+    isLoading: {
+      type: Boolean,
+      default: false,
+    },
+  },
+
+  watch: {
+    isCurrent() {
+      this.current = this.isCurrent;
     },
   },
 };

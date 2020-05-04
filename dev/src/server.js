@@ -10,6 +10,6 @@ const mirage = new Server({
   routes() {
     this.timing = 4000;
     this.namespace = 'api';
-    this.get('/budgets/:id', (schema, request) => schema.db.budgets.find(request.params.id));
+    this.get('/budgets/:id', (schema, request) => schema.db.budgets.findBy({ category: request.params.id }));
   },
 });

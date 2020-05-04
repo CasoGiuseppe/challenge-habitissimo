@@ -12,7 +12,8 @@
           name="change-move">
             <span
               :key="category">
-              {{category}}</span>
+              {{category}}
+            </span>
         </transition>
       </h3>
       <h2

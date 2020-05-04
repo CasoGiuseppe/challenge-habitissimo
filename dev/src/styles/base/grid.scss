@@ -25,6 +25,10 @@
       flex-wrap: wrap;
     }
 
+    &--start {
+      justify-content: flex-start;
+    }
+
     &--center {
       justify-content: center;
     }

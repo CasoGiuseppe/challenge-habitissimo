@@ -76,8 +76,21 @@ $browser-context: 16;
 @mixin UI-base-rounded {
   background: $c-white;
   border-radius: #{$base + 2px};
-  box-shadow: 0px 0px 10px 0px rgba(19,139,191,.1);
-  border: 1px solid $c-silver;
+  box-shadow: 0px 0px 20px 0px rgba(12, 12, 12, .2);
+}
+
+@mixin UI-spinner($size, $borderSize, $color) {
+  &::after {
+    animation: spinner 1.2s linear infinite;
+    border-radius: 50%;
+    border: #{$borderSize * 1px} solid $color;
+    border-color: $color transparent $color transparent;
+    content: " ";
+    display: block;
+    height: #{$size * 1px};
+    margin: #{$base * 1px};
+    width: #{$size * 1px};
+  }
 }
 
 //- typography mixins
@@ -185,6 +198,8 @@ $browser-context: 16;
     opacity: 0;
   }
 }
+
+
 
 @mixin moveValidationUI {
   .change-validation-leave,

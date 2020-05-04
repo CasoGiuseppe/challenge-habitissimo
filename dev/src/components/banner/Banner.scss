@@ -3,7 +3,7 @@
   $banner: &;
 
   background: $c-primary;
-  color: $c-dark-gray;
+  color: $c-white;
   display: flex;
   height: 100%;
   padding: #{$base * 5px};
@@ -11,19 +11,12 @@
 
   /deep/ {
     a[href] {
-      color: $c-dark-gray;
+      color: $c-white;
     } 
   }
 
   &--isSecondary {
     background: $c-secondary;
-    color: $c-white;
-
-    /deep/ {
-      a[href] {
-        color: $c-white;
-      }
-    }
   }
 
   &__wrap {

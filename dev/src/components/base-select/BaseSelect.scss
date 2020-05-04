@@ -1,14 +1,15 @@
 .base-select {
-  $baseselect: &;
-
   @include text--regular;
   @include moveValidationUI;
+  $baseselect: &; 
 
   display: flex;
   flex-direction: column;
   position: relative;
 
   &__label {
+    @include UI-spinner(10, 2, $c-secondary);
+
     background: $c-white;
     border: 1px solid rgba($c-gray, .5);
     border-radius: px2rem($base);
@@ -41,10 +42,21 @@
       top: 50%;
       transform: translateY(-50%) rotate(45deg);
     }
+
+    &:after {
+      display: none;
+      position: relative;
+      pointer-events: none;
+      right: 5%;
+
+      #{$baseselect}--isLoading &{
+        display: block;
+      }
+    }
   }
 
   &__field {
-    @include text--xsmall;
+    @include text--small;
     background: none;
     border: none;
     color: $c-dark-gray;

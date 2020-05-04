@@ -1,7 +1,7 @@
 .navigation {
   $navigation: &;
 
-  background: $c-secondary;
+  background: $c-primary;
   height: 100%;
   position: absolute;
   right: 0;
@@ -36,7 +36,7 @@
 
   &__routers {
     align-items: center;
-    background: $c-secondary;
+    background: $c-primary;
     display: flex;
     flex-direction: column;
     height: 100vh;

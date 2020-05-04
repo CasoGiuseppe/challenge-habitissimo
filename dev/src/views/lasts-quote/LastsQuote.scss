@@ -1,0 +1,132 @@
+.lasts-quote {
+  @include moveUp;
+  @include fade;
+  $lastsquote: &;
+
+  &__intro {
+    padding: #{$base * 5px} 0;
+  }
+
+  &__category {
+    @include text--xsmall;
+    @include text--bold;
+
+    color: $c-primary;
+    display: flex;
+    align-items: center;
+    padding-left: #{($base * 4px)};
+    position: relative;
+    text-transform: uppercase;
+
+    @include breakpoint('desktop') {
+      padding-left: 0;
+    }
+
+    &::before {
+      border-radius: 100%;
+      background: $c-primary;
+      content: '';
+      left: 0;
+      height: #{$base * 2px};
+      margin-right: #{$base * 2px};
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: #{$base * 2px};
+
+      @include breakpoint('desktop') {
+        left: #{($base * 4) * -1px};
+      }
+    }
+
+    + #{$lastsquote}__title {
+      margin-top: #{$base * 2px};
+    }
+  }
+
+  &__title {
+    @include text--xxbig;
+    @include text--regular; 
+    line-height: #{$base * 7px};
+    word-break: break-word;
+
+    + #{$lastsquote}__description {
+      margin-top: #{$base * 2px};
+
+      @include breakpoint('tablet-pt') {
+        margin-top: #{$base * 4px};
+      }
+    }
+  }
+
+  &__description
+  &__more-description {
+    @include text--small;
+    @include text--light;
+  }
+
+  &__description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; 
+
+    @include breakpoint('tablet-pt') {
+      @include text--medium;
+      display: block;
+    }
+
+    + #{$lastsquote}__more {
+      margin-top: #{$base * 2px};
+
+      @include breakpoint('tablet-pt') {
+        margin-top: #{$base * 4px};
+      }
+    }
+  }
+
+  &__list {
+    margin-top: #{$base * 2px};
+    transition: opacity .4s linear;
+
+    @include breakpoint('tablet-pt') {
+      margin-top: #{$base * 3px};
+    }
+
+    &--isLoading {
+      opacity: .5;
+    }
+
+    > li {
+      align-items: initial !important;
+      margin-top: #{$base * 1px};
+
+      @include breakpoint('tablet-pt') {
+        margin: #{$base * 2px} 0;
+      }
+    }
+  }
+
+  &__more {
+    &-title {
+      @include text--big;
+      @include text--regular; 
+
+      + #{$lastsquote}__more-description {
+        margin-top: #{$base * 2px};
+      }
+    }
+
+    &-description {
+      display: none;
+
+      @include breakpoint('tablet-pt') {
+        display: block;
+      }
+
+      + * {
+        margin-top: #{$base * 2px};
+      }
+    }
+  }
+}
