@@ -1,24 +1,6 @@
 .navigation {
   $navigation: &;
 
-  &--isHeader {
-    background: $c-primary;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: #{$base * 8px};
-  }
-
-  @include breakpoint('tablet-pt') {
-    background: none;
-    position: relative;
-    height: auto;
-    right: auto;
-    top: auto;
-    width: 100%;
-  }
-
   &::before {
     display: none;
 
@@ -35,6 +17,33 @@
       z-index: -1;
     }
   }
+  
+  &--isHeader {
+    background: $c-primary;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: #{$base * 8px};
+  }
+
+  &--isFooter {
+    &::before {
+      @include breakpoint('tablet-pt') {
+        display: none;
+      }
+    }
+  }
+
+  @include breakpoint('tablet-pt') {
+    background: none;
+    position: relative;
+    height: auto;
+    right: auto;
+    top: auto;
+    width: 100%;
+  }
+
 
   &__routers {
     display: flex;

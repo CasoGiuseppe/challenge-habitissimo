@@ -17,15 +17,16 @@
     <ul class="navigation__routers">
       <li
         v-for="(category, index) of getAllCategories"
-        :key="category.route"
+        :key="category.slug"
         class="navigation__router"
         :style="{
           'transitionDelay' : `${index * .1}s`
         }">
         <NavigationRouterLink
-          :link="category.route">
+          :link="category.data.slug"
+          :step="getActiveState(category.data.slug)[0].component">
           <template>
-            {{$t(`message.categories.${category.route}.label`)}}
+            {{category.data.name}}
           </template>
         </NavigationRouterLink>
       </li>
@@ -44,15 +45,22 @@ export default {
   },
 
   computed: {
-    ...mapGetters({
-      getAllCategories: 'categories/getAllCategories',
-    }),
+    ...mapGetters('categories', [
+      'getAllCategories',
+      'getActiveState',
+    ]),
   },
 
   data() {
     return {
       isMenuActive: false,
     };
+  },
+
+  methods: {
+    getCategoryStep(category) {
+      return this.getActiveState(category);
+    },
   },
 
   props: {

@@ -11,7 +11,6 @@
           {{value > 100 ? 100 : value}}
         </span>
     </transition>
-    {{value}}
     <svg
       class="base-progress__ring"
       width="100%"

@@ -8,7 +8,7 @@ import mutations, {
   SET_QUOTES,
 } from './mutations';
 
-// ACTIONS
+// actions
 import actions, {
   FILL_QUOTES,
 } from './actions';

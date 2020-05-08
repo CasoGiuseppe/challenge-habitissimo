@@ -98,7 +98,7 @@
     @include text--light;
     display: none;
 
-    @include breakpoint('tablet-pt') {
+    @include breakpoint('tablet-ld') {
       display: flex;
     }
   }

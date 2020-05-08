@@ -1,0 +1,108 @@
+.budget-funnel {
+  @include UI-base-rounded;
+  @include fade;
+  @include moveSide;
+  @include moveUp;
+  $budgetfunnel: &;
+
+  flex-direction: column;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+
+  @include breakpoint('tablet-pt') {
+    flex-direction: row;
+  }
+
+  &__header {
+    ~ #{$budgetfunnel}__user-actions,
+    ~ #{$budgetfunnel}__step {
+      margin-top: #{$base * 5px};
+    }
+  }
+
+  &__title {
+    @include text--xxbig;
+    @include text--regular;
+    color: $c-dark-gray;
+
+    > span {
+      display: inline-block;
+    }
+
+    ~ #{$budgetfunnel}__description {
+      margin-top: #{$base * 2px};
+
+      @include breakpoint('tablet-pt') {
+        margin-top: #{$base * 4px};
+      }
+    }
+  }
+
+  &__description {
+    @include text--small;
+    @include text--light;
+    overflow: hidden;
+    display: -webkit-box;
+    margin: #{$base * 2px} 0;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; 
+
+    @include breakpoint('tablet-pt') {
+      @include text--medium;
+      display: block;
+      margin: #{$base * 4px} 0;
+    }
+  }
+
+  &__circle-progress {
+    background: $c-secondary;
+    color: $c-white;
+    display: flex;
+    align-items: center;
+    padding: #{$base * 5px};
+
+    @include breakpoint('tablet-pt') {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    > span {
+      flex: 1;
+      margin: 0 0 0 #{$base * 3px};
+
+      @include breakpoint('tablet-pt') {
+        flex: 0;
+        margin: #{$base * 3px} 0 0 0;
+        text-align: center;
+      }
+    }
+  }
+
+  &__user {
+    &-fields {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      padding: #{$base * 5px} #{$base * 6px};
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    &-actions {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__step {
+    /deep/ {
+      > *[class*='base-'] {
+        + [class*='base-'] {
+          margin-top: #{$base * 3px};
+        }
+      }
+    }
+  }
+}

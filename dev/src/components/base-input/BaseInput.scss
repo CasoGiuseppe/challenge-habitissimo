@@ -10,7 +10,7 @@
   
   &__label {
     background: $c-white;
-    border: 1px solid rgba($c-gray, .5);
+    border: 1px solid rgba($c-gray, .2);
     border-radius: px2rem($base);
     display: flex;
     padding: #{($base * 3) + 3px} #{$base * 2px} #{$base + px};

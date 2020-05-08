@@ -6,13 +6,16 @@
   $badge: &;
 
   background: $c-secondary;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   padding: #{$base * 5px}; 
   position: relative;
   width: 100%;
   transition: background .6s $a-ease-out;
 
   &--hasImage {
-    padding: #{$base * 5px} #{$base * 5px} #{$base * 8px} #{$base * 5px}; 
+    padding: #{$base * 5px} #{$base * 5px} #{$base * 10px} #{$base * 5px}; 
   }
 
   &--isLight {
@@ -68,16 +71,52 @@
   &__message {
     color: $c-white;
     padding-left: #{($base * 4px)};
+    position: relative;
+    word-break: break-word;
+
+    #{$badge}--hasIcon & {
+      padding-left: 0;
+    }
 
     #{$badge}--isLight & {
       color: $c-dark-gray;
     }
   }
 
+  &__icon {
+    background: $c-secondary;
+    border-radius: 100% 0px 100% 100%;
+    flex: 0 0 #{$base * 5px};
+    height: #{$base * 5px};
+    position: relative;
+
+    > * {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+
+    + span {
+      margin-left: #{$base * 2px};
+    }
+  }
+
+  &__enter-key {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;;
+  }
+
   &__title {
     @include text--bold;
     @include text--medium;
-    position: relative;
+    display: flex;
+    align-items: center;
+
+    #{$badge}--hasIcon & {
+      @include text--small;
+    }
 
     &::before {
       border-radius: 100%;
@@ -93,6 +132,10 @@
 
       #{$badge}--isLight & {
         background: $c-primary;
+      }
+
+      #{$badge}--hasIcon & {
+        display: none;
       }
     }
 
@@ -149,13 +192,9 @@
     transform: translateY(-50%) translateX(-50%);
 
     @include breakpoint('tablet-pt') {
+      @include UI-arrow('top', $c-primary);
       box-shadow: 0px 0px 20px 0px rgba(12, 12, 12, .2);
-      height: #{$base * 14px};
-      left: auto;
-      right: 0;
-      top: 0;
-      width: #{$base * 14px};
-      transform: translateY(#{($base * 2) * -1px}) translateX(#{$base * 2px})
+      transform: translateY(-50%) translateX(-50%) translateY(5px);
     }
 
     > * {
@@ -164,5 +203,11 @@
       top: 50%;
       transform: translateX(-50%) translateY(-50%);
     }
+  }
+
+  &__action {
+    margin-bottom: 0;
+    margin-top: auto;
+    padding-top: #{$base * 2px};
   }
 }

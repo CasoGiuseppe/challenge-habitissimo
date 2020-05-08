@@ -1,7 +1,7 @@
 import { http } from './index';
 
 class Quotes {
-  static getQuotes = async (payload) => {
+  static getQuotesByID = async (payload) => {
     const { category } = payload;
     try {
       const res = await http.get(`quotes/${category}`);

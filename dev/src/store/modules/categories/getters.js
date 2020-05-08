@@ -1,7 +1,9 @@
 export const GET_All_CATEGORIES = 'getAllCategories';
 export const GET_SELECTED_CATEGORIES = 'getSelectedCategories';
-export const GET_ALl_COMPLETED_BY_CATEGORY = 'getAllCompletedByCategory';
-export const GET_NEXT_STEP = 'getNextStep';
+export const GET_ACTIVE_STATE = 'getActiveState';
+export const ALL_COMPLETED = 'getAllComplteted';
+export const ALL_FORM_FIELDS = 'getFormFields';
+export const GET_COMPLETED_STATE = 'getCompletedState';
 
 export default {
   /**
@@ -9,34 +11,48 @@ export default {
    * @param state
    * @param item
    */
-  [GET_SELECTED_CATEGORIES]: (state) => (item) => state.categories.filter((category) => category.route === item),
+  [GET_SELECTED_CATEGORIES]: (state) => (item) => state.list[item],
 
   /**
    * Get all categories
    * @param state
    */
-  [GET_All_CATEGORIES]: (state) => state.categories,
+  [GET_All_CATEGORIES]: (state) => state.list,
 
   /**
-   * Get last completed step
+   * Get active state
    * @param state
    * @param category
    */
-  [GET_ALl_COMPLETED_BY_CATEGORY]: (state, getters) => (current) => current[0].funnel.filter((node) => node.completed === true),
+  [GET_ACTIVE_STATE]: (state, getters) => (category) => {
+    const res = getters[GET_SELECTED_CATEGORIES](category).funnel.filter((node) => node.active === true);
+    return getters[GET_SELECTED_CATEGORIES](category).funnel.filter((node) => node.active === true);
+  },
 
   /**
-   * Get last completed step
+   * Get completed step
    * @param state
    * @param category
    */
-  [GET_NEXT_STEP]: (state, getters) => (category) => {
-    const current = getters[GET_SELECTED_CATEGORIES](category);
-    const { funnel } = current[0];
-    const { length, [length - 1]: lastItem } = getters[GET_ALl_COMPLETED_BY_CATEGORY](current);
-    return lastItem
-      ? funnel.indexOf(lastItem) !== (funnel.length - 1)
-        ? funnel[funnel.indexOf(lastItem) + 1].component
-        : funnel[funnel.indexOf(lastItem)].component
-      : funnel[0].component;
+  [GET_COMPLETED_STATE]: (state, getters) => (category) => {
+    return getters[GET_SELECTED_CATEGORIES](category).funnel.filter((node) => node.completed === true);
+  },
+
+  /**
+   * Get all completed
+   * @param state
+   * @param category
+   */
+  [ALL_COMPLETED]: (state, getters) => (category) => {
+    return getters[GET_SELECTED_CATEGORIES](category).funnel.map((node) => node.completed === true).every((value) => value === true);
+  },
+
+  /**
+   * Get form fields
+   * @param state
+   * @param category
+   */
+  [ALL_FORM_FIELDS]: (state, getters) => (category) => {
+    return getters[GET_SELECTED_CATEGORIES](category).funnel.filter((node) => node.active === true)[0].form;
   },
 };

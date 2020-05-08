@@ -1,7 +1,10 @@
 <template>
   <router-link
-    class="navigation-router-link"
-    :to="{ name: 'budget', params: { category: link }}"
+    :class="[
+      'navigation-router-link',
+      $route.params.category === link ? 'navigation-router-link--is-active' : null,
+    ]"
+    :to="{ name: 'budget', params: { category: link, step: step }}"
     @mouseover.native="isHover = !isHover"
     @blur="isHover = !isHover">
     <transition
@@ -28,6 +31,11 @@ export default {
 
   props: {
     link: {
+      type: String,
+      require: true,
+    },
+
+    step: {
       type: String,
       require: true,
     },

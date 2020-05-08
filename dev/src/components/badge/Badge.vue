@@ -4,6 +4,7 @@
         'badge',
         isLoading ? 'badge--isLoading' : null,
         isLight ? 'badge--isLight' : null,
+        hasIcon ? 'badge--hasIcon' : null,
         arrow ? `badge--hasArrow-${arrow.direction}`:null,
         $slots.image ? 'badge--hasImage' : null,
       ]">
@@ -14,43 +15,48 @@
       </span>
       <transition
         mode="out-in"
-        name="change-move">
+        :name="isAnimated ? 'change-fade' : null">
+        <div
+          class="badge__enter-key"
+          :key="id">
           <h2
             v-if="$slots.title"
-            :key="id"
             class="badge__title">
-            <slot name="title" />
+            <span
+              v-if="hasIcon"
+              class="badge__icon">
+              <BaseIcon
+                :name="hasIcon"
+                size="small"
+                color="light"/>
+            </span>
+            <span v-html="$slots.title[0].text"></span>
           </h2>
-      </transition>
-      <transition
-        mode="out-in"
-        name="change-move">
-        <h3
-          v-if="$slots.subtitle"
-          :key="id"
-          class="badge__subtitle">
-          <slot name="subtitle" />
-        </h3>
-      </transition>
-      <transition
-        mode="out-in"
-        name="change-move">
-        <h4
-          v-if="$slots.date"
-          :key="id"
-          class="badge__date">
-          <slot name="date" />
-        </h4>
-      </transition>
-      <transition
-        mode="out-in"
-        name="change-fade">
-        <p
-          v-if="$slots.message"
-          :key="id"
-          class="badge__message">
-          <slot name="message" />
-        </p>
+
+          <h3
+            v-if="$slots.subtitle"
+            class="badge__subtitle"
+            v-html="$slots.subtitle[0].text">
+          </h3>
+
+          <h4
+            v-if="$slots.date"
+            class="badge__date"
+            v-html="$slots.date[0].text">
+          </h4>
+
+          <p
+            v-if="$slots.message"
+            class="badge__message"
+            v-html="$slots.message[0].text">
+          </p>
+
+          <div
+            v-if="$slots.action"
+            class="badge__action">
+            <slot name="action" />
+          </div>
+        </div>
       </transition>
     </article>
 </template>
@@ -58,6 +64,10 @@
 <script>
 export default {
   name: 'Badge',
+
+  components: {
+    BaseIcon: () => import(/* webpackChunkName: "BaseIcon" */ '@/components/base-icon/BaseIcon'),
+  },
 
   props: {
     id: {
@@ -76,6 +86,15 @@ export default {
 
     arrow: {
       type: Object,
+    },
+
+    hasIcon: {
+      type: String,
+    },
+
+    isAnimated: {
+      type: Boolean,
+      default: false,
     },
   },
 };

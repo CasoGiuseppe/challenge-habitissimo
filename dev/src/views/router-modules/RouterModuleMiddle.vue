@@ -9,7 +9,7 @@
           <div class="
             router-module__c-lasts-quote
             grid__col-xs-12">
-            <DistributorContent :category="current ? current : null">
+            <DistributorContent :category="categoryLabel || null">
               <template #title>
                 {{$t(`message.lastsQuote.title`)}}
               </template>
@@ -24,7 +24,8 @@
               </template>
               <template #action>
                 <BaseSelect
-                  id="select"
+                  v-model="current"
+                  id="categories"
                   :isCurrent="category"
                   :isDisabled="isLoading"
                   :isLoading="isLoading"
@@ -78,14 +79,15 @@ export default {
     ...mapGetters({
       getAllQuotes: 'quotes/getAllQuotes',
       getAllCategories: 'categories/getAllCategories',
+      getSelectedCategories: 'categories/getSelectedCategories',
     }),
 
     categories() {
-      return this.getAllCategories.map((category, index) => (
+      return Object.keys(this.getAllCategories).map((category, index) => (
         {
           id: index,
-          label: this.$t(`message.categories.${category.route}.label`),
-          value: category.route,
+          label: this.getAllCategories[category].data.name,
+          value: this.getAllCategories[category].data.slug,
         }
       ));
     },
@@ -96,6 +98,10 @@ export default {
 
     quotes() {
       return this.getAllQuotes;
+    },
+
+    categoryLabel() {
+      return this.getSelectedCategories(this.category).data.name;
     },
   },
 
@@ -114,7 +120,7 @@ export default {
     async quotesBycategory(value) {
       this.isLoading = true;
       this.current = value || this.category;
-      const res = await Quotes.getQuotes({ category: this.current });
+      const res = await Quotes.getQuotesByID({ category: this.current });
       this.fillQuotes(res.witness.map((element, index) => (
         {
           id: `${res.category}_${index}`,

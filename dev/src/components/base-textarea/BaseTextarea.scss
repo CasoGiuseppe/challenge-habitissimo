@@ -8,8 +8,18 @@
   flex-direction: column;
   position: relative;
 
+  &__title {
+    @include text--small;
+    @include text--light;
+
+    ~ #{$basetextarea}__field {
+      margin-top: #{$base * 1px};
+    }
+  }
+
   &__field {
-    border: 1px solid rgba($c-gray, .5);
+    @include text--small;
+    border: 1px solid rgba($c-gray, .2);
     border-radius: px2rem($base);
     color: $c-dark-gray;
     padding: #{$base * 2px};
@@ -41,7 +51,7 @@
     border-radius: 100%;
     height: #{$base * 3px};
     position: absolute;
-    top: #{$base + px};
+    top: #{$base * 5px};
     left: 0;
     width: #{$base * 3px};
     transform: translateX(-100%) translateX(#{$base * -1px});

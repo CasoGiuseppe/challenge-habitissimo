@@ -11,12 +11,18 @@
         : null,
     ]"
     :for="id">
+    <h3
+      v-if="$slots.title"
+      class="base-textarea__title">
+      <slot name="title" />
+    </h3>
     <textarea
       class="base-textarea__field"
       :id="id"
       :placeholder="placeholder"
       :rows="rows"
       :required="isRequired.state"
+      :value="value"
       @focus="handleActiveState"
       @blur="handleActiveState"
       @input="handleInputState"/>
@@ -82,6 +88,10 @@ export default {
     rows: {
       type: Number,
       default: 5,
+    },
+
+    value: {
+      type: String,
     },
 
     isRequired: {

@@ -1,0 +1,114 @@
+[
+   {
+      "name":"reformas",
+      "slug":"reformas",
+      "children":[
+         {
+            "name":"reforma baños",
+            "slug":"reforma-banos"
+         },
+         {
+            "name":"reforma cocinas",
+            "slug":"reforma-cocinas"
+         },
+         {
+            "name":"reforma integral",
+            "slug":"reforma-integral"
+         }
+      ]
+   },
+  {
+     "name":"construcción",
+     "slug":"construccion",
+     "children":[
+        {
+           "name":"construcción casas",
+           "slug":"construccion-casas"
+        },
+        {
+           "name":"construcción edificios",
+           "slug":"construccion-edificios"
+        },
+        {
+           "name":"construcción piscinas",
+           "slug":"construccion-piscinas"
+        }
+     ]
+  },
+  {
+      "name":"mudanzas",
+      "slug":"mudanzas",
+      "children":[
+         {
+            "name":"mudanzas tipo 1",
+            "slug":"mudanza-1"
+         },
+         {
+            "name":"mudanzas tipo 2",
+            "slug":"mudanza-2"
+         }
+      ]
+   },
+  {
+     "name":"pintores",
+     "slug":"pintores",
+     "children":[
+        {
+           "name":"pintar interior de vivienda",
+           "slug":"pintar-interior-de-vivienda"
+        },
+        {
+           "name":"lacar puertas",
+           "slug":"lacar-puertas"
+        },
+        {
+            "name":"quitar o poner gotéle",
+            "slug":"quitar-o-poner-gotele"
+         },
+         {
+            "name":"lacar muebles",
+            "slug":"lacar-muebles"
+         }
+      ]
+   },
+   {
+      "name":"albañiles",
+      "slug":"albaniles",
+      "children":[
+         {
+            "name":"trabajos varios de albañilería (o reforma)",
+            "slug":"trabajos-varios-de-albañilería"
+         },
+         {
+            "name":"alicatar / Solar",
+            "slug":"alicatar-solar"
+         },
+         {
+             "name":"otros trabajos de albañilería",
+             "slug":"otros-trabajos-de-albanileria"
+          },
+          {
+             "name":"construir estructura de casa",
+             "slug":"construir-estructura-de-casa"
+          }
+       ]
+   },
+   {
+      "name":"parquetistas",
+      "slug":"parquetistas",
+      "children":[
+         {
+            "name":"lijar (acuchillar) y barnizar parquet (completo)",
+            "slug":"lijar-y-barnizar-parquet"
+         },
+         {
+            "name":"poner parquet o tarima vivienda (completa)",
+            "slug":"poner-parquet-o-tarima-vivienda"
+         },
+         {
+             "name":"poner tarima exterior",
+             "slug":"poner-tarima-exterior"
+          }
+       ]
+   }
+]

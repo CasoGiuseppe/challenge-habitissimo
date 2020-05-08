@@ -17,7 +17,8 @@
   text-transform: uppercase;
 
   &:disabled {
-    background: $c-dark-gray;
+    background: $c-gray;
+    cursor: default;
   }
 
   @include breakpoint('tablet-pt') {
@@ -51,8 +52,8 @@
       &:not([disabled]) {
         &:hover,
         &:focus {
-          background: $c-dark-gray;
-          color: $c-white;
+          background: $c-silver;
+          color: $c-dark-gray;
         }
       }
     }

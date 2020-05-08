@@ -26,7 +26,7 @@
             mode="out-in"
             name="change-move">
               <span :key="category">
-                {{$t(`message.categories.${category}.label`)}}
+                {{category}}
               </span>
           </transition>
         </h3>

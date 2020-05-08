@@ -129,7 +129,7 @@
   }
 
   *[class*='__added'] {
-    margin-top: #{$base * 2px};
+    margin-top: #{$base * 3px};
     
     @include breakpoint('tablet-pt') {
       margin-top: #{$base * 4px};
@@ -154,7 +154,7 @@
       }
 
       + * {
-        margin-top: #{$base * 2px};
+        margin-top: #{$base * 3px};
       }
     }
   }

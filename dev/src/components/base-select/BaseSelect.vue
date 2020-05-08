@@ -15,20 +15,23 @@
       class="base-select__label"
       :for="id">
       <select
-        v-model="current"
         class="base-select__field"
         :id="id"
         :disabled="isDisabled"
+        :value="value"
         @focus="handleActiveState"
-        @change="handleChangeState">
+        @change="handleChangeState"
+        @input="handleInputState">
         <option
-          v-if="placeholder">
+          v-if="placeholder"
+          :value='null'>
           {{placeholder}}
         </option>
         <option
           v-for="option of options"
           :key="option.id"
-          :value="option.value">
+          :value="option.value"
+          :selected="option.value === current">
           {{option.label}}
         </option>
       </select>
@@ -66,6 +69,10 @@ export default {
   },
 
   methods: {
+    handleInputState(e) {
+      this.$emit('input', e.target.value);
+    },
+
     handleChangeState(e) {
       this.$emit('change', e.target.value);
     },
@@ -83,6 +90,10 @@ export default {
     },
 
     placeholder: {
+      type: String,
+    },
+
+    value: {
       type: String,
     },
 
@@ -110,6 +121,7 @@ export default {
 
     isCurrent: {
       type: String,
+      default: 'placeholder',
     },
 
     isDisabled: {

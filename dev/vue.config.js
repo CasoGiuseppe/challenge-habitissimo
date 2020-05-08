@@ -1,4 +1,12 @@
 module.exports = {
+  configureWebpack:{
+    optimization: {
+      splitChunks: {
+        automaticNameDelimiter: '-',
+      }
+    }
+  },
+
   css: {
     loaderOptions: {
       sass: {

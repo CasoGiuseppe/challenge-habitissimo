@@ -23,8 +23,8 @@
                 <li class="grid__col-xs-12">
                   <Badge
                     :id="comments[index].id"
-                    isLight
-                    :arrow= "{ direction: 'bottom' }">
+                    isAnimated
+                    isLight>
                     <template #image>
                       <BaseIcon
                         :name="svg.user"

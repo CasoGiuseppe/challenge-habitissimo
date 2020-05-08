@@ -117,6 +117,15 @@ $browser-context: 16;
       transform: translateX(-50%);
     }
 
+    @else if $direction == 'top' {
+      border-left: #{$base * 2px} solid transparent;
+      border-right: #{$base * 2px} solid transparent;
+      border-bottom: #{$base * 2px} solid $color;
+      top: #{($base * 2 - 2) * -1px};
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
     @include breakpoint('only-phone') {
       border: none;
       border-left: #{$base * 2px} solid transparent;
@@ -209,6 +218,35 @@ $browser-context: 16;
   }
 }
 
+@mixin moveSide {
+  .change-side-leave,
+  .change-side-enter-to {
+    opacity: 1;
+    transform: translateX(0)
+  }
+
+  .change-side-leave-active,
+  .change-side-enter-active {
+    transition: transform .8s $a-ease-out,
+                opacity .8s $a-ease-out;
+  }
+
+  .change-side-leave-active {
+    transition-duration: .4s;
+    transition-timing-function: $a-ease-in
+  }
+
+  .change-side-leave-to {
+    opacity: 0;
+    transform: translateX(25%);
+  }
+
+  .change-side-enter {
+    opacity: 0;
+    transform: translateX(-100%)
+  }
+}
+
 @mixin fade {
   .change-fade-leave,
   .change-fade-enter-to {
@@ -218,12 +256,12 @@ $browser-context: 16;
 
   .change-fade-leave-active,
   .change-fade-enter-active {
-    transition: transform 1s $a-ease-out,
-                opacity 1s $a-ease-out;
+    transition: transform 1.2s $a-ease-out,
+                opacity 1.2s $a-ease-out;
   }
 
   .change-fade-leave-active {
-    transition-duration: .4s;
+    transition-duration: .8s;
     transition-timing-function: $a-ease-in
   }
 

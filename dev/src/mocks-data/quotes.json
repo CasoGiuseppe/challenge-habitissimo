@@ -1,6 +1,6 @@
 [
   {
-    "category": "reform",
+    "category": "reformas",
     "witness": [
       {
         "title": "Reforma vivienda",
@@ -25,7 +25,7 @@
     ]
   },
   {
-    "category": "building",
+    "category": "construccion",
     "witness": [
       {
         "title": "Prestacion de servicios",
@@ -40,7 +40,7 @@
     ]
   },
   {
-    "category": "change",
+    "category": "mudanzas",
     "witness": [
       {
         "title": "Mudanzas que sean baratas en málaga",
@@ -60,7 +60,7 @@
     ]
   },
   {
-    "category": "painters",
+    "category": "pintores",
     "witness": [
       {
         "title": "Pintores baratos para pintar mi casa",
@@ -90,7 +90,7 @@
     ]
   },
   {
-    "category": "bricklayers",
+    "category": "albaniles",
     "witness": [
       {
         "title": "Albañiles",
@@ -110,7 +110,7 @@
     ]
   },
   {
-    "category": "parquet",
+    "category": "parquetistas",
     "witness": [
       {
         "title": "Pequeños trabajos parquetistas",

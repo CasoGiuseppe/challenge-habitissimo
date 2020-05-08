@@ -19,6 +19,14 @@
     order: 2;
     margin-top: #{$base * 3px};
 
+    + #{$routermodule}__c-info {
+      margin-top: #{$base * 3px};
+
+      @include breakpoint('tablet-ld') {
+        margin-top: 0;
+      }
+    }
+
     @include breakpoint('tablet-pt') {
       order: 1;
       margin-top: 0;

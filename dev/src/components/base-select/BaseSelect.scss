@@ -11,7 +11,7 @@
     @include UI-spinner(10, 2, $c-secondary);
 
     background: $c-white;
-    border: 1px solid rgba($c-gray, .5);
+    border: 1px solid rgba($c-gray, .2);
     border-radius: px2rem($base);
     display: flex;
     padding: #{$base * 2px} #{$base * 4px} #{$base * 2px} #{$base * 2px};
@@ -68,6 +68,10 @@
 
     &::-ms-expand {
       display: none;
+    }
+
+    &[disabled] {
+      opacity: .3;
     }
   }
 

@@ -28,8 +28,18 @@ body,
 
 #app {
   @include text--light;
+  @include moveUp;
   color: $c-dark-gray;
   min-height: 100vh;
+}
+
+.isLoading {
+  @include UI-spinner(80, 20, $c-white);
+  align-items: center;
+  background: $c-secondary;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
 }
 
 .isBlocked {
