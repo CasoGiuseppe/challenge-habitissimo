@@ -48,6 +48,8 @@ export default {
       'getAllCategories',
     ]),
 
+    // return object to
+    // categories select options
     categories() {
       return Object.keys(this.getAllCategories).map((category, index) => (
         {
@@ -58,10 +60,13 @@ export default {
       ));
     },
 
+    // watch form valid parameter
     formValid() {
       return this.$v.form.$invalid;
     },
 
+    // event on change
+    // field content
     modelChange() {
       return Object.keys(this.form).map((node) => {
         return { [node]: this.$v.form[node].$model };
@@ -98,8 +103,10 @@ export default {
       }
     },
 
+    // Fill field if
+    // have init values
     fillFields() {
-      if (this.fields) {
+      if (this.fields && this.fields.length > 0) {
         for (let node of this.fields) {
           this.form[Object.keys(node)] = Object.values(node)[0];
         }
@@ -129,6 +136,8 @@ export default {
       this.$emit('validate', { valid: !newValue });
     },
 
+    // load subcategories
+    // to fill select
     async current(newvalue, oldvalue) {
       this.$v.form.subcategory.$reset();
       if (newvalue) {

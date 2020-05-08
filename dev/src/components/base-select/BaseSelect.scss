@@ -35,19 +35,24 @@
       border-width: 0 2px 2px 0;
       content: '';
       display: inline-block;
+      margin: 0;
       position: absolute;
       padding: 2px;
       pointer-events: none;
       right: #{$base * 2px};
       top: 50%;
       transform: translateY(-50%) rotate(45deg);
+
+      #{$baseselect}--isLoading &{
+        display: none;
+      }
     }
 
     &:after {
       display: none;
       position: relative;
       pointer-events: none;
-      right: 0%;
+      right: #{($base * -1) * 2px};
 
       #{$baseselect}--isLoading &{
         display: block;

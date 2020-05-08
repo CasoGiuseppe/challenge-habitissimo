@@ -1,3 +1,6 @@
+import { LocalStorage } from '@/services/storage/localStorage';
+import { Constants } from '@/constants.js';
+
 export const SET_LOCAL_CATEGORIES = 'setLocalCategories';
 export const SET_NEW_COMPLETED_STATE = 'setNewCompletedState';
 export const MOVE_FORWARD_ACTIVE_STATE = 'moveForwardActiveState';
@@ -5,7 +8,6 @@ export const MOVE_BACK_ACTIVE_STATE = 'moveBackActiveState';
 export const CHANGE_NEXT_ACTION = 'changeNextAction';
 export const RESET_COMPLETED = 'resetCompleted';
 export const ADD_COMPLETED_FORM = 'addCompletedForm';
-export const SET_FROM_LOCALSTORAGE = 'setFromLocalstorage';
 
 export default {
   /**
@@ -39,7 +41,6 @@ export default {
     const section = state.list[category];
     const current = section.funnel.filter((node) => node.active === true);
     const total = state.list[category].funnel.length;
-
     if (current.length === 0) {
       section.funnel[total - 1].active = true;
     } else {
@@ -110,18 +111,17 @@ export default {
     const section = state.list[category];
     const current = section.funnel.indexOf(section.funnel.filter((node) => node.active === true)[0]);
     section.funnel[current].form = fields;
-  },
 
-  /**
-   * Set value from localstorage
-   * @param state
-   * @param category
-   * @param step
-   */
-  [SET_FROM_LOCALSTORAGE](state, payload) {
-    const { category, fields } = payload;
-    const section = state.list[category];
-    const current = section.funnel.indexOf(section.funnel.filter((node) => node.active === true)[0]);
-    section.funnel[current].form = fields;
+    // Fill localstorage
+    // only to path URL
+    // category and step
+    LocalStorage.update(Constants.LOCALSTORAGE, {
+      values: {
+        category: [{
+          name: category,
+          pass: section.funnel[current].component,
+        }],
+      },
+    });
   },
 };

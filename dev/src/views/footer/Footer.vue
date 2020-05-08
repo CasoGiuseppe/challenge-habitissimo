@@ -3,7 +3,7 @@
     <router-link
       class="footer-router-link"
       :to="{ name: 'budget' }">
-      &copy; Habitissimo
+      &copy; {{$t(`message.company`)}}
     </router-link>
     <div class="grid">
       <div class="grid__row">

@@ -47,24 +47,13 @@ export default {
   },
 
   computed: {
-    ...mapGetters('categories', [
-      'getAllCategories',
-    ]),
-
-    categories() {
-      return this.getAllCategories.map((category, index) => (
-        {
-          id: index,
-          label: category.name,
-          value: category.slug,
-        }
-      ));
-    },
-
+    // watch form valid parameter
     formValid() {
       return this.$v.form.$invalid;
     },
 
+    // event on change
+    // field content
     modelChange() {
       return Object.keys(this.form).map((node) => {
         return { [node]: this.$v.form[node].$model };
@@ -87,8 +76,10 @@ export default {
       return this.$v.form[field].$dirty ? { state: !this.$v.form[field].$error } : {};
     },
 
+    // Fill field if
+    // have init values
     fillFields() {
-      if (this.fields) {
+      if (this.fields && this.fields.length > 0) {
         for (let node of this.fields) {
           this.form[Object.keys(node)] = Object.values(node)[0];
         }

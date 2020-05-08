@@ -47,41 +47,38 @@ export default {
       'changeActiveState',
     ]),
 
+    // detect scroll position
+    //  and set state
     handleScroll(e) {
       const winYScroll = window.scrollY;
       this.isPageOnTop = !(winYScroll >= 50);
     },
 
+    // callback from api REST categories
     async fillLocalStorageCategories() {
       this.categories = await Categories.getAllCategories();
       for (let node of this.categories.map((category, index) => ({ id: index, name: category.name, slug: category.slug }))) {
         this.fillLocalCategories(node);
       }
 
-      // this.$router.push({ name: 'budget', params: { category: Object.keys(this.getAllCategories)[0], step: 'Step1' } });
-
       this.handleLocalStorage();
     },
 
     handleLocalStorage() {
-      // first route link
-      // get values form localstorage if exist
-      const storage = JSON.parse(localStorage.getItem(Constants.LOCALSTORAGE));
-      const localstorageExist = storage && storage.values;
+      // default valuet to route path
       let path = Object.keys(this.getAllCategories)[0];
       let step = Constants.DEFAULTSTEP;
 
-
+      // check if localstorage exist
+      // if is true set path and step by
+      // localstorage values
       if (LocalStorage.exist()) {
-        const { category, datas } = LocalStorage.exist();
-
-        // set router params with localstorage
+        const { category, pass } = LocalStorage.exist();
         path = category[0].name;
-        step = datas[datas.length - 1].name;
+        step = category[0].pass;
 
-        // set init state of active item
         this.changeActiveState({
-          category: path,
+          category: category[0].name,
           direction: 'next',
         });
       }
@@ -91,9 +88,13 @@ export default {
   },
 
   created() {
+    // recive event to block window
     this.$eventHub.$on('blocked', (value) => {
       this.isBlocked = value;
     });
+
+    // fill local store with
+    // api REST
     this.fillLocalStorageCategories();
   },
 

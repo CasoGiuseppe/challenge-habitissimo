@@ -6,7 +6,6 @@ export class LocalStorage {
     temporary = temporary ? JSON.parse(temporary) : {};
 
     for (let k of Object.keys(newObject)) {
-      console.log(k);
       temporary[k] = Object.assign(temporary[k] || {}, newObject[k]);
     }
 

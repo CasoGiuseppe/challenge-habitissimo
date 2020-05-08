@@ -30,5 +30,6 @@ module.exports = {
     "no-unused-expressions": "off",
     "prefer-destructuring": "off",
     "guard-for-in": "off",
+    "no-return-assign": "off"
   },
 };

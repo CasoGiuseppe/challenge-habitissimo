@@ -79,17 +79,24 @@ $browser-context: 16;
   box-shadow: 0px 0px 20px 0px rgba(12, 12, 12, .2);
 }
 
-@mixin UI-spinner($size, $borderSize, $color) {
+@mixin UI-spinner($size, $borderSize, $color, $message: '') {
   &::after {
     animation: spinner 1.2s linear infinite;
     border-radius: 50%;
     border: #{$borderSize * 1px} solid $color;
     border-color: $color transparent $color transparent;
-    content: " ";
+    content: "";
     display: block;
     height: #{$size * 1px};
     margin: #{$base * 1px};
     width: #{$size * 1px};
+  }
+  &::before {
+    content: $message;
+    color: $color;
+    display: block;
+    order: 2;
+    margin-top: #{$base * 1px};
   }
 }
 

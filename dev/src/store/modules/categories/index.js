@@ -20,7 +20,6 @@ import mutations, {
   CHANGE_NEXT_ACTION,
   RESET_COMPLETED,
   ADD_COMPLETED_FORM,
-  SET_FROM_LOCALSTORAGE,
 } from './mutations';
 
 // actions
@@ -56,16 +55,12 @@ const features = [
 const setFunnelArray = (category) => {
   let temp = [];
 
-  // fill data with localstorage params or default params
   for (let [i, component] of Constants.FUNNELSTEPS.entries()) {
-    const comparation = LocalStorage.exist()
-                        && LocalStorage.exist().category.filter((node) => node.name === category).length > 0
-                        && LocalStorage.exist().datas.filter((node) => node.name === component).length > 0;
     temp.push({
       component,
-      completed: comparation ? LocalStorage.exist().datas.filter((node) => node.name === component)[0].completed : false,
+      completed: false,
       active: true,
-      form: comparation ? LocalStorage.exist().datas.filter((node) => node.name === component)[0].form : [],
+      form: [],
     });
   }
   return temp;

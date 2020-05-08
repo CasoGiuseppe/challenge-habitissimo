@@ -27,7 +27,7 @@
       }
     }
 
-    @include breakpoint('tablet-pt') {
+    @include breakpoint('tablet-ld') {
       order: 1;
       margin-top: 0;
     }
@@ -36,7 +36,7 @@
   &__c-info {
     order: 1;
 
-    @include breakpoint('tablet-pt') {
+    @include breakpoint('tablet-ld') {
       order: 2;
     }
   }

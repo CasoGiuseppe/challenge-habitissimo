@@ -6,4 +6,12 @@ export const Constants = {
   LOCALSTORAGE: 'lastCategory',
   FUNNELSTEPS: ['Step1', 'Step2', 'Step3'],
   DEFAULTSTEP: 'Step1',
+  DEFAULT_LOCAL_STORAGE_NAME: 'lastCategory',
+  DEFAULT_LOCAL_STORAGE_OBJECT: {
+      values: {
+        category: [
+          { name: '', pass: '' },
+        ],
+      },
+    },
 };

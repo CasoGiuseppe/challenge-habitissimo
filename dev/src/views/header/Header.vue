@@ -12,7 +12,7 @@
         grid__row
         grid__row--isWrap">
 
-        <!-- logo place -->
+        <!-- UI logo place -->
         <h2 class="
           header__logo
           grid__col-xs-8
@@ -24,7 +24,7 @@
             </figure>
         </h2>
 
-        <!-- login/registration place -->
+        <!-- UI login/registration place -->
         <LoginBox class="
           grid__col-xs-2
           grid__col-md-6
@@ -61,7 +61,7 @@
           </template>
         </LoginBox>
 
-        <!-- main navigation place -->
+        <!-- UI navigation place -->
         <Navigation class="
           grid__col-xs-2
           grid__col-md-12"/>

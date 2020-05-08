@@ -37,10 +37,13 @@ export default {
   },
 
   computed: {
+    // watch form valida parameter
     formValid() {
       return this.$v.form.$invalid;
     },
 
+    // event on change
+    // field content
     modelChange() {
       return Object.keys(this.form).map((node) => {
         return { [node]: this.$v.form[node].$model };
@@ -68,8 +71,10 @@ export default {
       return this.$v.form[field].$dirty ? { state: !this.$v.form[field].$error } : {};
     },
 
+    // Fill field if
+    // have init values
     fillFields() {
-      if (this.fields.length > 0) {
+      if (this.fields && this.fields.length > 0) {
         for (let node of this.fields) {
           this.form[Object.keys(node)] = Object.values(node)[0];
         }

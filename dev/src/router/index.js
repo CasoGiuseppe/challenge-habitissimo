@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import store from '../store';
+import { LocalStorage } from '@/services/storage/localStorage';
+import { Constants } from '@/constants.js';
 
 // catch dupliacated navigation error
 const originalPush = VueRouter.prototype.push;
@@ -32,6 +33,11 @@ const routes = [
         },
       },
     ],
+    beforeEnter: (to, from, next) => {
+      // if localstorage not exist yer
+      if (!LocalStorage.exist()) localStorage.setItem(Constants.DEFAULT_LOCAL_STORAGE_NAME, JSON.stringify(Constants.DEFAULT_LOCAL_STORAGE_OBJECT));
+      next();
+    },
   },
   { path: '*', redirect: { name: 'budget' } },
 ];

@@ -1,4 +1,11 @@
-# dev
+## Technical Stack
+
+|               | Nombre     | Versión |
+| ------------- | ---------- | ------- |
+| **Lenguaje**  | javascript | es6     |
+| **Framework** | vuejs      | 2.6.10  |
+|               | vuex       | 3.1.0   |
+
 
 ## Project setup
 ```
@@ -19,6 +26,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

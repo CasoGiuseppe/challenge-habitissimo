@@ -1,4 +1,6 @@
 export default {
+  company: 'Habitissimo',
+
   buttons: {
     register: 'registrate',
     login: 'accede',

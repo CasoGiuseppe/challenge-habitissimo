@@ -13,7 +13,13 @@
         :value="progressValue"/>
       <span>{{$t(`message.form.progressmessage`)}}</span>
     </aside>
-    <div class="budget-funnel__user-fields">
+    <!-- ** -->
+
+    <!-- UI visual form -->
+    <form
+      class="budget-funnel__user-fields"
+      onsubmit="event.preventDefault();"
+      novalidate>
       <header class="budget-funnel__header">
         <h2 class="budget-funnel__title">
           <transition
@@ -36,7 +42,7 @@
         </p>
       </header>
 
-      <!-- dynamic component load -->
+      <!-- Dynamic component load -->
       <transition
         mode="out-in"
         name="change-side">
@@ -50,6 +56,8 @@
             @changeModel="modelChange"
           />
       </transition>
+      <!-- ** -->
+
       <!-- UI visual user action back/next -->
       <footer class="budget-funnel__user-actions">
         <span>
@@ -98,14 +106,15 @@
           </transition>
         </span>
       </footer>
-    </div>
+      <!-- ** -->
+    </form>
+    <!-- ** -->
   </section>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import { Constants } from '@/constants.js';
-import { LocalStorage } from '@/services/storage/localStorage';
 
 export default {
   name: 'BudgetFunnel',
@@ -165,6 +174,7 @@ export default {
   data() {
     return {
       validateForm: [],
+      temp: [],
     };
   },
 
@@ -178,6 +188,7 @@ export default {
     ]),
 
     setActiveState(dir) {
+      // set new active state for current step
       this.changeActiveState({
         category: this.current,
         direction: dir,
@@ -195,28 +206,10 @@ export default {
       this.changeCompletedState({
         category: this.current,
       });
-
-      // set local storage
-      const storage = JSON.parse(localStorage.getItem(Constants.LOCALSTORAGE));
-      let storageValues = storage && storage.values;
-      let storageDatas = storageValues && storage.values.datas;
-      const baseNode = {
-                        name: this.$route.params.step,
-                        form: this.validateForm,
-                        completed: this.$store.state.categories.list[this.current].funnel.filter((node) => node.component === this.$route.params.step)[0].completed,
-                      };
-
-      storageDatas ? storageDatas.push(baseNode) : null;
-      LocalStorage.update(Constants.LOCALSTORAGE, {
-        values: {
-          category: [{ name: this.current }],
-          datas: storage && storage.values.category[0].name !== this.current
-                  ? [baseNode]
-                  : storageDatas || [baseNode],
-          },
-      });
     },
 
+    // load dynamic component
+    // whith URL parameters
     importComponent(path) {
       return () => import(`./BudgetFunnel${path}.vue`);
     },
@@ -242,12 +235,12 @@ export default {
   },
 
   watch: {
+    // change path route
     componentKey() {
       this.$router.push(
         {
           name: 'budget',
-          params:
-            {
+          params: {
               category: this.current,
               step: this.getAllComplteted(this.current) ? Constants.FUNNEL_COMPLETED : this.getActiveState(this.current)[0].component,
             },
