@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationRouterLink.vue has the expected html structure 1`] = `
+<router-link-stub to="[object Object]" class="navigation-router-link">
+  <transition-stub name="change-move" mode="out-in"><span class="navigation-router-link__label"></span></transition-stub>
+</router-link-stub>
+`;

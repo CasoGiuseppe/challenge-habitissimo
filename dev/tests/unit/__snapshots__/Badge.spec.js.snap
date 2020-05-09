@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge.vue has the expected html structure 1`] = `
+<article class="badge badge--isLoading badge--hasIcon badge--hasArrow-undefined badge--hasImage"><span class="badge__image"><span class="slot-image">image</span></span>
+  <transition-stub name="change-fade" mode="out-in">
+    <div class="badge__enter-key">
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+      <div class="badge__action"><span class="slot-action">title</span></div>
+    </div>
+  </transition-stub>
+</article>
+`;

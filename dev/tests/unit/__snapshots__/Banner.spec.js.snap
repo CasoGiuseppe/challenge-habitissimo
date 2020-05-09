@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Banner.vue has the expected html structure 1`] = `
+<aside class="banner banner--isSecondary">
+  <ul class="banner__wrap">
+    <li><svg viewBox="0 0 24 24" class="base-icon base-icon--is-xxlarge base-icon--is-light">
+        <path d="icon"></path>
+      </svg></li>
+    <li>
+      <!---->
+      <!---->
+    </li>
+  </ul>
+</aside>
+`;

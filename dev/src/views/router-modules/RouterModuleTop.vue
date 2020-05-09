@@ -56,9 +56,9 @@
           router-module__c-banner
           grid__col-xs-12
           grid__col-sm-12
-          grid__col-md-6
-          grid__col-lg-5
-          grid__col-xxl-7">
+          grid__col-md-5
+          grid__col-lg-4
+          grid__col-xxl-6">
           <Banner :hasIcon="svg.shield">
             <template #title>
               {{$t(`message.banner.title`)}}
@@ -78,8 +78,8 @@
           router-module__c-features
           grid__col-xs-12
           grid__col-sm-12
-          grid__col-md-6
-          grid__col-lg-7
+          grid__col-md-7
+          grid__col-lg-8
           grid__col-xxl-5">
           <ul class=
             "router-module__c-features__list

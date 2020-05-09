@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseSelect.vue has the expected html structure 1`] = `
+<div class="base-select base-select--isValid base-select--isLoading"><label for="test" class="base-select__label"><select id="test" class="base-select__field">
+      <option value="">
+        placeholder
+      </option>
+      <option value="1">
+        option
+      </option>
+    </select>
+    <transition-stub name="change-validation" mode="out-in"><span class="base-select__validation-icon"></span></transition-stub>
+  </label>
+  <!---->
+</div>
+`;

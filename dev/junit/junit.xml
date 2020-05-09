@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="37" failures="0" time="3.644">
+  <testsuite name="BaseArticle.vue" errors="0" failures="0" skipped="0" timestamp="2020-05-09T16:18:07" time="1.455" tests="3">
+    <testcase classname="BaseArticle.vue has correct action slot" name="BaseArticle.vue has correct action slot" time="0.064">
+    </testcase>
+    <testcase classname="BaseArticle.vue has correct props values" name="BaseArticle.vue has correct props values" time="0.014">
+    </testcase>
+    <testcase classname="BaseArticle.vue has the expected html structure" name="BaseArticle.vue has the expected html structure" time="0.031">
+    </testcase>
+  </testsuite>
+  <testsuite name="BaseTextarea.vue" errors="0" failures="0" skipped="0" timestamp="2020-05-09T16:18:07" time="1.426" tests="5">
+    <testcase classname="BaseTextarea.vue has correct props values" name="BaseTextarea.vue has correct props values" time="0.04">
+    </testcase>
+    <testcase classname="BaseTextarea.vue has correct $emit response" name="BaseTextarea.vue has correct $emit response" time="0.004">
+    </testcase>
+    <testcase classname="BaseTextarea.vue has correct set data value" name="BaseTextarea.vue has correct set data value" time="0.02">
+    </testcase>
+    <testcase classname="BaseTextarea.vue has correct class name" name="BaseTextarea.vue has correct class name" time="0.004">
+    </testcase>
+    <testcase classname="BaseTextarea.vue has the expected html structure" name="BaseTextarea.vue has the expected html structure" time="0.014">
+    </testcase>
+  </testsuite>
+  <testsuite name="BaseIcon.vue" errors="0" failures="0" skipped="0" timestamp="2020-05-09T16:18:07" time="1.481" tests="3">
+    <testcase classname="BaseIcon.vue has correct props values" name="BaseIcon.vue has correct props values" time="0.064">
+    </testcase>
+    <testcase classname="BaseIcon.vue has correct class name" name="BaseIcon.vue has correct class name" time="0.011">
+    </testcase>
+    <testcase classname="BaseIcon.vue has the expected html structure" name="BaseIcon.vue has the expected html structure" time="0.036">
+    </testcase>
+  </testsuite>
+  <testsuite name="LoginBox.vue" errors="0" failures="0" skipped="0" timestamp="2020-05-09T16:18:07" time="1.477" tests="3">
+    <testcase classname="LoginBox.vue has correct props values" name="LoginBox.vue has correct props values" time="0.097">
+    </testcase>
+    <testcase classname="LoginBox.vue has correct class name" name="LoginBox.vue has correct class name" time="0.016">
+    </testcase>
+    <testcase classname="LoginBox.vue has the expected html structure" name="LoginBox.vue has the expected html structure" time="0.051">
+    </testcase>
+  </testsuite>
+  <testsuite name="BaseSelect.vue" errors="0" failures="0" skipped="0" timestamp="2020-05-09T16:18:07" time="1.577" tests="4">
+    <testcase classname="BaseSelect.vue has correct props values" name="BaseSelect.vue has correct props values" time="0.109">
+    </testcase>
+    <testcase classname="BaseSelect.vue has correct $emit response" name="BaseSelect.vue has correct $emit response" time="0.038">
+    </testcase>
+    <testcase classname="BaseSelect.vue has correct class name" name="BaseSelect.vue has correct class name" time="0.008">
+    </testcase>
+    <testcase classname="BaseSelect.vue has the expected html structure" name="BaseSelect.vue has the expected html structure" time="0.072">
+    </testcase>
+  </testsuite>
+  <testsuite name="BaseButton.vue" errors="0" failures="0" skipped="0" timestamp="2020-05-09T16:18:07" time="1.434" tests="5">
+    <testcase classname="BaseButton.vue has correct props values" name="BaseButton.vue has correct props values" time="0.029">
+    </testcase>
+    <testcase classname="BaseButton.vue has correct $emit response" name="BaseButton.vue has correct $emit response" time="0.005">
+    </testcase>
+    <testcase classname="BaseButton.vue has correct action slot" name="BaseButton.vue has correct action slot" time="0.011">
+    </testcase>
+    <testcase classname="BaseButton.vue has correct class name" name="BaseButton.vue has correct class name" time="0.003">
+    </testcase>
+    <testcase classname="BaseButton.vue has the expected html structure" name="BaseButton.vue has the expected html structure" time="0.02">
+    </testcase>
+  </testsuite>
+  <testsuite name="Badge.vue" errors="0" failures="0" skipped="0" timestamp="2020-05-09T16:18:08" time="0.422" tests="4">
+    <testcase classname="Badge.vue has correct props values" name="Badge.vue has correct props values" time="0.025">
+    </testcase>
+    <testcase classname="Badge.vue has correct action slot" name="Badge.vue has correct action slot" time="0.014">
+    </testcase>
+    <testcase classname="Badge.vue has correct class name" name="Badge.vue has correct class name" time="0.006">
+    </testcase>
+    <testcase classname="Badge.vue has the expected html structure" name="Badge.vue has the expected html structure" time="0.017">
+    </testcase>
+  </testsuite>
+  <testsuite name="Banner.vue" errors="0" failures="0" skipped="0" timestamp="2020-05-09T16:18:08" time="0.37" tests="3">
+    <testcase classname="Banner.vue has correct props values" name="Banner.vue has correct props values" time="0.02">
+    </testcase>
+    <testcase classname="Banner.vue has correct class name" name="Banner.vue has correct class name" time="0.003">
+    </testcase>
+    <testcase classname="Banner.vue has the expected html structure" name="Banner.vue has the expected html structure" time="0.014">
+    </testcase>
+  </testsuite>
+  <testsuite name="BaseInput.vue" errors="0" failures="0" skipped="0" timestamp="2020-05-09T16:18:08" time="0.325" tests="5">
+    <testcase classname="BaseInput.vue has correct props values" name="BaseInput.vue has correct props values" time="0.019">
+    </testcase>
+    <testcase classname="BaseInput.vue has correct $emit response" name="BaseInput.vue has correct $emit response" time="0.004">
+    </testcase>
+    <testcase classname="BaseInput.vue has correct set data value" name="BaseInput.vue has correct set data value" time="0.005">
+    </testcase>
+    <testcase classname="BaseInput.vue has input correct ID" name="BaseInput.vue has input correct ID" time="0.011">
+    </testcase>
+    <testcase classname="BaseInput.vue has the expected html structure" name="BaseInput.vue has the expected html structure" time="0.014">
+    </testcase>
+  </testsuite>
+  <testsuite name="NavigationRouterLink.vue" errors="0" failures="0" skipped="0" timestamp="2020-05-09T16:18:07" time="1.918" tests="2">
+    <testcase classname="NavigationRouterLink.vue has correct props values" name="NavigationRouterLink.vue has correct props values" time="0.015">
+    </testcase>
+    <testcase classname="NavigationRouterLink.vue has the expected html structure" name="NavigationRouterLink.vue has the expected html structure" time="0.013">
+    </testcase>
+  </testsuite>
+</testsuites>

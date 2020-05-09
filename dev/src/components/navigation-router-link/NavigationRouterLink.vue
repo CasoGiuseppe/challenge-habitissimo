@@ -2,7 +2,7 @@
   <router-link
     :class="[
       'navigation-router-link',
-      $route.params.category === link ? 'navigation-router-link--is-active' : null,
+      routeParam === link ? 'navigation-router-link--is-active' : null,
     ]"
     :to="{ name: 'budget', params: { category: link, step: step }}"
     @mouseover.native="isHover = !isHover"
@@ -22,6 +22,12 @@
 <script>
 export default {
   name: 'NavigationRouterLink',
+
+  computed: {
+    routeParam() {
+      return this.$route.params.category;
+    },
+  },
 
   data() {
     return {

@@ -205,7 +205,7 @@ $browser-context: 16;
 
   .change-move-leave-active,
   .change-move-enter-active {
-    transition: transform .8s $a-elastic,
+    transition: transform .8s $a-ease-out,
                 opacity .8s $a-ease-out;
   }
 

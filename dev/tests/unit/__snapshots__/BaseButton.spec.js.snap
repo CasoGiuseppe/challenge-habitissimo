@@ -1,0 +1,6 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseButton.vue has the expected html structure 1`] = `
+<button disabled="disabled" class="base-button base-button--isSecondary base-button--isLight base-button--isFullsize" style="min-width: 100px;"><span class="base-button__label"><span class="slot-action">button</span></span>
+  <!----></button>
+`;

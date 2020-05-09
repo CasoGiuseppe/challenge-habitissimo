@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseTextarea.vue has the expected html structure 1`] = `
+<label for="test" class="base-textarea base-textarea--isValid">
+  <!----> <textarea id="test" placeholder="placeholder" rows="5" class="base-textarea__field"></textarea>
+  <transition-stub name="change-validation" mode="out-in"><span class="base-textarea__validation-icon"></span></transition-stub>
+  <!---->
+</label>
+`;
