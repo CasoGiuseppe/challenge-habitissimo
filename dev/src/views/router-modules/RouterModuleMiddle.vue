@@ -5,7 +5,10 @@
           grid__row
           grid__row--isWrap">
 
-          <!-- UI lasts quote -->
+          <!--
+            UI lasts quote
+            change it by select option
+          -->
           <div class="
             router-module__c-lasts-quote
             grid__col-xs-12">
@@ -57,6 +60,7 @@
               </template>
             </DistributorContent>
           </div>
+          <!-- ** -->
       </div>
     </div>
   </section>

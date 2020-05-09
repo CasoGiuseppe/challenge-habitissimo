@@ -52,7 +52,8 @@ export default {
    * @param state
    * @param category
    */
-  [ALL_FORM_FIELDS]: (state, getters) => (category) => {
-    return getters[GET_SELECTED_CATEGORIES](category).funnel.filter((node) => node.active === true)[0].form;
+  [ALL_FORM_FIELDS]: (state, getters) => (category, step) => {
+    const current = getters[GET_SELECTED_CATEGORIES](category).funnel.filter((node) => node.component === step)[0];
+    return current ? current.form : null;
   },
 };

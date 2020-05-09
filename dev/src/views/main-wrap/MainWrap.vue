@@ -6,13 +6,14 @@
       1) form
       2) article
       3) banner
-      4) feature
+      4) features
     -->
     <div class="main-wrap__s-top">
       <router-view
         name="modulesTop"
         :category="category"/>
     </div>
+    <!-- ** -->
 
     <!--
       UI middle section
@@ -25,6 +26,7 @@
         name="modulesMiddle"
         :category="category"/>
     </div>
+    <!-- ** -->
 
     <!--
       UI bottom section
@@ -34,6 +36,7 @@
     <div class="main-wrap__s-bottom">
       <router-view name="modulesBottom"/>
     </div>
+    <!-- ** -->
   </section>
 </template>
 
@@ -50,6 +53,8 @@ export default {
   },
 
   watch: {
+    // check route change
+    // to set new category value
     $route(to, from) {
       this.category = to.params.category;
     },

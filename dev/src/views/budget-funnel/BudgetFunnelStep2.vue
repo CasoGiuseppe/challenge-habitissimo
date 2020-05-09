@@ -1,5 +1,9 @@
 <template>
   <aside class="budget-funnel__step">
+    <!--
+      UI category user choise
+      required
+    -->
     <BaseSelect
       id="category"
       v-model.trim="$v.form.category.$model"
@@ -9,7 +13,12 @@
       :isValidate="validateField('category')"
       @change="(e) => { this.current = e }"
     />
+    <!-- ** -->
 
+    <!--
+      UI subcategory user choise
+      required
+    -->
     <BaseSelect
       id="subcategory"
       v-model.trim="$v.form.subcategory.$model"
@@ -21,13 +30,19 @@
       :isLoading="loadingSubcategory"
       :isCurrent="$v.form.subcategory.$model"
     />
+    <!-- ** -->
 
+    <!--
+      UI price user choise
+      not required
+    -->
     <BaseSelect
       id="price"
       v-model.trim="$v.form.price.$model"
       :placeholder="$t(`message.form.fields.priceSelect.placeholder`)"
       :options="prices"
     />
+    <!-- ** -->
   </aside>
 </template>
 
@@ -97,6 +112,8 @@ export default {
       return this.$v.form[field].$dirty ? { state: !this.$v.form[field].$error } : {};
     },
 
+    // load subcategories
+    // from api REST
     async getSubcategories(e) {
       if (e) {
         const res = await Categories.getCategoryByID({ category: e });
@@ -123,7 +140,9 @@ export default {
 
   validations: {
     form: {
-      category: { required },
+      category: {
+        required,
+      },
       subcategory: {
         required,
       },
@@ -136,7 +155,7 @@ export default {
       this.$emit('validate', { valid: !newValue });
     },
 
-    // load subcategories
+    // get subcategories
     // to fill select
     async current(newvalue, oldvalue) {
       this.$v.form.subcategory.$reset();

@@ -17,12 +17,15 @@
           header__logo
           grid__col-xs-8
           grid__col-md-6">
-            <figure>
-              <img
-                src="@/assets/images/elements/logo.webp"
-                alt="habitissimo - Reformas y Servicios para el Hogar">
-            </figure>
+            <a href="/">
+              <figure>
+                <img
+                  src="@/assets/images/elements/logo.webp"
+                  alt="habitissimo - Reformas y Servicios para el Hogar">
+              </figure>
+            </a>
         </h2>
+        <!-- ** -->
 
         <!-- UI login/registration place -->
         <LoginBox class="
@@ -60,11 +63,13 @@
           </BaseButton>
           </template>
         </LoginBox>
+        <!-- ** -->
 
-        <!-- UI navigation place -->
+        <!-- UI main navigation -->
         <Navigation class="
           grid__col-xs-2
           grid__col-md-12"/>
+        <!-- ** -->
       </div>
     </div>
   </header>

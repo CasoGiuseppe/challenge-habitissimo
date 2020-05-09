@@ -30,6 +30,7 @@
               </span>
           </transition>
         </h3>
+        <!-- ** -->
 
         <!-- UI title and description -->
         <h2
@@ -43,6 +44,7 @@
           class="distributor-content__description"
           v-html="$slots.description[0].text">
         </p>
+        <!-- ** -->
 
         <!-- UI more info -->
         <h3
@@ -61,7 +63,12 @@
           <slot name="action" />
         </template>
       </div>
+      <!-- ** -->
 
+      <!--
+        UI put here
+        main content
+      -->
       <div :class="[
         'distributor-content__main',
         'grid__col-xs-12',
@@ -76,6 +83,7 @@
             <slot name="main" />
           </ul>
       </div>
+      <!-- ** -->
     </div>
   </aside>
 </template>

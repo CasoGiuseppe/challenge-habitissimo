@@ -24,7 +24,8 @@
         <h2 class="budget-funnel__title">
           <transition
             mode="out-in"
-            name="change-move">
+            :name="mobileDevice ? 'change-side': 'change-move'"
+            :style="{ 'transitionDelay' : '.5s'}">
             <span
               key="simple"
               v-if="!getAllComplteted(current)">
@@ -47,10 +48,11 @@
         mode="out-in"
         name="change-side">
           <component
+            id="form"
             :is="componentFile"
             :key="componentKey"
             :current="current"
-            :fields="getFormFields(current)"
+            :fields="getFormFields(current, $route.params.step)"
             @mounted="setNextState({ valid: completedStep })"
             @validate="setNextState"
             @changeModel="modelChange"
@@ -97,7 +99,7 @@
                 key="repeat"
                 v-else
                 isSimple
-                @click="() => { repeat() }"
+                @click="reset"
               >
                 <template>
                   {{$t(`message.buttons.repeat`)}}
@@ -123,6 +125,7 @@ export default {
     BaseProgress: () => import(/* webpackChunkName: "BaseProgress" */ '@/components/base-progress/BaseProgress'),
     BaseButton: () => import(/* webpackChunkName: "BaseButton" */ '@/components/base-button/BaseButton'),
     BudgetFunnelStep2: () => import(/* webpackChunkName: "BudgetFunnelStep1" */ './BudgetFunnelStep2'),
+    NavigationRouterLink: () => import(/* webpackChunkName: "NavigationRouterLink" */ '@/components/navigation-router-link/NavigationRouterLink'),
   },
 
   computed: {
@@ -134,40 +137,46 @@ export default {
       'getCompletedState',
     ]),
 
+    // check device size
     mobileDevice() {
       return window.matchMedia('(max-width: 600px)').matches;
     },
 
+    // set progress value
+    // for UI circle
     progressValue() {
       const currentFunnelSteps = this.getSelectedCategories(this.current).funnel.length;
       const count = this.getSelectedCategories(this.current).funnel.filter((node) => node.completed === true).length;
       return Math.floor((parseFloat(count) * 100) / parseFloat(currentFunnelSteps));
     },
 
+    // set dynamic component URL
+    // to load differents form
     componentFile() {
       return this.importComponent(this.$route.params.step);
     },
 
+    // get completed items
     completedStep() {
       return this.getActiveState(this.current)[0].completed;
     },
 
+    // disable/enable next button
     activeNextState() {
       return this.$store.state.categories.funnel.next;
     },
 
+    // display prev button
     activePrevState() {
       return this.getSelectedCategories(this.current).funnel.indexOf(this.getActiveState(this.current)[0]) !== 0;
     },
 
+    // get transition
+    // component key
     componentKey() {
       return this.getAllComplteted(this.current)
         ? `${this.getSelectedCategories(this.current).data.slug}_${Constants.FUNNEL_COMPLETED}`
         : `${this.getSelectedCategories(this.current).data.slug}_${this.getActiveState(this.current)[0].component}`;
-    },
-
-    activeStep() {
-      return this.$store.state.categories.list[this.current].funnel.filter((node) => node.component === this.$route.params.step)[0].active;
     },
   },
 
@@ -187,24 +196,30 @@ export default {
       'addFormValue',
     ]),
 
+    // set new active
+    // state for current step
     setActiveState(dir) {
-      // set new active state for current step
       this.changeActiveState({
         category: this.current,
+        step: this.$route.params.step,
         direction: dir,
       });
     },
 
+    // set complete
+    // step on validate form
     setCompleteState() {
       // add form fields values
       this.addFormValue({
         category: this.current,
+        step: this.$route.params.step,
         fields: this.validateForm,
       });
 
       // change completed state in related category and step
       this.changeCompletedState({
         category: this.current,
+        step: this.$route.params.step,
       });
     },
 
@@ -214,17 +229,36 @@ export default {
       return () => import(`./BudgetFunnel${path}.vue`);
     },
 
+    // set next step
+    // on valdiate emit
     setNextState(params) {
       this.nextAction({ status: params.valid });
     },
 
+    // get fields values
     modelChange(value) {
       this.validateForm = value;
     },
 
-    repeat() {
-      localStorage.removeItem(Constants.LOCALSTORAGE);
+    // reset form
+    reset() {
       this.repeatAction({ category: this.current });
+    },
+
+    // navigate forward
+    // and back between forms
+    navigate() {
+      this.$router.push(
+        {
+          name: 'budget',
+          params: {
+              category: this.current,
+              step: this.getAllComplteted(this.current)
+                    ? Constants.FUNNEL_COMPLETED
+                    : this.getActiveState(this.current)[0].component,
+            },
+        },
+      );
     },
   },
 
@@ -235,17 +269,10 @@ export default {
   },
 
   watch: {
+    // watch to
     // change path route
     componentKey() {
-      this.$router.push(
-        {
-          name: 'budget',
-          params: {
-              category: this.current,
-              step: this.getAllComplteted(this.current) ? Constants.FUNNEL_COMPLETED : this.getActiveState(this.current)[0].component,
-            },
-        },
-      );
+      this.navigate();
     },
   },
 };

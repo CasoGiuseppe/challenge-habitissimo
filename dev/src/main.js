@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuelidate from 'vuelidate';
+import VueScrollTo from 'vue-scrollto';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -11,6 +12,7 @@ Vue.prototype.$eventHub = new Vue();
 
 // Vue use
 Vue.use(Vuelidate);
+Vue.use(VueScrollTo);
 
 Vue.config.productionTip = false;
 

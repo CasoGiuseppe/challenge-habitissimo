@@ -7,10 +7,11 @@
       ]">
         <template v-if="categories.length > 0">
           <router-view
+            id="header"
             name = "header"
             :mode = "$route.name"
             :isPageOnTop = "isPageOnTop"/>
-          <router-view/>
+          <router-view id="main"/>
           <router-view
             name="footer" />
         </template>
@@ -20,7 +21,6 @@
 import { Categories } from '@/services/http/Categories';
 import { mapActions, mapGetters } from 'vuex';
 import { Constants } from '@/constants.js';
-import { LocalStorage } from '@/services/storage/localStorage';
 
 export default {
   name: 'app',
@@ -36,7 +36,6 @@ export default {
   computed: {
     ...mapGetters('categories', [
       'getAllCategories',
-      'getActiveState',
     ]),
   },
 
@@ -61,27 +60,9 @@ export default {
         this.fillLocalCategories(node);
       }
 
-      this.handleLocalStorage();
-    },
-
-    handleLocalStorage() {
       // default valuet to route path
       let path = Object.keys(this.getAllCategories)[0];
       let step = Constants.DEFAULTSTEP;
-
-      // check if localstorage exist
-      // if is true set path and step by
-      // localstorage values
-      if (LocalStorage.exist()) {
-        const { category, pass } = LocalStorage.exist();
-        path = category[0].name;
-        step = category[0].pass;
-
-        this.changeActiveState({
-          category: category[0].name,
-          direction: 'next',
-        });
-      }
 
       this.$router.push({ name: 'budget', params: { category: path, step } });
     },

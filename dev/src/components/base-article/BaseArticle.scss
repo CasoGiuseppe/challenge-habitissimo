@@ -90,10 +90,10 @@
     }
 
     ~ #{$basearticle}__extra {
-      margin-top: #{$base * 2px};
+      margin: #{$base * 2px} 0;
 
       @include breakpoint('tablet-pt') {
-        margin-top: #{$base * 4px};
+        margin: #{$base * 4px} 0;
       }
     }
 
@@ -111,13 +111,10 @@
     @include text--small;
     @include text--light;
     display: none;
-    overflow: hidden;
 
     @include breakpoint('tablet-ld') {
       @include text--medium;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical; 
+      display: block;
     }
   }
 
@@ -179,6 +176,15 @@
     strong {
       color: $c-secondary;
       margin: 0 #{$base * 1px};
+    }
+  }
+
+  // safari Hack
+  @media not all and (min-resolution:.001dpcm) {
+    @supports (-webkit-appearance:none) {
+      .base-article__action {
+        margin: #{$base * 4px} 0 0
+      }
     }
   }
 }

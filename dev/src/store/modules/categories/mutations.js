@@ -1,6 +1,3 @@
-import { LocalStorage } from '@/services/storage/localStorage';
-import { Constants } from '@/constants.js';
-
 export const SET_LOCAL_CATEGORIES = 'setLocalCategories';
 export const SET_NEW_COMPLETED_STATE = 'setNewCompletedState';
 export const MOVE_FORWARD_ACTIVE_STATE = 'moveForwardActiveState';
@@ -37,9 +34,10 @@ export default {
    * @param state
    * @param category
    */
-  [MOVE_FORWARD_ACTIVE_STATE](state, category) {
+  [MOVE_FORWARD_ACTIVE_STATE](state, payload) {
+    const { category, step } = payload;
     const section = state.list[category];
-    const current = section.funnel.filter((node) => node.active === true);
+    const current = section.funnel.filter((node) => node.component === step);
     const total = state.list[category].funnel.length;
     if (current.length === 0) {
       section.funnel[total - 1].active = true;
@@ -59,9 +57,10 @@ export default {
    * @param state
    * @param category
    */
-  [MOVE_BACK_ACTIVE_STATE](state, category) {
+  [MOVE_BACK_ACTIVE_STATE](state, payload) {
+    const { category, step } = payload;
     const section = state.list[category];
-    const current = section.funnel.filter((node) => node.active === true);
+    const current = section.funnel.filter((node) => node.component === step);
 
     if (current.length === 0) {
       section.funnel[0].active = true;
@@ -107,21 +106,9 @@ export default {
    * @param fields
    */
   [ADD_COMPLETED_FORM](state, payload) {
-    const { category, fields } = payload;
+    const { category, step, fields } = payload;
     const section = state.list[category];
-    const current = section.funnel.indexOf(section.funnel.filter((node) => node.active === true)[0]);
+    const current = section.funnel.indexOf(section.funnel.filter((node) => node.component === step)[0]);
     section.funnel[current].form = fields;
-
-    // Fill localstorage
-    // only to path URL
-    // category and step
-    LocalStorage.update(Constants.LOCALSTORAGE, {
-      values: {
-        category: [{
-          name: category,
-          pass: section.funnel[current].component,
-        }],
-      },
-    });
   },
 };

@@ -13,8 +13,12 @@
           grid__col-xxl-9">
           <BudgetFunnel :current="category" />
         </div>
+        <!-- ** -->
 
-        <!-- UI additional info -->
+        <!--
+          UI additional info
+          on budget advantages
+        -->
         <div class="
           router-module__c-info
           grid__col-xs-12
@@ -42,8 +46,12 @@
             </template>
           </BaseArticle>
         </div>
+        <!-- ** -->
 
-        <!-- UI banner -->
+        <!--
+          UI banner
+          for marketing communication
+        -->
         <div class="
           router-module__c-banner
           grid__col-xs-12
@@ -60,8 +68,12 @@
             </template>
           </Banner>
         </div>
+        <!-- ** -->
 
-        <!-- UI features -->
+        <!--
+          UI advantages
+          on selected category
+        -->
         <div class="
           router-module__c-features
           grid__col-xs-12
@@ -127,6 +139,7 @@
             </li>
           </ul>
         </div>
+        <!-- ** -->
       </div>
     </div>
   </section>
@@ -153,10 +166,14 @@ export default {
       'getSelectedCategories',
     ]),
 
+    // get features
+    // on category change
     features() {
       return this.getSelectedCategories(this.category).features;
     },
 
+    // dynnamic label
+    // on category change
     categoryLabel() {
       return this.getSelectedCategories(this.category).data.name;
     },

@@ -3,7 +3,7 @@ import { http } from './index';
 class Categories {
   static getAllCategories = async () => {
     try {
-      const res = await http('category/list');
+      const res = await http.get('category/list');
       return res.data;
     } catch (error) {
       console.log(error.message);
@@ -13,7 +13,7 @@ class Categories {
   static getCategoryByID = async (payload) => {
     const { category } = payload;
     try {
-      const res = await http(`category/list/${category}`);
+      const res = await http.get(`category/list/${category}`);
       return res.data;
     } catch (error) {
       console.log(error.message);

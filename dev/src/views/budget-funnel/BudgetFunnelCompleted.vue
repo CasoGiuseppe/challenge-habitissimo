@@ -1,8 +1,13 @@
 <template>
   <aside class="budget-funnel__completed">
+    <!--
+      UI completed
+      funnel message
+    -->
     <p class="budget-funnel__description">
       {{$t(`message.form.descriptioncomple`, {category: current})}}
     </p>
+    <!-- ** -->
   </aside>
 </template>
 

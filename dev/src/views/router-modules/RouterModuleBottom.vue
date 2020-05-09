@@ -4,7 +4,10 @@
       <div class="
           grid__row
           grid__row--isWrap">
-          <!-- UI user comments -->
+          <!--
+            UI user comments
+            change it on settimeout fn
+          -->
           <div class="
             router-module__c-lasts-comments
             grid__col-xs-12">
@@ -48,6 +51,7 @@
               </template>
             </DistributorContent>
           </div>
+          <!-- ** -->
       </div>
     </div>
   </section>
@@ -76,11 +80,15 @@ export default {
   },
 
   methods: {
+    // api REST get
+    // users comments
     async allComments() {
       this.comments = await Comments.getComments();
       this.interval = setInterval(() => this.incrementIndex(), 6000);
     },
 
+    // increment timeout
+    // to change visible comment
     incrementIndex() {
       const comments = this.comments.length;
       this.index = this.index === (this.comments.length - 1) ? 0 : this.index + 1;

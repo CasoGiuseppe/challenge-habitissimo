@@ -1,5 +1,4 @@
 import { Constants } from '@/constants.js';
-import { LocalStorage } from '@/services/storage/localStorage';
 
 // getters
 import getters, {
@@ -97,11 +96,11 @@ export const categories = {
     },
 
     [ACTIVE]({ commit }, payload) {
-      const { category, direction } = payload;
+      const { category, step, direction } = payload;
       if (direction === 'next') {
-        commit(MOVE_FORWARD_ACTIVE_STATE, category);
+        commit(MOVE_FORWARD_ACTIVE_STATE, { category, step });
       } else {
-        commit(MOVE_BACK_ACTIVE_STATE, category);
+        commit(MOVE_BACK_ACTIVE_STATE, { category, step });
       }
     },
 

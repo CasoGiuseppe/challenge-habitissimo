@@ -14,7 +14,6 @@
     border: 1px solid rgba($c-gray, .2);
     border-radius: px2rem($base);
     display: flex;
-    padding: #{$base * 2px} #{$base * 4px} #{$base * 2px} #{$base * 2px};
     position: relative;
     transition: border .4s $a-ease-out;
 
@@ -39,7 +38,7 @@
       position: absolute;
       padding: 2px;
       pointer-events: none;
-      right: #{$base * 2px};
+      right: #{$base * 3px};
       top: 50%;
       transform: translateY(-50%) rotate(45deg);
 
@@ -50,9 +49,11 @@
 
     &:after {
       display: none;
-      position: relative;
+      position: absolute;
       pointer-events: none;
-      right: #{($base * -1) * 2px};
+      right: #{$base * 2px};
+      top: 50%;
+      margin-top: #{$base * -1px};
 
       #{$baseselect}--isLoading &{
         display: block;
@@ -65,7 +66,7 @@
     background: none;
     border: none;
     color: $c-dark-gray;
-    padding: #{$base - 2px};
+    padding: #{$base * 3px} #{$base * 8px} #{$base * 3px} #{$base * 2px};
     width: 100%;
     
     -moz-appearance: none;

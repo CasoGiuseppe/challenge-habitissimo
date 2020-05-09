@@ -1,5 +1,10 @@
 <template>
   <aside class="budget-funnel__step">
+    <!--
+      UI name user info
+      required,
+      minLenght: 4
+    -->
     <BaseInput
       id="name"
       v-model.trim="$v.form.name.$model"
@@ -7,7 +12,14 @@
       :isRequired="{ state: true, label: $t(`message.form.required`) }"
       :isValidate="validateField('name')"
     />
+    <!-- ** -->
 
+    <!--
+      UI email user info
+      required,
+      email validation
+      hotmail not allowed
+    -->
     <BaseInput
       id="email"
       type="email"
@@ -16,7 +28,13 @@
       :isRequired="{ state: true, label: $t(`message.form.required`) }"
       :isValidate="validateField('email')"
     />
+    <!-- ** -->
 
+    <!--
+      UI phone user info
+      required,
+      minLenght: 9
+    -->
     <BaseInput
       id="phone"
       type="number"
@@ -25,7 +43,7 @@
       :isRequired="{ state: true, label: $t(`message.form.required`) }"
       :isValidate="validateField('phone')"
     />
-
+    <!-- ** -->
   </aside>
 </template>
 
@@ -47,7 +65,8 @@ export default {
   },
 
   computed: {
-    // watch form valid parameter
+    // watch form
+    // valid parameter
     formValid() {
       return this.$v.form.$invalid;
     },
@@ -72,6 +91,8 @@ export default {
   },
 
   methods: {
+    // check for field
+    // validate datas
     validateField(field) {
       return this.$v.form[field].$dirty ? { state: !this.$v.form[field].$error } : {};
     },

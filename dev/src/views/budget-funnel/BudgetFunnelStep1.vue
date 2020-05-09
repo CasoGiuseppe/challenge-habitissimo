@@ -1,5 +1,10 @@
 <template>
   <aside class="budget-funnel__step">
+    <!--
+      UI description user info
+      required,
+      minLenght: 10
+    -->
     <BaseTextarea
       id="description"
       v-model.trim="$v.form.description.$model"
@@ -11,13 +16,19 @@
         {{$t(`message.form.fields.descriptionTextArea.title`) }}
       </template>
     </BaseTextarea>
+    <!-- ** -->
 
+    <!--
+      UI time user choise
+      not required,
+    -->
     <BaseSelect
       id="time"
       v-model.trim="$v.form.time.$model"
       :placeholder="$t(`message.form.fields.timeSelect.placeholder`)"
       :options="times"
     />
+    <!-- ** -->
   </aside>
 </template>
 
@@ -27,6 +38,7 @@ import {
   minLength,
   email,
 } from 'vuelidate/lib/validators';
+import { Constants } from '@/constants.js';
 
 export default {
   name: 'BudgetFunnelStep1',
@@ -93,6 +105,7 @@ export default {
     form: {
       description: {
         required,
+        minLength: minLength(Constants.VALIDATION_MIN_TEXTAREA),
       },
       time: {},
     },
