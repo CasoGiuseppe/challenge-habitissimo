@@ -43,6 +43,16 @@ const routes = [
     },
     children: [
       {
+        path: '/ask-for-budget/',
+        redirect: {
+            name: 'budget',
+            params: {
+              category: Constants.DEFAULTCATEGORY,
+              step: Constants.DEFAULTSTEP,
+            },
+        },
+      },
+      {
         path: '/ask-for-budget/:category?/:step?/',
         name: 'budget',
         components: {
@@ -62,7 +72,13 @@ const routes = [
     },
   }, {
     path: '*',
-    redirect: { name: 'budget' },
+    redirect: {
+      name: 'budget',
+      params: {
+        category: Constants.DEFAULTCATEGORY,
+        step: Constants.DEFAULTSTEP,
+      },
+    },
   },
 ];
 

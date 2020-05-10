@@ -69,7 +69,7 @@ export default {
   form: {
     title: 'Solicita tu presupuestos',
     titlecomplete: 'Enhorabuena!! has pedido tu presupuesto',
-    descriptioncomple: 'Has enviado tu correctamente tu presupuesto en la categoría {category}. No dudes en contactar con nosotros.',
+    descriptioncomple: 'Has enviado tu correctamente tu presupuesto en la categoría <span class="category">{category}</span>. No dudes en contactar con nosotros.',
     description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit integer, tempor netus id class habitasse scelerisque eu sollicitudin.',
     progressmessage: 'Te quedan pocos pasos para enviar tu presupuesto',
     required: 'requerido',

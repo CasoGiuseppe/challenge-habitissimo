@@ -4,8 +4,9 @@
       UI completed
       funnel message
     -->
-    <p class="budget-funnel__description">
-      {{$t(`message.form.descriptioncomple`, {category: current})}}
+    <p
+      class="budget-funnel__description"
+      v-html="$t(`message.form.descriptioncomple`, {category: current})">
     </p>
     <!-- ** -->
   </aside>

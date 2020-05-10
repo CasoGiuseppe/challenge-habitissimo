@@ -54,6 +54,13 @@
       display: block;
       margin: #{$base * 4px} 0;
     }
+
+    /deep/ {
+      .category {
+        @include text--bold;
+        color: $c-primary;
+      }
+    }
   }
 
   &__circle-progress {
