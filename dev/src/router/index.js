@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import { Categories } from '@/services/http/Categories';
-import { Constants } from '@/constants.js';
+import { Constants } from '@/assets/utilities/constants';
 import store from '../store';
 
 // catch dupliacated navigation error

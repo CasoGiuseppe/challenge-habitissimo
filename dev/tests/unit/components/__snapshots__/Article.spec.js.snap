@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article.vue has the expected html structure 1`] = `
+<article class="article article--hasArrow-dir">
+  <h3 class="article__category">
+    <transition-stub name="change-move" mode="out-in"><span>
+            cat
+          </span></transition-stub>
+  </h3>
+  <!---->
+  <!---->
+  <!---->
+  <div class="article__action"><span class="slot-action">title</span></div>
+</article>
+`;

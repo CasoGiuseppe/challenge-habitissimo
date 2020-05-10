@@ -42,7 +42,7 @@
 
 <script>
 import { Categories } from '@/services/http/Categories';
-import { Constants } from '@/constants.js';
+import { Constants } from '@/assets/utilities/constants';
 import { mapActions, mapGetters } from 'vuex';
 
 export default {

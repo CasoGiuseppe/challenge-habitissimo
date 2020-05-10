@@ -1,4 +1,4 @@
-import { Constants } from '@/constants.js';
+import { Constants } from '@/assets/utilities/constants';
 
 // getters
 import getters, {

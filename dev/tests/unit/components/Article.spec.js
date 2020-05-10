@@ -1,11 +1,11 @@
-import BaseArticle from '@/components/base-article/BaseArticle'
+import Article from '@/components/article/Article'
 import { mount } from '@vue/test-utils'
 
-describe('BaseArticle.vue', () => {
+describe('Article.vue', () => {
   let component
 
   beforeEach(() => {
-    component = mount(BaseArticle, {
+    component = mount(Article, {
       propsData:{
         category: 'cat',
         arrow: {
@@ -19,7 +19,7 @@ describe('BaseArticle.vue', () => {
   })
 
   it('has correct action slot', () => {
-    const main = component.find('.base-article')
+    const main = component.find('.article')
     expect(main.findAll(".slot-action").length).toBe(1);
   })
 

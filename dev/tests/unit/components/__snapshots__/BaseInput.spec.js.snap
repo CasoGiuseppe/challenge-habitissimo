@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BaseInput.vue has the expected html structure 1`] = `
-<div class="base-input base-input--isValid"><label for="test" data-placeholder="placeholder" class="base-input__label"><input type="text" id="test" class="base-input__field">
+<div class="base-input base-input--isValid"><label for="test" data-placeholder="placeholder" class="base-input__label"><input id="test" type="text" class="base-input__field">
     <transition-stub name="change-validation" mode="out-in"><span class="base-input__validation-icon"></span></transition-stub>
   </label>
   <!---->

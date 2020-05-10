@@ -1,5 +1,3 @@
-import { Constants } from '@/constants.js';
-
 export class LocalStorage {
   static update(name, newObject) {
     let temporary = localStorage.getItem(name);
@@ -10,10 +8,5 @@ export class LocalStorage {
     }
 
     localStorage.setItem(name, JSON.stringify(temporary));
-  }
-
-  static exist() {
-    const storage = JSON.parse(localStorage.getItem(Constants.LOCALSTORAGE));
-    return storage && storage.values;
   }
 }

@@ -44,7 +44,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import { Constants } from '@/constants.js';
+import { Constants } from '@/assets/utilities/constants';
 import VueScrollTo from 'vue-scrollto';
 
 export default {

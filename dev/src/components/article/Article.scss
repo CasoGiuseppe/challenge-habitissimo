@@ -1,7 +1,7 @@
-.base-article {
+.article {
   @include moveUp;
   @include UI-base-rounded;
-  $basearticle: &;
+  $article: &;
 
   align-items: center;
   background: $c-white;
@@ -61,7 +61,7 @@
       }
     }
 
-    ~ #{$basearticle}__title {
+    ~ #{$article}__title {
       margin-top: #{$base * 2px};
     }
   }
@@ -81,7 +81,7 @@
       flex: 0 0 100%;
     }
     
-    ~ #{$basearticle}__description {
+    ~ #{$article}__description {
       margin-top: #{$base * 2px};
 
       @include breakpoint('tablet-pt') {
@@ -89,7 +89,7 @@
       }
     }
 
-    ~ #{$basearticle}__extra {
+    ~ #{$article}__extra {
       margin: #{$base * 2px} 0;
 
       @include breakpoint('tablet-pt') {
@@ -97,7 +97,7 @@
       }
     }
 
-    ~ #{$basearticle}__action {
+    ~ #{$article}__action {
       margin-top: #{$base * 2px};
       margin-left: #{$base * 2px};
 

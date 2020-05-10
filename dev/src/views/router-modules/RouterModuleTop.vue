@@ -24,7 +24,7 @@
           grid__col-xs-12
           grid__col-lg-4
           grid__col-xxl-3">
-          <BaseArticle
+          <Article
             :category="categoryLabel || null"
             :arrow= "{ direction: 'left' }">
             <template #title>
@@ -44,7 +44,7 @@
                 </template>
               </BaseButton>
             </template>
-          </BaseArticle>
+          </Article>
         </div>
         <!-- ** -->
 
@@ -155,7 +155,7 @@ export default {
   components: {
     BaseButton: () => import(/* webpackChunkName: "BaseButton" */ '@/components/base-button/BaseButton'),
     Badge: () => import(/* webpackChunkName: "Badge" */ '@/components/badge/Badge'),
-    BaseArticle: () => import(/* webpackChunkName: "BaseArticle" */ '@/components/base-article/BaseArticle.vue'),
+    Article: () => import(/* webpackChunkName: "Article" */ '@/components/article/Article.vue'),
     BudgetFunnel: () => import(/* webpackChunkName: "BudgetFunnel" */ '@/views/budget-funnel/BudgetFunnel.vue'),
     Banner: () => import(/* webpackChunkName: "Banner" */ '@/components/banner/Banner'),
   },

@@ -1,12 +1,12 @@
 <template>
   <article
     :class="[
-      'base-article',
-      arrow ? `base-article--hasArrow-${arrow.direction}`:null
+      'article',
+      arrow ? `article--hasArrow-${arrow.direction}`:null
     ]">
       <h3
         v-if="category"
-        class="base-article__category">
+        class="article__category">
         <transition
           mode="out-in"
           name="change-move">
@@ -18,22 +18,22 @@
       </h3>
       <h2
         v-if="$slots.title"
-        class="base-article__title"
+        class="article__title"
         v-html="$slots.title[0].text">
       </h2>
       <p
         v-if="$slots.description"
-        class="base-article__description"
+        class="article__description"
         v-html="$slots.description[0].text">
       </p>
       <div
         v-if="$slots.extra"
-        class="base-article__extra"
+        class="article__extra"
         v-html="$slots.extra[0].text">
       </div>
       <div
         v-if="$slots.action"
-        class="base-article__action">
+        class="article__action">
         <slot name="action" />
       </div>
   </article>
@@ -41,7 +41,7 @@
 
 <script>
 export default {
-  name: 'BaseArticle',
+  name: 'Article',
 
   props: {
     category: {
@@ -55,4 +55,4 @@ export default {
 };
 </script>
 
-<style lang='scss' scoped src= './BaseArticle.scss'></style>
+<style lang='scss' scoped src= './Article.scss'></style>

@@ -1,4 +1,4 @@
-### BASE ARTICLE
+### ARTICLE
 
 ```sh
 @param: category {string}
@@ -8,5 +8,5 @@
 @slot: extra {all}
 @slot: action {all}
 
-<BaseArticle></BaseArticle>
+<Article></Article>
 ```

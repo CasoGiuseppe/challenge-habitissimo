@@ -116,7 +116,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import { Constants } from '@/constants.js';
+import { Constants } from '@/assets/utilities/constants';
 
 export default {
   name: 'BudgetFunnel',

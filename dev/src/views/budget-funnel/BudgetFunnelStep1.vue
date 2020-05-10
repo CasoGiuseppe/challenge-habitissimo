@@ -38,7 +38,7 @@ import {
   minLength,
   email,
 } from 'vuelidate/lib/validators';
-import { Constants } from '@/constants.js';
+import { Constants } from '@/assets/utilities/constants';
 
 export default {
   name: 'BudgetFunnelStep1',

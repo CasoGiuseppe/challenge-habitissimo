@@ -5,7 +5,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import i18n from './i18n';
-import './server';
+import './services/server';
 
 // for global event bus
 Vue.prototype.$eventHub = new Vue();

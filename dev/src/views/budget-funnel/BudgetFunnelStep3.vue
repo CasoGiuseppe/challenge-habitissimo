@@ -54,7 +54,7 @@ import {
   minLength,
   email,
 } from 'vuelidate/lib/validators';
-import { Constants } from '@/constants.js';
+import { Constants } from '@/assets/utilities/constants';
 import { notAllowedMail } from '@/helpers/validators';
 
 export default {
