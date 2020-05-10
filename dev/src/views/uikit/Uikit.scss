@@ -1,0 +1,25 @@
+.uikit {
+  background: $c-white;
+  padding: #{$base * 6px};
+
+  h2 {
+    border-top: 1px solid $c-silver;
+    padding: #{$base * 2px};
+  }
+
+  ul {
+    padding: #{$base * 4px} 0;
+    
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-top: #{$base * 2px};
+      margin-bottom: #{$base * 2px};
+
+      > span {
+        margin-bottom: #{$base * 1px};
+      }
+    } 
+  }
+}

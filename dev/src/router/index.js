@@ -1,5 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import { Categories } from '@/services/http/Categories';
+import { Constants } from '@/constants.js';
+import store from '../store';
 
 // catch dupliacated navigation error
 const originalPush = VueRouter.prototype.push;
@@ -14,11 +17,29 @@ const routes = [
   {
     path: '',
     name: 'index',
-    redirect: { name: 'budget' },
+    redirect: {
+        name: 'budget',
+        params: {
+          category: Constants.DEFAULTCATEGORY,
+          step: Constants.DEFAULTSTEP,
+        },
+    },
     components: {
       header: () => import(/* webpackChunkName: "Header" */ '@/views/header/Header.vue'),
       default: () => import(/* webpackChunkName: "MainWrap" */ '@/views/main-wrap/MainWrap.vue'),
       footer: () => import(/* webpackChunkName: "Footer" */ '@/views/footer/Footer.vue'),
+    },
+    beforeEnter: async (to, from, next) => {
+      // load categories from
+      // api REST service
+      let categories = await Categories.getAllCategories();
+      for (let node of categories.map((category, index) => ({ id: index, name: category.name, slug: category.slug }))) {
+        store.dispatch('categories/fillLocalCategories', node);
+      }
+
+      // set loaded state on true
+      store.dispatch('categories/setLoadedState', true);
+      next();
     },
     children: [
       {
@@ -31,8 +52,18 @@ const routes = [
         },
       },
     ],
+  }, {
+    path: '/UIKIT',
+    name: 'uikit',
+    components: {
+      header: () => import(/* webpackChunkName: "Header" */ '@/views/header/Header.vue'),
+      default: () => import(/* webpackChunkName: "Uikit" */ '@/views/uikit/Uikit.vue'),
+      footer: () => import(/* webpackChunkName: "Footer" */ '@/views/footer/Footer.vue'),
+    },
+  }, {
+    path: '*',
+    redirect: { name: 'budget' },
   },
-  { path: '*', redirect: { name: 'budget' } },
 ];
 
 const router = new VueRouter({

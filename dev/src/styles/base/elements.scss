@@ -27,6 +27,12 @@ input{
   outline: none;
 }
 
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 ul, ol, li, h1, h2, h3, h4, figure, button, p, form {
   margin: 0;
   padding: 0;

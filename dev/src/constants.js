@@ -6,5 +6,6 @@ export const Constants = {
   FUNNEL_COMPLETED: 'Completed',
   LOCALSTORAGE: 'lastCategory',
   FUNNELSTEPS: ['Step1', 'Step2', 'Step3'],
+  DEFAULTCATEGORY: 'reformas',
   DEFAULTSTEP: 'Step1',
 };

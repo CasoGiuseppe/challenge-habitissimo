@@ -6,12 +6,16 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test": "jest"
+    "test": "jest",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
   },
   "dependencies": {
+    "cypress": "^4.3.0",
     "@mdi/js": "^5.1.45",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
+    "eslint-plugin-cypress": "^2.10.3",
     "jest-junit": "^10.0.0",
     "jest-serializer-vue": "^2.0.2",
     "jest-transform-stub": "^2.0.0",

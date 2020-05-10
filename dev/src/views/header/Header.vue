@@ -66,9 +66,11 @@
         <!-- ** -->
 
         <!-- UI main navigation -->
-        <Navigation class="
-          grid__col-xs-2
-          grid__col-md-12"/>
+        <Navigation
+          :isScrolled="!isPageOnTop"
+          class="
+            grid__col-xs-2
+            grid__col-md-12"/>
         <!-- ** -->
       </div>
     </div>
@@ -84,7 +86,7 @@ export default {
   components: {
     BaseButton: () => import(/* webpackChunkName: "BaseButton" */ '@/components/base-button/BaseButton'),
     Navigation: () => import(/* webpackChunkName: "Navigation" */ '@/views/navigation/Navigation'),
-    LoginBox: () => import(/* webpackChunkName: "LoginBox" */ '@/components/login-box/LoginBox'),
+    LoginBox: () => import(/* webpackChunkName: "LoginBox" */ '@/views/login-box/LoginBox'),
   },
 
   data() {

@@ -41,14 +41,17 @@
 </template>
 
 <script>
+import { Categories } from '@/services/http/Categories';
+import { Constants } from '@/constants.js';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'MainWrap',
 
-
   data() {
     return {
       category: null,
+      categories: [],
     };
   },
 

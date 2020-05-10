@@ -16,8 +16,8 @@
       :data-placeholder="placeholder">
       <input
         class="base-input__field"
-        :type="type"
         :id="id"
+        :type="type"
         :required="isRequired.state"
         @focus="handleActiveState"
         @blur="handleActiveState"

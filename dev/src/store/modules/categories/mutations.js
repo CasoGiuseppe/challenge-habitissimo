@@ -5,6 +5,7 @@ export const MOVE_BACK_ACTIVE_STATE = 'moveBackActiveState';
 export const CHANGE_NEXT_ACTION = 'changeNextAction';
 export const RESET_COMPLETED = 'resetCompleted';
 export const ADD_COMPLETED_FORM = 'addCompletedForm';
+export const CHANGE_LOADED_STATE = 'setLoadedState';
 
 export default {
   /**
@@ -110,5 +111,14 @@ export default {
     const section = state.list[category];
     const current = section.funnel.indexOf(section.funnel.filter((node) => node.component === step)[0]);
     section.funnel[current].form = fields;
+  },
+
+  /**
+   * Change loade categories state
+   * @param state
+   * @param status
+   */
+  [CHANGE_LOADED_STATE](state, status) {
+    state.funnel.loaded = status;
   },
 };

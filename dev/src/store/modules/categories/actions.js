@@ -5,3 +5,4 @@ export const NEXT_ACTION = 'nextAction';
 export const REPEAT_ACTION = 'repeatAction';
 export const ADD_FORM_VALUE = 'addFormValue';
 export const LOCALSTORAGE_SETTING = 'addFormValue';
+export const SET_LOADED_STATE = 'setLoadedState';

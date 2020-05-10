@@ -19,6 +19,7 @@ import mutations, {
   CHANGE_NEXT_ACTION,
   RESET_COMPLETED,
   ADD_COMPLETED_FORM,
+  CHANGE_LOADED_STATE,
 } from './mutations';
 
 // actions
@@ -29,6 +30,7 @@ import actions, {
   NEXT_ACTION,
   REPEAT_ACTION,
   ADD_FORM_VALUE,
+  SET_LOADED_STATE,
 } from './actions';
 
 // default value
@@ -71,6 +73,7 @@ export const categories = {
   state: {
     funnel: {
       next: false,
+      loaded: false,
     },
     list: [],
   },
@@ -118,6 +121,9 @@ export const categories = {
       commit(ADD_COMPLETED_FORM, payload);
     },
 
+    [SET_LOADED_STATE]({ commit }, payload) {
+      commit(CHANGE_LOADED_STATE, payload);
+    },
   },
 
   getters,

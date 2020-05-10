@@ -15,6 +15,7 @@
       width: 100vw;
       transform: translateX(-50%);
       z-index: -1;
+      transition: background .6s $a-ease-out
     }
   }
   
@@ -32,6 +33,12 @@
       @include breakpoint('tablet-pt') {
         display: none;
       }
+    }
+  }
+
+  &--isScrolled {
+    &:before {
+      background: $c-primary;
     }
   }
 

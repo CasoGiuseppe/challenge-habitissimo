@@ -4,6 +4,7 @@
       'navigation',
       isMenuActive ? 'navigation--isMenuActive' : null,
       isFooter ? 'navigation--isFooter' : 'navigation--isHeader',
+      isScrolled ? 'navigation--isScrolled' : null,
     ]">
     <!--
       UI hamburger menu trigger
@@ -80,6 +81,11 @@ export default {
 
   props: {
     isFooter: {
+      type: Boolean,
+      default: false,
+    },
+
+    isScrolled: {
       type: Boolean,
       default: false,
     },

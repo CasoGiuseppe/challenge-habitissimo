@@ -4,7 +4,7 @@
 | ------------- | ---------- | ------- |
 | **Lenguaje**  | javascript | es6     |
 | **Framework** | vuejs      | 2.6.10  |
-| **packages**  | vuex       | 3.1.0   |
+| **Packages**  | vuex       | 3.1.0   |
 |               | vuelidate  | 0.7.5   |
 |               | vue-scroll | 3.1.6   |
 |               | vue-i18n   | 8.17.4  |
@@ -33,4 +33,9 @@ npm run lint
 ### Unit test
 ```
 npm run test
+```
+
+### UIKIT path
+```
+/uikit
 ```

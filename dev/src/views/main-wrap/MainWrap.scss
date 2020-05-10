@@ -36,6 +36,7 @@
   }
 
   &__s-middle {
+    background: $c-white;
     padding: #{$base * 10px} #{$base * 6px} #{$base * 10px};
     overflow: hidden;
     position: relative;
